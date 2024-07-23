@@ -107,6 +107,20 @@
     }
 
     .moreCaseStudy {
+        display: none;
+        @include sm {
+            display: block;
+        }
+        .top {
+            margin-bottom: 15px;
+        }
+        h2 {
+            font-size: 25px;
+            margin-bottom: 0px !important;
+            @include sm {
+                font-size: 35px;
+            }
+        }
         .box {
             display: flex;
             flex-direction: row;
@@ -115,9 +129,6 @@
             border: 1px solid #E4E6E8;
             border-radius: 15px;
             width: fit-content;
-            @include sm {
-                width: calc((97.5% - 15px)/ 2);
-            }
 
             @include md {
                 width: calc((90% - 15px)/ 2);

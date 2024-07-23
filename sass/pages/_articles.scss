@@ -205,3 +205,58 @@
         color: #ffffff;
     }
 }
+
+.paragraph {
+    margin: 40px 0px;
+    position: relative;
+    .icon {
+        position: absolute;
+        top: -28px;
+        left: -28px;
+    }
+    .bodyParagraph {
+        background-color: #F2F3F4;
+        padding: 35px 25px 20px;
+        border-radius: 16px;
+        p {
+            font-weight: 500;
+            color: $black_color;
+            line-height: 1.8;
+            font-size: 16px;
+            border-bottom: 1px solid #6f818c77;
+            padding: 0px 0px 20px 0px;
+        }
+        .footer {
+            display: flex;
+            align-items: center;
+            padding: 20px 0px 0px;
+            gap: 10px;
+            .footerText {
+                h3 {
+                    margin-bottom: 2px;
+                    color: $black_color;
+                }
+                span {
+                    color: #303638;
+                    font-size: 15px;
+                }
+            }
+            .image {
+                margin-bottom: 0px !important;
+            }
+        }
+    }
+}
+
+.specail {
+    display: none;
+    @include sm {
+        display: block;
+    }
+}
+.specail2 {
+    display: block;
+    @include sm {
+        display: none;
+    }
+}
