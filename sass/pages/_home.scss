@@ -50,10 +50,10 @@
                     border-radius: 15px;
                     padding: 25px 20px 20px;
                     margin-bottom: 35px;
-                    background-image: url("../../assets/frame2.png");
+                    background-image: url("assets/background2.png");
 
                     @include sm {
-                        background-image: url("../../assets/Frame.png");
+                        background-image: url("assets/background.png");
                     }
 
                     background-repeat: no-repeat;
