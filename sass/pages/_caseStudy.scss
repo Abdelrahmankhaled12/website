@@ -1,0 +1,196 @@
+@use '../variables/colors' as *;
+@use '../layout/mixins' as *;
+
+.caseStudy {
+    padding: 30px 0px 20px;
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+
+        @include md {
+            grid-template-columns: 2.5fr 1fr;
+        }
+
+        .partOne {
+            .title {
+                span {
+                    background-color: #F2F3F4;
+                    padding: 15px;
+                    color: $primary_color;
+                    font-weight: 700;
+                    font-size: 19px;
+                    margin: 15px 0px;
+                    display: block;
+                    width: fit-content;
+                    border-radius: 14px;
+                }
+
+                h1 {
+                    font-size: 35px;
+                    color: $black_color;
+                }
+
+                p {
+                    color: #6F818C;
+                    margin: 10px 0px 20px;
+                }
+
+            }
+
+            .image {
+                margin-bottom: 30px;
+
+                img {
+                    width: 100%;
+                    border-radius: 16px;
+                }
+            }
+
+            .text {
+                h1 {
+                    color: $black_color;
+                    border-bottom: 1px solid #E4E6E8;
+                    padding: 10px 0px;
+                    font-size: 30px;
+                }
+
+                .body {
+                    margin: 40px 0px;
+                    font-size: 15px;
+                    color: $black_color;
+                    line-height: 1.5;
+                    font-weight: 500;
+                }
+            }
+
+            ul {
+                margin: 40px 0px 0px;
+                padding: 0px 0px 0px 10px;
+                list-style: none;
+
+                @include sm {
+                    padding: 0px 35px;
+                }
+
+                li {
+                    margin: 10px 0px;
+                    color: $black_color;
+                    font-weight: 500;
+                    font-size: 14px;
+                    position: relative;
+                    display: flex;
+                    gap: 10px;
+
+                    @include sm {
+                        align-items: center;
+                    }
+
+                    .icon {
+                        width: 35px;
+                        height: 35px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: #005e5d1a;
+                        border-radius: 10px;
+                        color: $primary_color;
+                    }
+
+                    span {
+                        flex: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .moreCaseStudy {
+        .box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 20px;
+            border: 1px solid #E4E6E8;
+            border-radius: 15px;
+            width: fit-content;
+            @include sm {
+                width: calc((97.5% - 15px)/ 2);
+            }
+
+            @include md {
+                width: calc((90% - 15px)/ 2);
+            }
+
+            .image {
+                img {
+                    max-height: 180px;
+                    height: 100%;
+                    border-top-left-radius: 15px;
+                    border-bottom-left-radius: 15px;
+                    border-top-right-radius: 0px;
+                }
+            }
+
+
+            .text {
+                padding: 20px;
+                flex: 1;
+
+                h3 {
+                    color: $black_color;
+                    font-size: 16px;
+
+                    @include md {
+                        font-size: 20px;
+                    }
+                }
+
+                p {
+                    color: #6F818C;
+                    margin-top: 14px;
+                    line-height: 1.5;
+                    font-size: 12px;
+
+                    @include md {
+                        font-size: 15px;
+                    }
+                }
+
+                button {
+                    background-color: #ffffff;
+                    padding: 13px 20px;
+                    color: $black_color;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    font-weight: 700;
+                    font-size: 15px;
+                    border-radius: 10px;
+                    border: 1px solid $primary_color;
+                    margin-top: 20px;
+                    cursor: pointer;
+                    transition: 0.5s;
+                    width: 100%;
+
+                    @include md {
+                        width: fit-content;
+                        font-size: 15px;
+                        padding: 10px 20px;
+                    }
+
+                    svg {
+                        font-size: 13px;
+                    }
+
+                    &:hover {
+                        background-color: $primary_color;
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+}

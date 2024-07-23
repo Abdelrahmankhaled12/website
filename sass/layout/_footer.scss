@@ -1,0 +1,42 @@
+@use '../variables/colors' as *;
+@use '../layout/mixins'  as *;
+
+footer {
+    background-color: #F5F6FA;
+    padding: 10px 0px;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 1350px;
+        @include sm {
+            flex-direction: row;
+        }
+        .partOne {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-direction: column;
+            @include sm {
+                flex-direction: row;
+            }
+            a {
+                text-decoration: none;
+                color: $black_color;
+                font-weight: 700;
+                font-size: 16px;
+                transition: 0.3s;
+                &:hover {
+                    color: $primary_color;
+                    letter-spacing: 1.1px;
+                }
+            }
+            p {
+                font-size: 14px;
+                color: #6F818C;
+            }
+        }
+    }
+}

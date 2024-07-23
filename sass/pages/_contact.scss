@@ -1,0 +1,194 @@
+@use '../variables/colors' as *;
+@use '../layout/mixins' as *;
+
+.contact {
+    padding: 20px 0px;
+    @include sm {
+        padding: 50px 0px 120px;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        @include sm {
+            gap: 70px;
+        }
+        @include md {
+            grid-template-columns: 1fr 1fr;
+        }
+        .partOne {
+            h1 {
+                color: $black_color;
+                font-size: 30px;
+                @include sm {
+                    font-size: 40px;
+                }
+            }
+            p {
+                color: #6F818C;
+                font-size: 16px;
+                margin: 15px 0px 0px;
+                line-height: 1.5;
+            }
+            .social {
+                margin: 20px 0px;
+                @include sm {
+                    margin: 40px 0px 60px;
+                }
+                .box {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin: 10px 0px;
+                    @include sm {
+                        margin: 20px 0px;
+                    }
+                    p {
+                        color: $black_color;
+                        font-size: 16px;
+                        margin: 0;
+                        font-weight: 500;
+                    }
+                }
+            }
+            .map {
+                iframe {
+                    border-radius: 20px;
+                    width: 100%;
+                    max-height: 350px;
+                }
+            }
+        }
+        .partTwo {
+            background-color: #F8FAFC;
+            border: 2px solid #99BFBE;
+            border-radius: 20px;
+            padding: 40px 15px;
+
+            @include sm {
+                border: 2px solid #E4E6E8;
+                padding: 40px 30px;
+            }
+
+            form {
+                h1 {
+                    text-align: center;
+                    color: $black_color;
+                    margin-bottom: 40px;
+                    font-size: 28px;
+                    text-transform: uppercase;
+
+                    @include sm {
+                        text-transform: capitalize;
+                    }
+                }
+
+                .boxes {
+                    display: grid;
+                    grid-template-columns: 1fr;
+
+                    @include sm {
+                        grid-template-columns: 1fr 1fr;
+                    }
+
+                    gap: 15px;
+                    margin-bottom: 20px;
+                }
+
+                .boxInput {
+                    label {
+                        display: block;
+                        color: $black_color;
+                        font-weight: 700;
+                        font-size: 14px;
+                        margin: 7px 0px;
+                    }
+
+                    input {
+                        width: 100%;
+                        padding: 20px;
+                        background-color: #ffffff;
+                        border: 1px solid #99BFBE;
+
+                        @include sm {
+                            border: 1px solid #E4E6E8;
+                        }
+
+                        color: $black_color;
+                        border-radius: 14px;
+                        outline: none;
+
+                        &::placeholder {
+                            color: #6F818C;
+                            font-weight: 500;
+                        }
+                    }
+
+                    .phone {
+                        position: relative;
+
+                        input {
+                            padding-left: 40px;
+                        }
+
+                        img {
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            left: 15px;
+                        }
+                    }
+
+                    textarea {
+                        width: 100%;
+                        padding: 20px;
+                        background-color: #ffffff;
+                        border: 1px solid #99BFBE;
+
+                        @include sm {
+                            border: 1px solid #E4E6E8;
+                        }
+
+                        color: $black_color;
+                        border-radius: 14px;
+                        outline: none;
+                        resize:vertical;
+
+                        &::placeholder {
+                            color: #6F818C;
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+                button {
+                    width: 100%;
+
+                    @include sm {
+                        width: 80%;
+                    }
+
+                    display: block;
+                    margin: 40px auto 0px;
+                    padding: 18px;
+                    border-radius: 10px;
+                    outline: none;
+                    border: 1px solid $primary_color;
+                    background-color: $primary_color;
+                    color: #ffffff;
+                    font-size: 17px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: 0.5s;
+                    text-transform: uppercase;
+
+                    &:hover {
+                        background-color: #ffffff;
+                        color: $primary_color;
+                    }
+                }
+            }
+        }
+    }
+}
+
