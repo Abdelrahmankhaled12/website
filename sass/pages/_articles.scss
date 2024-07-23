@@ -160,5 +160,48 @@
         }
     }
 
+}
 
+.carouselMobile {
+    display: none;
+    @include sm {
+        display: block;
+    }
+}
+
+.allArticles {
+    background-color: #ffffff;
+    text-decoration: none;
+    padding: 13px 20px;
+    color: #6F818C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #E4E6E8;
+    cursor: pointer;
+    transition: 0.5s;
+    width: 100%;
+    margin: 0px auto;
+
+    @include sm {
+        display: none;
+    }
+
+    @include md {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+
+    svg {
+        font-size: 13px;
+    }
+
+    &:hover {
+        background-color: $primary_color;
+        color: #ffffff;
+    }
 }

@@ -207,6 +207,13 @@
                     }
                 }
             }
+
+            .carouselDesktop {
+                display: block;
+                @include sm {
+                    display: none;
+                }
+            }
         }
     }
 }
