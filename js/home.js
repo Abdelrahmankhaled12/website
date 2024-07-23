@@ -2,7 +2,7 @@ let buttonsRA = document.querySelectorAll(".veiwMore")
 
 buttonsRA.forEach((item) => {
     item.addEventListener("click",() => {
-        window.location.href = "../casestudy.html"
+        window.location.href = "casestudy.html"
     })
 })
 
@@ -12,7 +12,7 @@ let buttonsR = document.querySelectorAll(".readArticle")
 
 buttonsR.forEach((item) => {
     item.addEventListener("click",() => {
-        window.location.href = "../article.html"
+        window.location.href = "article.html"
     })
 })
 
