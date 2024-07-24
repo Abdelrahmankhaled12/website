@@ -520,7 +520,10 @@ body {
         .buttons {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 10px;            
+            @include sm {
+                gap: 20px;
+            }
 
             a {
                 text-decoration: none;
@@ -633,7 +636,11 @@ body {
         .buttons {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 10px;
+
+            @include sm {
+                gap: 20px;
+            }
 
             button {
                 background-color: #ffffff;

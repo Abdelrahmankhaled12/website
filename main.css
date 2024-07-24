@@ -446,7 +446,12 @@ body {
 .carouselDesktop .top .buttons {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
+}
+@media only screen and (min-width: 640px) {
+  .carouselDesktop .top .buttons {
+    gap: 20px;
+  }
 }
 .carouselDesktop .top .buttons a {
   text-decoration: none;
@@ -556,7 +561,12 @@ body {
 .carouselMobile .top .buttons {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
+}
+@media only screen and (min-width: 640px) {
+  .carouselMobile .top .buttons {
+    gap: 20px;
+  }
 }
 .carouselMobile .top .buttons button {
   background-color: #ffffff;
@@ -865,8 +875,13 @@ body {
   }
 }
 .home {
-  padding: 30px 0px;
+  padding: 15px 0px;
   overflow: hidden;
+}
+@media only screen and (min-width: 992px) {
+  .home {
+    padding: 30px 0px;
+  }
 }
 .home .sectionOne {
   margin-bottom: 30px;
@@ -885,10 +900,14 @@ body {
   border: 1px solid #E4E6E8;
   border-radius: 15px;
   padding: 25px 20px 20px;
-  margin-bottom: 35px;
   background-image: url("assets/background2.png");
   background-repeat: no-repeat;
   background-position: right bottom;
+}
+@media only screen and (min-width: 992px) {
+  .home .sectionOne .grid .partOne .landing {
+    margin-bottom: 35px;
+  }
 }
 @media only screen and (min-width: 640px) {
   .home .sectionOne .grid .partOne .landing {
@@ -936,6 +955,14 @@ body {
   background-color: transparent;
   color: #005E5D;
 }
+.home .sectionOne .grid .partOne .portfolioCase {
+  display: none;
+}
+@media only screen and (min-width: 992px) {
+  .home .sectionOne .grid .partOne .portfolioCase {
+    display: block;
+  }
+}
 .home .sectionOne .grid .partOne .portfolioCase .top {
   display: flex;
   justify-content: space-between;
@@ -953,7 +980,7 @@ body {
 }
 @media only screen and (min-width: 640px) {
   .home .sectionOne .grid .partOne .portfolioCase .top h2 {
-    font-size: 35px;
+    font-size: 32px;
   }
 }
 .home .sectionOne .grid .partOne .portfolioCase .top a {
@@ -1183,7 +1210,7 @@ body {
 }
 @media only screen and (min-width: 640px) {
   .home .sectionTwo .projectsSection h1 {
-    font-size: 35px;
+    font-size: 32px;
   }
 }
 .home .sectionTwo .projectsSection .grid {
@@ -1321,11 +1348,11 @@ body {
   cursor: pointer;
   transition: 0.5s;
   text-decoration: underline;
+  padding: 10px 0px 0px;
 }
 @media only screen and (min-width: 992px) {
   .home .sectionTwo .projectsSection .grid .box button.seeMore {
     font-size: 13px;
-    padding: 10px 0px 0px;
   }
 }
 .home .sectionTwo .projectsSection .grid .box button.seeMore svg {
