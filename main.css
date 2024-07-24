@@ -791,6 +791,7 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-top: 50px;
+  gap: 10px;
 }
 .controls.articles {
   justify-content: center;
@@ -1652,8 +1653,13 @@ body {
 }
 
 .portfolio {
-  padding: 30px 0px 80px;
+  padding: 15px 0px 30px;
   overflow: hidden;
+}
+@media only screen and (min-width: 992px) {
+  .portfolio {
+    padding: 30px 0px 80px;
+  }
 }
 .portfolio .grid {
   display: grid;
@@ -1666,7 +1672,7 @@ body {
   }
 }
 .portfolio .grid .partOne .caseStudies h1 {
-  font-size: 30px;
+  font-size: 25px;
   color: #171721;
   margin-bottom: 25px;
 }
@@ -1822,6 +1828,9 @@ body {
 .portfolio .grid .partOne .boxes .box .text button:hover {
   background-color: #005E5D;
   color: #ffffff;
+}
+.portfolio .GetInTouchButton {
+  margin-bottom: 30px;
 }
 
 .mostPopularArticles {
