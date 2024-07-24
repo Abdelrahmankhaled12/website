@@ -625,74 +625,11 @@ body {
     }
 }
 
+
 .carouselMobile {
-    margin: 20px 0px;
-
-    .top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .buttons {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            @include sm {
-                gap: 20px;
-            }
-
-            button {
-                background-color: #ffffff;
-                border: 1px solid #E4E6E8;
-                color: #6F818C;
-                width: 40px;
-                height: 40px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 8px;
-                cursor: pointer;
-                transition: 0.5s;
-
-                &:hover {
-                    background-color: $primary_color;
-                    color: #ffffff;
-                }
-            }
-        }
-    }
-
-    h2 {
-        color: $black_color;
-        font-size: 35px;
-        margin-bottom: 20px;
-    }
-
-    .boxes {
-        display: flex;
-        gap: 20px;
-        overflow-y: hidden;
-        width: 100%;
-        margin-right: auto;
-        overflow-x: auto;
-
-        &::-webkit-scrollbar {
-            height: 0px;
-        }
-
-        &::-webkit-scrollbar-track {
-            background-color: #f9f9f9;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background-color: var(--secondary);
-            border-radius: 30px;
-        }
-
-        .box {
-            flex-shrink: 0;
-        }
+    display: none;
+    @include sm {
+        display: block;
     }
 }
 

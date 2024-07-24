@@ -551,65 +551,12 @@ body {
 }
 
 .carouselMobile {
-  margin: 20px 0px;
-}
-.carouselMobile .top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.carouselMobile .top .buttons {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: none;
 }
 @media only screen and (min-width: 640px) {
-  .carouselMobile .top .buttons {
-    gap: 20px;
+  .carouselMobile {
+    display: block;
   }
-}
-.carouselMobile .top .buttons button {
-  background-color: #ffffff;
-  border: 1px solid #E4E6E8;
-  color: #6F818C;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.5s;
-}
-.carouselMobile .top .buttons button:hover {
-  background-color: #005E5D;
-  color: #ffffff;
-}
-.carouselMobile h2 {
-  color: #171721;
-  font-size: 35px;
-  margin-bottom: 20px;
-}
-.carouselMobile .boxes {
-  display: flex;
-  gap: 20px;
-  overflow-y: hidden;
-  width: 100%;
-  margin-right: auto;
-  overflow-x: auto;
-}
-.carouselMobile .boxes::-webkit-scrollbar {
-  height: 0px;
-}
-.carouselMobile .boxes::-webkit-scrollbar-track {
-  background-color: #f9f9f9;
-}
-.carouselMobile .boxes::-webkit-scrollbar-thumb {
-  background-color: var(--secondary);
-  border-radius: 30px;
-}
-.carouselMobile .boxes .box {
-  flex-shrink: 0;
 }
 
 .projectOverview .text h3 {
@@ -1672,7 +1619,7 @@ body {
   }
 }
 .portfolio .grid .partOne .caseStudies h1 {
-  font-size: 25px;
+  font-size: 22px;
   color: #171721;
   margin-bottom: 25px;
 }
@@ -1972,110 +1919,6 @@ body {
   font-size: 13px;
 }
 
-.carouselMobile {
-  display: none;
-}
-@media only screen and (min-width: 640px) {
-  .carouselMobile {
-    display: block;
-  }
-}
-
-.allArticles {
-  background-color: #ffffff;
-  text-decoration: none;
-  padding: 13px 20px;
-  color: #6F818C;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-weight: 500;
-  font-size: 15px;
-  border-radius: 8px;
-  border: 1px solid #E4E6E8;
-  cursor: pointer;
-  transition: 0.5s;
-  width: 100%;
-  margin: 0px auto;
-}
-@media only screen and (min-width: 640px) {
-  .allArticles {
-    display: none;
-  }
-}
-@media only screen and (min-width: 992px) {
-  .allArticles {
-    font-size: 14px;
-    padding: 12px 20px;
-  }
-}
-.allArticles svg {
-  font-size: 13px;
-}
-.allArticles:hover {
-  background-color: #005E5D;
-  color: #ffffff;
-}
-
-.paragraph {
-  margin: 40px 0px;
-  position: relative;
-}
-.paragraph .icon {
-  position: absolute;
-  top: -28px;
-  left: -28px;
-}
-.paragraph .bodyParagraph {
-  background-color: #F2F3F4;
-  padding: 35px 25px 20px;
-  border-radius: 16px;
-}
-.paragraph .bodyParagraph p {
-  font-weight: 500;
-  color: #171721;
-  line-height: 1.8;
-  font-size: 16px;
-  border-bottom: 1px solid rgba(111, 129, 140, 0.4666666667);
-  padding: 0px 0px 20px 0px;
-}
-.paragraph .bodyParagraph .footer {
-  display: flex;
-  align-items: center;
-  padding: 20px 0px 0px;
-  gap: 10px;
-}
-.paragraph .bodyParagraph .footer .footerText h3 {
-  margin-bottom: 2px;
-  color: #171721;
-}
-.paragraph .bodyParagraph .footer .footerText span {
-  color: #303638;
-  font-size: 15px;
-}
-.paragraph .bodyParagraph .footer .image {
-  margin-bottom: 0px !important;
-}
-
-.specail {
-  display: none;
-}
-@media only screen and (min-width: 640px) {
-  .specail {
-    display: block;
-  }
-}
-
-.specail2 {
-  display: block;
-}
-@media only screen and (min-width: 640px) {
-  .specail2 {
-    display: none;
-  }
-}
-
 .article {
   padding: 30px 0px 20px;
 }
@@ -2342,6 +2185,101 @@ body {
   gap: 5px;
   color: rgba(111, 129, 140, 0.75);
   font-size: 12px;
+}
+
+.allArticles {
+  background-color: #ffffff;
+  text-decoration: none;
+  padding: 13px 20px;
+  color: #6F818C;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #E4E6E8;
+  cursor: pointer;
+  transition: 0.5s;
+  width: 100%;
+  margin: 0px auto;
+}
+@media only screen and (min-width: 640px) {
+  .allArticles {
+    display: none;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .allArticles {
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+}
+.allArticles svg {
+  font-size: 13px;
+}
+.allArticles:hover {
+  background-color: #005E5D;
+  color: #ffffff;
+}
+
+.paragraph {
+  margin: 40px 0px;
+  position: relative;
+}
+.paragraph .icon {
+  position: absolute;
+  top: -28px;
+  left: -28px;
+}
+.paragraph .bodyParagraph {
+  background-color: #F2F3F4;
+  padding: 35px 25px 20px;
+  border-radius: 16px;
+}
+.paragraph .bodyParagraph p {
+  font-weight: 500;
+  color: #171721;
+  line-height: 1.8;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(111, 129, 140, 0.4666666667);
+  padding: 0px 0px 20px 0px;
+}
+.paragraph .bodyParagraph .footer {
+  display: flex;
+  align-items: center;
+  padding: 20px 0px 0px;
+  gap: 10px;
+}
+.paragraph .bodyParagraph .footer .footerText h3 {
+  margin-bottom: 2px;
+  color: #171721;
+}
+.paragraph .bodyParagraph .footer .footerText span {
+  color: #303638;
+  font-size: 15px;
+}
+.paragraph .bodyParagraph .footer .image {
+  margin-bottom: 0px !important;
+}
+
+.specail {
+  display: none;
+}
+@media only screen and (min-width: 640px) {
+  .specail {
+    display: block;
+  }
+}
+
+.specail2 {
+  display: block;
+}
+@media only screen and (min-width: 640px) {
+  .specail2 {
+    display: none;
+  }
 }
 
 .caseStudy {
