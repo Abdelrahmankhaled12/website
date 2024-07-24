@@ -340,7 +340,7 @@ body {
   }
 }
 .search .container .boxes .boxShares .box p {
-  font-size: 12px;
+  font-size: 10px;
 }
 @media only screen and (min-width: 640px) {
   .search .container .boxes .boxShares .box p {
@@ -348,7 +348,7 @@ body {
   }
 }
 .search .container .boxes .boxShares .box svg {
-  font-size: 12px;
+  font-size: 10px;
 }
 @media only screen and (min-width: 640px) {
   .search .container .boxes .boxShares .box svg {
@@ -364,7 +364,7 @@ body {
   }
 }
 .search .container .boxes .boxShares .text span {
-  font-size: 9px;
+  font-size: 10px;
 }
 @media only screen and (min-width: 640px) {
   .search .container .boxes .boxShares .text span {
@@ -1202,6 +1202,9 @@ body {
 }
 .home .sectionOne .grid .partTwo .reports .image img {
   width: 100%;
+}
+.home .GetInTouchButton {
+  margin-bottom: 30px;
 }
 .home .sectionTwo .projectsSection h1 {
   color: #171721;
