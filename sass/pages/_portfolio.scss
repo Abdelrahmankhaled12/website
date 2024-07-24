@@ -18,6 +18,8 @@
         }
 
         .partOne {
+            width: fit-content;
+
             .caseStudies {
                 h1 {
                     font-size: 22px;
@@ -45,7 +47,7 @@
                 .box {
                     display: flex;
                     flex-direction: column;
-
+                    width: fit-content;
                     @include md {
                         flex-direction: row;
                         margin-bottom: 20px;

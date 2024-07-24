@@ -1618,6 +1618,10 @@ body {
     grid-template-columns: 2.5fr 1fr;
   }
 }
+.portfolio .grid .partOne {
+  width: -moz-fit-content;
+  width: fit-content;
+}
 .portfolio .grid .partOne .caseStudies h1 {
   font-size: 22px;
   color: #171721;
@@ -1646,6 +1650,8 @@ body {
 .portfolio .grid .partOne .boxes .box {
   display: flex;
   flex-direction: column;
+  width: -moz-fit-content;
+  width: fit-content;
   border: 1px solid #E4E6E8;
   border-radius: 15px;
 }
