@@ -332,7 +332,7 @@ body {
   }
 }
 .search .container .boxes .boxShares .box {
-  padding: 7px 5px;
+  padding: 6px 5px;
 }
 @media only screen and (min-width: 640px) {
   .search .container .boxes .boxShares .box {
@@ -364,7 +364,7 @@ body {
   }
 }
 .search .container .boxes .boxShares .text span {
-  font-size: 10px;
+  font-size: 9px;
 }
 @media only screen and (min-width: 640px) {
   .search .container .boxes .boxShares .text span {
