@@ -759,14 +759,20 @@ body {
   background-color: #ffffff;
   border: 1px solid #E4E6E8;
   color: #6F818C;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.5s;
+}
+@media only screen and (min-width: 640px) {
+  .controls button {
+    width: 40px;
+    height: 40px;
+  }
 }
 .controls button:hover {
   background-color: #005E5D;
@@ -782,8 +788,8 @@ body {
   border: 1px solid #E4E6E8;
   color: #171721;
   font-weight: 700;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -791,6 +797,12 @@ body {
   cursor: pointer;
   transition: 0.5s;
   font-size: 12px;
+}
+@media only screen and (min-width: 640px) {
+  .controls ul li {
+    width: 40px;
+    height: 40px;
+  }
 }
 .controls ul li.active {
   background-color: #005E5D;

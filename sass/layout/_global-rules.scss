@@ -860,8 +860,12 @@ body {
         background-color: #ffffff;
         border: 1px solid #E4E6E8;
         color: #6F818C;
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
+        @include sm {
+            width: 40px;
+            height: 40px;
+        }
         display: flex;
         justify-content: center;
         align-items: center;
@@ -885,8 +889,13 @@ body {
             border: 1px solid #E4E6E8;
             color: $black_color;
             font-weight: 700;
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
+            @include sm {
+                width: 40px;
+                height: 40px;
+            }
+
             display: flex;
             justify-content: center;
             align-items: center;
