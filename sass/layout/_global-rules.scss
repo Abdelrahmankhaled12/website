@@ -840,8 +840,12 @@ body {
 .controls {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 10px;
     margin-top: 50px;
+    @include sm {
+        justify-content: space-between;
+    }
 
     &.articles {
         justify-content: center;

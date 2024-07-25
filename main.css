@@ -736,8 +736,14 @@ body {
 .controls {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 10px;
   margin-top: 50px;
+}
+@media only screen and (min-width: 640px) {
+  .controls {
+    justify-content: space-between;
+  }
 }
 .controls.articles {
   justify-content: center;
