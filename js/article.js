@@ -10,7 +10,7 @@ buttonArrowRight.addEventListener("click", () => { navigation("right") })
 // Function to handle carousel navigation
 const navigation = (dir) => {
     const containers = document.querySelectorAll(".carouselContainerBoxes"); // Getting reference to carousel container
-
+    console.log("yes")
     containers.forEach((container) => {
         // Calculating scroll amount based on direction
         const scrollAmount =
