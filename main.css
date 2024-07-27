@@ -2334,8 +2334,13 @@ body {
   border-radius: 14px;
 }
 .caseStudy .grid .partOne .title h1 {
-  font-size: 35px;
+  font-size: 22px;
   color: #171721;
+}
+@media only screen and (min-width: 640px) {
+  .caseStudy .grid .partOne .title h1 {
+    font-size: 35px;
+  }
 }
 .caseStudy .grid .partOne .title p {
   color: #6F818C;
@@ -2352,7 +2357,12 @@ body {
   color: #171721;
   border-bottom: 1px solid #E4E6E8;
   padding: 10px 0px;
-  font-size: 30px;
+  font-size: 22px;
+}
+@media only screen and (min-width: 640px) {
+  .caseStudy .grid .partOne .text h1 {
+    font-size: 30px;
+  }
 }
 .caseStudy .grid .partOne .text .body {
   margin: 40px 0px;

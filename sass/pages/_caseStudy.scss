@@ -28,7 +28,12 @@
                 }
 
                 h1 {
-                    font-size: 35px;
+                    font-size: 22px;
+
+                    @include sm {
+                        font-size: 35px;
+                    }
+
                     color: $black_color;
                 }
 
@@ -53,7 +58,10 @@
                     color: $black_color;
                     border-bottom: 1px solid #E4E6E8;
                     padding: 10px 0px;
-                    font-size: 30px;
+                    font-size: 22px;
+                    @include sm {
+                        font-size: 30px;
+                    }
                 }
 
                 .body {
@@ -108,19 +116,24 @@
 
     .moreCaseStudy {
         display: none;
+
         @include sm {
             display: block;
         }
+
         .top {
             margin-bottom: 15px;
         }
+
         h2 {
             font-size: 25px;
             margin-bottom: 0px !important;
+
             @include sm {
                 font-size: 35px;
             }
         }
+
         .box {
             display: flex;
             flex-direction: row;
