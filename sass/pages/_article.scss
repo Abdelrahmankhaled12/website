@@ -213,6 +213,11 @@
                 @include sm {
                     display: none;
                 }
+                .top {
+                    h1 {
+                        font-size: 22px;
+                    }
+                }
             }
         }
     }

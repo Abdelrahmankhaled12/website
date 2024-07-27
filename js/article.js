@@ -1,10 +1,16 @@
 
 
-const buttonArrowLeft = document.getElementById("arrowLeft");
-const buttonArrowRight = document.getElementById("arrowRight");
+const buttonArrowLeft = document.querySelectorAll(".arrowLeft");
+const buttonArrowRight = document.querySelectorAll(".arrowRight");
 
-buttonArrowLeft.addEventListener("click", () => { navigation("left") })
-buttonArrowRight.addEventListener("click", () => { navigation("right") })
+
+buttonArrowLeft.forEach((button) => {
+    button.addEventListener("click", () => { navigation("left") })
+})
+
+buttonArrowRight.forEach((button) => {
+    button.addEventListener("click", () => { navigation("right") })
+})
 
 
 // Function to handle carousel navigation

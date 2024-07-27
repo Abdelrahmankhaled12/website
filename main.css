@@ -1640,7 +1640,7 @@ body {
   width: fit-content;
 }
 .portfolio .grid .partOne .caseStudies h1 {
-  font-size: 22px;
+  font-size: 23px;
   color: #171721;
   margin-bottom: 25px;
 }
@@ -2129,6 +2129,9 @@ body {
   .article .grid .partOne .carouselDesktop {
     display: none;
   }
+}
+.article .grid .partOne .carouselDesktop .top h1 {
+  font-size: 22px;
 }
 
 .moreArticles .box {
