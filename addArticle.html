@@ -2,40 +2,32 @@
 <html lang="en">
 
 <head>
-    <!-- Specifies the character encoding for the HTML document -->
     <meta charset="UTF-8">
-
-    <!-- Sets the viewport to ensure the website is responsive on all devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Title of the webpage displayed in the browser tab -->
     <title>Company</title>
 
-    <!-- Link to the favicon displayed in the browser tab -->
     <link href="assets/logo.ico" rel="shortcut icon" type="image/x-icon">
-
-    <!-- Link to the main stylesheet for the webpage -->
     <link rel="stylesheet" href="./main.css">
 
-    <!-- Link to the animate.css library for adding animations -->
     <link rel="stylesheet" href="./css/animate.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
 
 </head>
 
 <body>
 
     <!-- Start Animation -->
-    <div class="animation" id="loader">
+    <!-- <div class="animation" id="loader">
         <div class="loader"></div>
-    </div>
+    </div> -->
     <!-- End Animation -->
 
     <!-- Start Effect -->
     <div id="effect" class="effect"></div>
     <!-- End Effect -->
 
-    <!-- Start Content Page -->
-    <div class="sections" id="sections" style="display: none;">
+    <!-- Start Content Page style="display: none;" -->
+    <div class="sections" id="sections">
         <!-- Start Header -->
         <header>
             <div class="container">
@@ -51,10 +43,16 @@
                             <a href="./portfolio.html">Portfolio</a>
                         </li>
                         <li>
+                            <a href="./projects.html">Project</a>
+                        </li>
+                        <li>
                             <a href="./articles.html">Articles</a>
                         </li>
                         <li>
-                            <a class="active" href="./contact.html">Contact</a>
+                            <a href="./contact.html">Contact</a>
+                        </li>
+                        <li>
+                            <a href="./dashboard.html">Dashboard</a>
                         </li>
                     </ul>
                 </div>
@@ -89,6 +87,9 @@
                         <a href="./portfolio.html">Portfolio</a>
                     </li>
                     <li>
+                        <a href="./projects.html">Project</a>
+                    </li>
+                    <li>
                         <a href="./articles.html">Articles</a>
                     </li>
                     <li>
@@ -100,7 +101,7 @@
         </div>
         <!-- End Header Mobile -->
         <!-- Start Search Section  -->
-        <div class="search contactSearch">
+        <div class="search">
             <div class="container">
                 <div class="searchInput">
                     <input placeholder="Type to search a product in agriculture" type="text">
@@ -131,77 +132,83 @@
             </div>
         </div>
         <!-- End Search Section  -->
-        <!-- Start section Contact -->
-        <section class="contact">
+        <div class="addArticle">
             <div class="container">
-                <div class="grid">
-                    <div class="partOne wow animate__fadeInUp" data-wow-duration="1.6s">
-                        <h1>Let’s Get in Touch</h1>
-                        <p>Get in Touch with Us for Expert Agricultural Solutions, Personalized Support, and Innovative
-                            Strategies.</p>
-                        <div class="social">
-                            <div class="box">
-                                <div class="icon">
-                                    <img src="./assets/mail.png" alt="">
-                                </div>
-                                <p>contact@company.com</p>
+                <div class="formOne">
+                    <p>Please enter the title, text and image for the article's box.</p>
+                    <form action="">
+                        <input type="text" placeholder="Title" id="inputTitleBox">
+                        <textarea placeholder="Description" id="inputDescriptionBox" cols="20" rows="10"></textarea>
+                        <div class="uploadImage_content" id="image-uploader">
+                            <div class='content'>
+                                <p>Drag and drop your image here</p>
+                                <span>Or</span>
+                                <button id="browseImage" type='button'>Browse image</button>
                             </div>
-                            <div class="box">
-                                <div class="icon">
-                                    <img src="./assets/call.png" alt="">
-                                </div>
-                                <p>+1 (123) 456 - 789</p>
-                            </div>
-                            <div class="box">
-                                <div class="icon">
-                                    <img src="./assets/location_on.png" alt="">
-                                </div>
-                                <p>794 McCallister St, San Fracisco, 94102</p>
-                            </div>
+                            <input type="file" accept="image/*" id='imgInput' />
                         </div>
-                        <div class="map">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25226.626660389702!2d-122.4166099!3d37.782344500000015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2seg!4v1721220250023!5m2!1sen!2seg"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </form>
+                </div>
+                <div class="boxesArticles">
+                    <div class="boxArticle">
+                        <div class="image">
+                            <img id="imageBox" alt="">
                         </div>
-                    </div>
-                    <div class="partTwo wow animate__fadeInRight" data-wow-duration="2.5s">
-                        <form action="">
-                            <h1>Contact Us</h1>
-                            <div class="boxes">
-                                <div class="boxInput">
-                                    <label for="">Full Name</label>
-                                    <input type="text" placeholder="John Carter" name="" id="" required>
-                                </div>
-                                <div class="boxInput">
-                                    <label for="">Email</label>
-                                    <input type="email" placeholder="example@email.com" name="" id="" required>
-                                </div>
-                                <div class="boxInput">
-                                    <label for="">Phone number</label>
-                                    <div class="phone">
-                                        <input type="text" placeholder="+1 (123) 654 - 987" name="" id="" required>
-                                        <img src="./assets/flag.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="boxInput">
-                                    <label for="">Company Name</label>
-                                    <input type="text" placeholder="AGRO Company" name="" id="" required>
-                                </div>
+                        <div class="text">
+                            <div class="logo">
+                                <img src="./assets/logo.png" alt="">
                             </div>
-                            <div class="boxInput">
-                                <label for="">Message</label>
-                                <textarea placeholder="Please type your message here ..." name="" id="" cols="30"
-                                    rows="10" required></textarea>
-                            </div>
-                            <button type="submit">Send Request</button>
-                        </form>
+                            <h2 id="headTitleBox"></h2>
+                            <p id="descriptionBox"></p>
+                        </div>
                     </div>
                 </div>
+                <div class="formTwo">
+                    <p>Please enter the title, text and image for the article's box.</p>
+                    <form action="">
+                        <input type="text" placeholder="Title" id="inputTitleArticle">
+                        <div id="editor">
+                        </div>
+                        <button id="addPara" type="button">Add</button>
+                        <h5>Or</h5>
+                        <div class="uploadImage_content" id="image-uploader">
+                            <div class='content'>
+                                <p>Drag and drop your image here</p>
+                                <span>Or</span>
+                                <button id="browseImageArticle" type='button'>Browse image</button>
+                            </div>
+                            <input type="file" accept="image/*" id='imgInputArticle' />
+                        </div>
+                    </form>
+                </div>
+                <div class="articleShow">
+                    <div>
+                        <div class="top">
+                            <div class="image">
+                                <img id="imgArticle" alt="">
+                            </div>
+                            <div class="text">
+                                <div class="textTop">
+                                    <div class="logo">
+                                        <img src="./assets/logo.png" alt="">
+                                    </div>
+                                    <span></span>
+                                </div>
+                                <h2 id="titleArticleTop"></h2>
+                                <p id="descriptionArticleTop"></p>
+                            </div>
+                        </div>
+                        <div class="aboutArticle" id="aboutArticle">
+                        </div>
+                    </div>
+                </div>
+                <button id="publishArticle" class="publishArticle">Publish Article</button>
             </div>
-        </section>
-        <!-- End section Contact -->
+        </div>
+
+
+
+
         <!-- Button Scroll -->
         <button class="buttonScroll">
             <i class="fa-solid fa-angles-up"></i>
@@ -224,7 +231,7 @@
         </footer>
         <!-- End Footer -->
     </div>
-    <!-- End Content Page -->
+    <!-- Start Content Page -->
 
     <!-- Include the minified version of the FontAweSome JavaScript library -->
     <script src="./js/all.min.js"></script>
@@ -233,7 +240,16 @@
     <script src="./js/wow.min.js"></script>
 
     <!-- Include your custom JavaScript file -->
-    <script src="./js/script.js"></script>
+    <!-- <script src="./js/script.js"></script> -->
+
+    <script src="./js/add_article.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+
+    <script>
+        const quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company</title>
+
+    <link href="../assets/logo.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="../main.css">
+
+    <link rel="stylesheet" href="../css/animate.min.css">
+
+</head>
+
+<body>
+
+    <!-- Start Animation -->
+    <!-- <div class="animation" id="loader">
+        <div class="loader"></div>
+    </div> -->
+    <!-- End Animation -->
+
+    <!-- Start Effect -->
+    <div id="effect" class="effect"></div>
+    <!-- End Effect -->
+
+    <!-- Start Content Page style="display: none;" -->
+    <div class="sections" id="sections">
+        <!-- Start Header -->
+        <header>
+            <div class="container">
+                <div class="partOne">
+                    <div class="logo">
+                        <a href="../index.html"><img src="../assets/logo.png" alt="logo"></a>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="../portfolio.html">Portfolio</a>
+                        </li>
+                        <li>
+                            <a href="../projects.html">Project</a>
+                        </li>
+                        <li>
+                            <a href="../articles.html">Articles</a>
+                        </li>
+                        <li>
+                            <a href="../contact.html">Contact</a>
+                        </li>
+                        <li>
+                            <a class="active" href="./dashboard.html">Dashboard</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="partTwo">
+                    <div class="icons">
+                        <div class="search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <div class="language">
+                            <img src="../assets/language.png" alt="language icon">
+                        </div>
+                        <div class="menuButton" id="showMenu">
+                            <img src="../assets/menu.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+        <!-- Start Header Mobile -->
+        <div class="menuMobile" id="menuMobile">
+            <div class="container">
+                <div class="top">
+                    <h4>Menu</h4>
+                    <button id="buttonClose"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <ul>
+                    <li>
+                        <a href="../index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="../portfolio.html">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="../projects.html">Project</a>
+                    </li>
+                    <li>
+                        <a href="../articles.html">Articles</a>
+                    </li>
+                    <li>
+                        <a class="active" href="../contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="outMenu"></div>
+        </div>
+        <!-- End Header Mobile -->
+        <!-- Start Search Section  -->
+        <div class="search">
+            <div class="container">
+                <div class="searchInput">
+                    <input placeholder="Type to search a product in agriculture" type="text">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <div class="boxes">
+                    <div class="boxShares boxDown">
+                        <div class="box">
+                            <i class="fa-solid fa-arrow-up-long"></i>
+                            <p>-2.96%</p>
+                        </div>
+                        <div class="text">
+                            <p>Ginger</p>
+                            <span>In United States</span>
+                        </div>
+                    </div>
+                    <div class="boxShares boxUP">
+                        <div class="box">
+                            <i class="fa-solid fa-arrow-up-long"></i>
+                            <p>+0.86%</p>
+                        </div>
+                        <div class="text">
+                            <p>Soybean</p>
+                            <span>In Ukraine</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Search Section  -->
+
+        <div class="dashboard">
+            <div class="container">
+                <div class="top">
+                    <div class="boxes">
+                        <div class="box">
+                            <div class="text">
+                                <span>22</span>
+                                <p>Total Articles</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa-regular fa-newspaper"></i>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="text">
+                                <span>22</span>
+                                <p>Total Articles</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa-regular fa-newspaper"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="articles">
+                    <h1 class="wow animate__fadeInUp" data-wow-duration="1.6s">Articles</h1>
+                    <div class="grid">
+                        <div class="box">
+                            <div class="image">
+                                <img src="../assets/articles.png" alt="">
+                            </div>
+                            <div class="text">
+                                <div class="logo">
+                                    <img src="../assets/logo.png" alt="">
+                                </div>
+                                <h2>Avocado prices surge nearly 1%</h2>
+                                <p>Avocado prices surge nearly 1% in USA this morning, and continuing the positive trend
+                                    it’s
+                                    time to grow more fruits ... </p>
+                                <div class="footer">
+                                    <button class="readArticle">
+                                        <p>Read article </p>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </button>
+                                    <span> <span>Posted 1 day ago </span> <img src="../assets/pages.png" alt=""> </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="controls articles wow animate__fadeInUp" data-wow-duration="1.5s">
+                        <button><i class="fa-solid fa-arrow-left"></i></button>
+                        <ul>
+                            <li class="active">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                        <button><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- Button Scroll -->
+        <button class="buttonScroll">
+            <i class="fa-solid fa-angles-up"></i>
+        </button>
+        <!-- Button Scroll -->
+        <!-- Start Footer -->
+        <footer>
+            <div class="container">
+                <div class="partOne">
+                    <a href="">Privacy Policy</a>
+                    <a href="">Term of Use</a>
+                    <p>© 2024 All rights reserved</p>
+                </div>
+                <div class="partTwo">
+                    <div class="language">
+                        <img src="../assets/language.png" alt="language icon">
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+    </div>
+    <!-- Start Content Page -->
+
+    <!-- Include the minified version of the FontAweSome JavaScript library -->
+    <script src="../js/all.min.js"></script>
+
+    <!-- Include the minified version of the 'WOW.js' library for reveal animations -->
+    <script src="../js/wow.min.js"></script>
+
+    <!-- Include your custom JavaScript file -->
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

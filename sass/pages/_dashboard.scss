@@ -1,0 +1,46 @@
+@use '../variables/colors' as *;
+@use '../layout/mixins' as *;
+
+.dashboard {
+    padding: 20px 0px;
+    .top {
+        .boxes {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            @include sm {
+                grid-template-columns: 1fr 1fr;
+            }
+            @include md {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+            .box {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #fff;
+                padding: 1.5rem 1.25rem;
+                margin: 10px 0;
+                box-shadow: 0 .375rem 1rem #3a35411f;
+                border-radius: 10px;
+                .text {
+                    span {
+                        color: $black-color;
+                        font-size: 30px;
+                        font-weight: 600;
+                    }
+                    p {
+                        font-size: 17px;
+                    }
+                }
+                .icon {
+                    svg {
+                        font-size: 30px;
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+}
+

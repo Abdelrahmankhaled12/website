@@ -1,0 +1,132 @@
+@use '../variables/colors' as *;
+@use '../layout/mixins' as *;
+
+
+.bodyLogin {
+    background-color: #f4f5fa;
+    overflow-y: auto;
+    height: 100vh;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .login {
+        height: 100vh;
+
+        .logInContent {
+            grid-template-columns: 1fr;
+            justify-content: center;
+            align-items: center;
+            display: grid;
+
+            @include md {
+                grid-template-columns: 2fr 1fr;
+            }
+
+            .image {
+                height: 100vh;
+                display: none;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 50%;
+                    display: block;
+                }
+
+                @include md {
+                    display: flex;
+                }
+            }
+
+            .form {
+                background-color: white;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                padding: 20px 40px;
+                justify-content: center;
+
+                @include md {
+                    justify-content: start;
+                }
+
+                .text {
+                    h4 {
+                        margin-bottom: 4px;
+                        color: $black-color;
+                        font-size: 23px;
+                    }
+
+                    P {
+                        font-size: 16px;
+                        color: #89868de1;
+                    }
+
+                    margin-bottom: 15px;
+                }
+
+                input {
+                    outline: none;
+                    border: 1px solid #77777795;
+                    margin-bottom: 8px;
+                    width: 100%;
+                    display: block;
+                    width: 100%;
+                    padding: 10px 9px;
+                    outline: none;
+                    border-radius: 4px;
+                    font-size: 15px;
+                    font-weight: 500;
+                    color: #544f5a !important;
+                    background-color: transparent !important;
+
+                    &::placeholder {
+                        color: #777777ab;
+                    }
+
+                    @include sm {
+                        width: 400px;
+                    }
+                }
+
+                button {
+                    width: 100%;
+                    padding: 12px;
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    transition: .5s;
+                    font-weight: 500;
+                    border-radius: 5px;
+                    background-color: $primary-color;
+                    color: #f9f9f9;
+                    border: 1px solid $primary-color;
+                    box-shadow: 0 1px 5px #3a35411f;
+                    margin-top: 10px;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $primary-color;
+                        background-color: transparent;
+                    }
+                }
+            }
+
+        }
+
+        .error {
+            background-color: rgba(255, 0, 0, 0.05);
+            padding: 10px 0px;
+            text-align: center;
+            font-weight: 600;
+            border-radius: 8px;
+            color: red;
+            font-size: 14px;
+            margin: 10px 0px 0px;
+            text-transform: capitalize;
+            display: none;
+        }
+
+    }
+}
