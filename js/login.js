@@ -1,5 +1,5 @@
 // API endpoint URL
-const KEY = "http://127.0.0.1:8000/api/";
+const KEY = "https://talkwebnow.online/backend/api/";
 
 // Get Elements 
 const INPUT_EMAIL = document.getElementById("email"); // Email input field

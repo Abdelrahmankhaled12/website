@@ -1429,32 +1429,6 @@ form .gridForm {
   }
 }
 
-.animation .logo img {
-  width: 200px;
-}
-
-.loaderHome {
-  width: -moz-fit-content;
-  width: fit-content;
-  font-weight: bold;
-  font-family: monospace;
-  font-size: 30px;
-  -webkit-clip-path: inset(0 100% 0 0);
-          clip-path: inset(0 100% 0 0);
-  animation: l5 2s steps(11) infinite;
-  color: #005E5D;
-}
-
-.loaderHome:before {
-  content: "Comapany...";
-}
-
-@keyframes l5 {
-  to {
-    -webkit-clip-path: inset(0 -2ch 0 0);
-            clip-path: inset(0 -2ch 0 0);
-  }
-}
 .home {
   padding: 15px 0px;
   overflow: hidden;
@@ -1607,6 +1581,8 @@ form .gridForm {
 .home .sectionOne .grid .partOne .portfolioCase .boxes .box {
   display: flex;
   flex-direction: column;
+  width: -moz-fit-content;
+  width: fit-content;
   border: 1px solid #E4E6E8;
   border-radius: 15px;
 }
@@ -1618,7 +1594,7 @@ form .gridForm {
 }
 .home .sectionOne .grid .partOne .portfolioCase .boxes .box .image img {
   width: 100%;
-  height: 200px;
+  height: 150px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
@@ -1631,7 +1607,7 @@ form .gridForm {
   }
 }
 .home .sectionOne .grid .partOne .portfolioCase .boxes .box .text {
-  padding: 20px;
+  padding: 15px 20px 5px;
   flex: 1;
 }
 .home .sectionOne .grid .partOne .portfolioCase .boxes .box .text .top {
@@ -1677,18 +1653,18 @@ form .gridForm {
 }
 @media only screen and (min-width: 992px) {
   .home .sectionOne .grid .partOne .portfolioCase .boxes .box .text .body h3 {
-    font-size: 20px;
+    font-size: 17px;
   }
 }
 .home .sectionOne .grid .partOne .portfolioCase .boxes .box .text .body p {
   color: #6F818C;
-  margin-top: 14px;
+  margin-top: 10px;
   line-height: 1.5;
   font-size: 12px;
 }
 @media only screen and (min-width: 992px) {
   .home .sectionOne .grid .partOne .portfolioCase .boxes .box .text .body p {
-    font-size: 15px;
+    font-size: 13px;
   }
 }
 .home .sectionOne .grid .partOne .portfolioCase .boxes .box .text .body ul {
@@ -1696,7 +1672,7 @@ form .gridForm {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 .home .sectionOne .grid .partOne .portfolioCase .boxes .box .text .body ul li {
   background-color: #F2F3F4;
@@ -1707,17 +1683,17 @@ form .gridForm {
 }
 .home .sectionOne .grid .partOne .portfolioCase .boxes .box .text button {
   background-color: #ffffff;
-  padding: 13px 20px;
+  padding: 11px 20px;
   color: #171721;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 13px;
   border-radius: 10px;
   border: 1px solid #005E5D;
-  margin-top: 20px;
+  margin-top: 10px;
   cursor: pointer;
   transition: 0.5s;
   width: 100%;
@@ -1726,12 +1702,11 @@ form .gridForm {
   .home .sectionOne .grid .partOne .portfolioCase .boxes .box .text button {
     width: -moz-fit-content;
     width: fit-content;
-    font-size: 15px;
     padding: 10px 20px;
   }
 }
 .home .sectionOne .grid .partOne .portfolioCase .boxes .box .text button svg {
-  font-size: 13px;
+  font-size: 11px;
 }
 .home .sectionOne .grid .partOne .portfolioCase .boxes .box .text button:hover {
   background-color: #005E5D;
@@ -1804,12 +1779,16 @@ form .gridForm {
 }
 @media only screen and (min-width: 992px) {
   .home .sectionTwo .projectsSection .grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 .home .sectionTwo .projectsSection .grid .box {
   border: 1px solid #E4E6E8;
   border-radius: 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .home .sectionTwo .projectsSection .grid .box .top {
   display: flex;
@@ -1852,12 +1831,7 @@ form .gridForm {
 }
 .home .sectionTwo .projectsSection .grid .box .text h2 {
   color: #171721;
-  font-size: 16px;
-}
-@media only screen and (min-width: 992px) {
-  .home .sectionTwo .projectsSection .grid .box .text h2 {
-    font-size: 18px;
-  }
+  font-size: 15px;
 }
 .home .sectionTwo .projectsSection .grid .box .text p {
   color: #6F818C;
@@ -1865,13 +1839,8 @@ form .gridForm {
   line-height: 1.5;
   font-size: 12px;
 }
-@media only screen and (min-width: 992px) {
-  .home .sectionTwo .projectsSection .grid .box .text p {
-    font-size: 13px;
-  }
-}
 .home .sectionTwo .projectsSection .grid .box .image img {
-  max-height: 200px;
+  max-height: 150px;
   width: 100%;
   height: 100%;
 }
@@ -2296,7 +2265,7 @@ form .gridForm {
 }
 .portfolio .grid .partOne .boxes .box .image img {
   width: 100%;
-  height: 200px;
+  height: 150px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
@@ -2309,7 +2278,7 @@ form .gridForm {
   }
 }
 .portfolio .grid .partOne .boxes .box .text {
-  padding: 20px;
+  padding: 15px 20px 5px;
   flex: 1;
 }
 .portfolio .grid .partOne .boxes .box .text .top {
@@ -2355,18 +2324,18 @@ form .gridForm {
 }
 @media only screen and (min-width: 992px) {
   .portfolio .grid .partOne .boxes .box .text .body h3 {
-    font-size: 20px;
+    font-size: 17px;
   }
 }
 .portfolio .grid .partOne .boxes .box .text .body p {
   color: #6F818C;
-  margin-top: 14px;
+  margin-top: 10px;
   line-height: 1.5;
   font-size: 12px;
 }
 @media only screen and (min-width: 992px) {
   .portfolio .grid .partOne .boxes .box .text .body p {
-    font-size: 15px;
+    font-size: 13px;
   }
 }
 .portfolio .grid .partOne .boxes .box .text .body ul {
@@ -2374,7 +2343,7 @@ form .gridForm {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 .portfolio .grid .partOne .boxes .box .text .body ul li {
   background-color: #F2F3F4;
@@ -2385,17 +2354,17 @@ form .gridForm {
 }
 .portfolio .grid .partOne .boxes .box .text button {
   background-color: #ffffff;
-  padding: 13px 20px;
+  padding: 11px 20px;
   color: #171721;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 13px;
   border-radius: 10px;
   border: 1px solid #005E5D;
-  margin-top: 20px;
+  margin-top: 10px;
   cursor: pointer;
   transition: 0.5s;
   width: 100%;
@@ -2404,12 +2373,11 @@ form .gridForm {
   .portfolio .grid .partOne .boxes .box .text button {
     width: -moz-fit-content;
     width: fit-content;
-    font-size: 15px;
     padding: 10px 20px;
   }
 }
 .portfolio .grid .partOne .boxes .box .text button svg {
-  font-size: 13px;
+  font-size: 11px;
 }
 .portfolio .grid .partOne .boxes .box .text button:hover {
   background-color: #005E5D;

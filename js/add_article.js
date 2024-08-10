@@ -1,4 +1,4 @@
-const KEY = "https://talkwebnow.online/backend/api/";
+const KEY = "http://127.0.0.1:8000/api/";
 
 // Get Elements
 const dropZone = document.getElementById('image-uploader');
@@ -122,7 +122,7 @@ document.getElementById("publishArticle").addEventListener("click", () => {
 
 const Save = async () => {
 
-    console.log( boxArticle.image)
+    console.log(boxArticle.image)
 
     // Return a Promise to handle asynchronous operations
     return new Promise((resolve, reject) => {
@@ -132,13 +132,46 @@ const Save = async () => {
         formData.append('title', boxArticle.titleBoxStorage);
         formData.append('body', boxArticle.descriptionBoxStorage);
         formData.append('background', boxArticle.image);
+        formData.append('content', JSON.stringify([{
+            title: "Avocado prices surge nearly 1% in United States This Friday Morning",
+            body: "Avocado prices surge nearly 1% in United States This Friday Morning",
+            sort: 1,
+        }
+        ]));
+
+
+        let myArray = [{
+            imge: boxArticle.image,
+            sort: 1,
+        }, {
+            imge: boxArticle.image,
+            sort: 2,
+        }, {
+            imge: boxArticle.image,
+            sort: 3,
+        }]
+
+
+        // إضافة عناصر المصفوفة إلى FormData
+        myArray.forEach((item, index) => {
+            formData.append('images[]', item);
+        });
+
+
+        // let data = {
+        //     title: ,
+        //     body :  ,
+        //     background : ,
+        //     content ''
+        // }
 
         fetch("https://talkwebnow.online/backend/api/articles", {
             method: 'POST',
             body: formData,
             headers: {
                 Authorization: `Bearer ${JSON.parse(sessionStorage.getItem("token"))}`,
-                'Content-Type': 'application/json',
+                // 'Content-Type': 'application/json',
+                "accept": "application/json"
             },
         })
             .then(response => {
