@@ -3,38 +3,29 @@
 
 .portfolio {
     padding: 15px 0px 30px;
-
+    overflow: hidden;
     @include md {
         padding: 30px 0px 80px;
     }
-
-    overflow: hidden;
-
     .grid {
         display: grid;
         grid-template-columns: 1fr;
         gap: 30px;
-
         @include md {
             grid-template-columns: 2.5fr 1fr;
         }
-
         .partOne {
             width: fit-content;
-
             .caseStudies {
                 h1 {
                     font-size: 23px;
-
+                    color: $black_color;
+                    margin-bottom: 25px;
                     @include smm {
                         font-size: 40px;
                     }
-
-                    color: $black_color;
-                    margin-bottom: 25px;
                 }
             }
-
             .boxes {
                 display: grid;
                 grid-template-columns: 1fr;
@@ -43,48 +34,39 @@
                 @include smm {
                     grid-template-columns: 1fr 1fr;
                 }
-
                 @include md {
                     display: block;
                 }
-
                 .box {
                     display: flex;
                     flex-direction: column;
                     width: fit-content;
-
                     border: 1px solid #E4E6E8;
                     border-radius: 15px;
-
                     @include md {
                         flex-direction: row;
                         margin-bottom: 20px;
                     }
-
                     .image {
                         img {
                             width: 100%;
                             height: 150px;
                             border-top-left-radius: 15px;
                             border-top-right-radius: 15px;
-
                             @include md {
                                 height: 100%;
                                 border-top-left-radius: 15px;
                                 border-bottom-left-radius: 15px;
                                 border-top-right-radius: 0px;
                             }
-
                         }
                     }
-
                     .text {
                         padding: 15px 20px;
                         flex: 1;
                         @include md {
                             padding: 15px 20px 5px;
                         }
-                        
                         .top {
                             display: flex;
                             justify-content: space-between;
@@ -129,7 +111,6 @@
                             }
 
                         }
-
                         .body {
                             margin: 15px 0px;
 
@@ -169,7 +150,6 @@
                                 }
                             }
                         }
-
                         button {
                             background-color: #ffffff;
                             padding: 11px 20px;
@@ -202,13 +182,10 @@
                             }
                         }
                     }
-
                 }
             }
-
         }
     }
-
     .GetInTouchButton {
         margin-bottom: 30px;
     }

@@ -517,10 +517,6 @@ body {
             align-items: center;
             gap: 10px;
 
-            @include sm {
-                gap: 20px;
-            }
-
             a {
                 text-decoration: none;
                 color: #6F818C;
@@ -621,7 +617,7 @@ body {
             }
 
             @include md {
-                width: calc((96% - 15px)/ 4);
+                width: calc((98% - 15px)/ 3);
             }
         }
     }
@@ -1345,6 +1341,7 @@ form {
 
     .formTwo {
         width: 70%;
+
         p {
             color: $black_color;
             font-size: 18px;
@@ -1358,6 +1355,7 @@ form {
             color: $black_color;
             margin: 10px 0px;
         }
+
         form {
             input {
                 width: 100%;
@@ -1383,9 +1381,11 @@ form {
 
             #addPara {
                 width: 100%;
+
                 @include sm {
                     width: 20%;
                 }
+
                 display: block;
                 margin: 10px 0px 0px auto;
                 padding: 12px;
@@ -1434,9 +1434,11 @@ form {
 
     .publishArticle {
         width: 100%;
+
         @include sm {
             width: 20%;
         }
+
         display: block;
         margin: 10px 0px 0px auto;
         padding: 12px;

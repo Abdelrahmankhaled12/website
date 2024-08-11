@@ -448,11 +448,6 @@ body {
   align-items: center;
   gap: 10px;
 }
-@media only screen and (min-width: 640px) {
-  .carouselDesktop .top .buttons {
-    gap: 20px;
-  }
-}
 .carouselDesktop .top .buttons a {
   text-decoration: none;
   color: #6F818C;
@@ -546,7 +541,7 @@ body {
 }
 @media only screen and (min-width: 992px) {
   .carouselDesktop .boxes .box {
-    width: calc((96% - 15px) / 4);
+    width: calc((98% - 15px) / 3);
   }
 }
 
@@ -1435,7 +1430,7 @@ form .gridForm {
 }
 @media only screen and (min-width: 992px) {
   .home {
-    padding: 30px 0px;
+    padding: 30px 0px 0px;
   }
 }
 .home .sectionOne {
@@ -1713,12 +1708,13 @@ form .gridForm {
   color: #ffffff;
 }
 .home .sectionOne .grid .partTwo .reports {
-  margin-top: 30px;
   background-color: #ffffff;
   border: 1px solid #E4E6E8;
   border-radius: 14px;
   background-color: #ffffff;
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25);
+  max-width: 500px;
+  margin: 30px auto 0px;
 }
 .home .sectionOne .grid .partTwo .reports ul {
   list-style: none;
@@ -2770,7 +2766,7 @@ form .gridForm {
   align-items: center;
   margin-top: 20px;
 }
-.moreArticles .box .text .footer button {
+.moreArticles .box .text .footer a {
   background-color: #F2F3F4;
   color: #171721;
   border: 1px solid #F2F3F4;
@@ -2782,17 +2778,18 @@ form .gridForm {
   color: #171721;
   cursor: pointer;
   transition: 0.5s;
+  text-decoration: none;
 }
-.moreArticles .box .text .footer button p {
+.moreArticles .box .text .footer a p {
   color: #171721;
   font-weight: 600;
   transition: 0.5s;
 }
-.moreArticles .box .text .footer button:hover {
+.moreArticles .box .text .footer a:hover {
   background-color: #005E5D;
   color: #FFFFFF;
 }
-.moreArticles .box .text .footer button:hover p {
+.moreArticles .box .text .footer a:hover p {
   color: #FFFFFF;
 }
 .moreArticles .box .text .footer span {

@@ -1,3 +1,4 @@
+// Select the buttonScroll element
 let buttonScroll = document.querySelector(".buttonScroll");
 
 // Event handler for window scroll event
@@ -39,99 +40,116 @@ document.getElementById("outMenu").addEventListener("click", function () {
     document.getElementById("menuMobile").classList.remove("showMenuMobile");
 });
 
+// Initialize WOW.js and hide specific elements on DOMContentLoaded
 document.addEventListener("DOMContentLoaded", function () {
     // Initialize the WOW.js library for animating elements
     new WOW().init();
-    // Hide the loader element after 5 seconds
-    document.getElementById("loader").style.display = "none";
     // Hide the effect element after 5 seconds
     document.getElementById("effect").style.display = "none";
-    // Show the sections element after 5 seconds
-    document.getElementById("sections").style.display = "block";
-    // Otherwise, hide the buttonScroll
+    // Hide the buttonScroll initially
     buttonScroll.style.opacity = "0";
 });
 
+// Smooth scroll to 'getInTouch' section when 'GetInTouchButton' is clicked
 document.getElementById("GetInTouchButton").addEventListener("click", function () {
-    // Remove the 'showMenuMobile' class from the 'menuMobile' element when 'buttonClose' button is clicked
     const section = document.getElementById("getInTouch");
-    // Check if the "section" element exists
     if (section) {
-        // Get the distance between the top of the "section" element and the top of the viewport
         const distanceToTop = section.getBoundingClientRect().top;
-        // Check if the absolute value of the distance is less than 100 pixels
         if (Math.abs(distanceToTop) < 100) {
-            // If the section is already within 100 pixels, simply scroll smoothly to the top of the section
             section.scrollIntoView({ behavior: 'smooth' });
         } else {
-            // If the section is more than 100 pixels away, scroll smoothly to bring the section to the top of the viewport
             window.scrollBy({
-                top: distanceToTop - 100, // Subtracting 100 pixels to ensure it's less than 100 pixels away
+                top: distanceToTop - 100,
                 behavior: 'smooth'
             });
         }
     }
 });
 
+// Define the API endpoint for fetching articles
+const url = 'https://talkwebnow.online/backend/api/articles';
 
+// Fetch articles from the API and handle the response
+fetch(url)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.data.data.length > 0) {
+            document.getElementById('sectionThree').style.display = "block";
+            data.data.data.forEach((item, index) => {
+                let div = document.createElement("div");
+                div.classList.add("box");
+                div.innerHTML = `
+                    <div class="image">
+                        <img src=${item.background} alt="">
+                    </div>
+                    <div class="text">
+                        <div class="logo">
+                            <img src="./assets/logo.png" alt="">
+                        </div>
+                        <h2>${item.title}</h2>
+                        <p>${item.body}</p>
+                        <div class="footer">
+                            <a href="article.html?&article=${item.title}&id=${item.id}" class="readArticle">
+                                <p>Read article</p>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </a>
+                            <span>
+                                <span>Posted 1 day ago</span>
+                                <img src="./assets/pages.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                `;
 
+                // Append clones of the div to different groups
+                if (index <= 2) {
+                    document.getElementById("groupOne").append(div.cloneNode(true));
+                }
+                if (index > 2 && index < 6) {
+                    document.getElementById("groupTwo").append(div.cloneNode(true));
+                }
 
+                // Append div to the carousel container
+                document.getElementById("carouselContainerBoxesDesktop").append(div);
+            });
 
+            // Add event listeners for carousel navigation
+            const buttonArrowLeft = document.getElementById("arrowLeft");
+            const buttonArrowRight = document.getElementById("arrowRight");
 
+            buttonArrowLeft.addEventListener("click", () => { navigation("left") });
+            buttonArrowRight.addEventListener("click", () => { navigation("right") });
+        }
+    })
+    .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+    });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-let buttonsRA = document.querySelectorAll(".veiwMore")
+// Redirect to case study page on view more button click
+let buttonsRA = document.querySelectorAll(".veiwMore");
 
 buttonsRA.forEach((item) => {
     item.addEventListener("click", () => {
-        window.location.href = "casestudy.html"
-    })
-})
-
-
-// Get Buttons => (read article)
-let buttonsR = document.querySelectorAll(".readArticle")
-
-buttonsR.forEach((item) => {
-    item.addEventListener("click", () => {
-        window.location.href = "article.html"
-    })
-})
-
-
-const buttonArrowLeft = document.getElementById("arrowLeft");
-const buttonArrowRight = document.getElementById("arrowRight");
-
-buttonArrowLeft.addEventListener("click", () => { navigation("left") })
-buttonArrowRight.addEventListener("click", () => { navigation("right") })
-
+        window.location.href = "casestudy.html";
+    });
+});
 
 // Function to handle carousel navigation
 const navigation = (dir) => {
-    const containers = document.querySelectorAll(".carouselContainerBoxes"); // Getting reference to carousel container
-
+    const containers = document.querySelectorAll(".carouselContainerBoxes");
     containers.forEach((container) => {
-        // Calculating scroll amount based on direction
         const scrollAmount =
             dir === "left"
                 ? container.scrollLeft - (container.offsetWidth + 5)
                 : container.scrollLeft + (container.offsetWidth + 5);
-        // Smooth scrolling to the calculated scroll amount
         container.scrollTo({
             left: scrollAmount,
             behavior: "smooth",
         });
-    })
+    });
 };

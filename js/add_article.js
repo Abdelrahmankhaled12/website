@@ -1,92 +1,153 @@
-const KEY = "http://127.0.0.1:8000/api/";
+// URL for backend API
+const API_URL = "https://talkwebnow.online/backend/api/";
 
 // Get Elements
 const dropZone = document.getElementById('image-uploader');
+const dropZone2 = document.getElementById('image-uploader2');
 
-const inputFile = document.getElementById('imgInput');
-
+const inputFileBox = document.getElementById('imgInputBox');
 const inputTitleBox = document.getElementById("inputTitleBox");
-
 const inputDescriptionBox = document.getElementById("inputDescriptionBox");
-
 const inputTitleArticle = document.getElementById("inputTitleArticle");
-
+const browseImageButton = document.getElementById("browseImage");
+const browseImageArticleButton = document.getElementById("browseImageArticle");
+const imgInputArticle = document.getElementById("imgInputArticle");
 
 // Storage Values
-
 let boxArticle = {
     titleBoxStorage: "",
     descriptionBoxStorage: "",
     image: ""
-}
+};
 
-let content = []
+let images = [];
 
+let content = [];
+
+
+let sort = 0;
+
+// Handle title input changes
 inputTitleBox.addEventListener("input", (e) => {
-    document.getElementById("headTitleBox").innerHTML = e.target.value;
-    document.getElementById("titleArticleTop").innerHTML = e.target.value;
-    boxArticle.titleBoxStorage = e.target.value;
-})
+    const value = e.target.value;
+    updateTitle(value);
+    boxArticle.titleBoxStorage = value;
+});
 
-
+// Handle description input changes
 inputDescriptionBox.addEventListener("input", (e) => {
-    document.getElementById("descriptionBox").innerHTML = e.target.value;
-    document.getElementById("descriptionArticleTop").innerHTML = e.target.value;
-    boxArticle.descriptionBoxStorage = e.target.value;
-})
+    const value = e.target.value;
+    updateDescription(value);
+    boxArticle.descriptionBoxStorage = value;
+});
 
-
+// Ensure the DOM content is fully loaded before running the script
 document.addEventListener('DOMContentLoaded', () => {
-    const handleDragEnter = (e) => {
-        e.preventDefault();
-        dropZone.classList.add('drag-over');
-    };
+    setupDragAndDrop();
+    setupFileInput();
+    setupDragAndDrop2()
+});
 
-    const handleDragLeave = (e) => {
-        e.preventDefault();
-        dropZone.classList.remove('drag-over');
-    };
+// Function to update title elements
+const updateTitle = (title) => {
+    document.getElementById("headTitleBox").innerHTML = title;
+    document.getElementById("titleArticleTop").innerHTML = title;
+};
 
-    const handleDragOver = (e) => {
-        e.preventDefault();
-    };
+// Function to update description elements
+const updateDescription = (description) => {
+    document.getElementById("descriptionBox").innerHTML = description;
+    document.getElementById("descriptionArticleTop").innerHTML = description;
+};
 
-    const handleDrop = (e) => {
-        e.preventDefault();
-        dropZone.classList.remove('drag-over');
-
-        const files = e.dataTransfer.files;
-        handleFileChange(files);
-    };
-
-    const handleFileChange = (files) => {
-        boxArticle.image = files[0];
-        if (files.length > 0) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                document.getElementById("imageBox").src = e.target.result;
-                document.getElementById("imgArticle").src = e.target.result;
-            };
-            reader.readAsDataURL(files[0]);
-        }
-    };
-
+// Function to handle drag and drop setup
+const setupDragAndDrop = () => {
     dropZone.addEventListener('dragenter', handleDragEnter);
     dropZone.addEventListener('dragleave', handleDragLeave);
     dropZone.addEventListener('dragover', handleDragOver);
     dropZone.addEventListener('drop', handleDrop);
-    inputFile.addEventListener('change', (e) => handleFileChange(e.target.files));
-    document.getElementById("imgInputArticle").addEventListener('change', (e) => handleFileChange(e.target.files));
+};
 
-});
+const setupDragAndDrop2 = () => {
+    dropZone2.addEventListener('dragenter', handleDragEnter);
+    dropZone2.addEventListener('dragleave', handleDragLeave);
+    dropZone2.addEventListener('dragover', handleDragOver);
+    dropZone2.addEventListener('drop', handleDrop);
+};
 
-document.getElementById("browseImage").addEventListener("click", () => {
-    inputFile.click()
-})
+// Function to handle file input setup
+const setupFileInput = () => {
+    inputFileBox.addEventListener('change', (e) => handleFileChange(e.target.files));
+    browseImageButton.addEventListener("click", () => inputFileBox.click());
+    browseImageArticleButton.addEventListener("click", () => imgInputArticle.click());
+    imgInputArticle.addEventListener('change', (e) => handleFileArticleChange(e.target.files));
+};
 
-document.getElementById("browseImageArticle").addEventListener("click", () => {
-    document.getElementById("imgInputArticle").click()
-})
+// Event handlers for drag and drop
+const handleDragEnter = (e) => {
+    e.preventDefault();
+    dropZone.classList.add('drag-over');
+};
+
+const handleDragLeave = (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('drag-over');
+};
+
+const handleDragOver = (e) => {
+    e.preventDefault();
+};
+
+const handleDrop = (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('drag-over');
+    const files = e.dataTransfer.files;
+    handleFileChange(files);
+};
+
+// Handle file changes
+const handleFileChange = (files) => {
+    if (files.length > 0) {
+        const file = files[0];
+        boxArticle.image = file;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const result = e.target.result;
+            document.getElementById("imageBox").src = result;
+            document.getElementById("imgArticle").src = result;
+        };
+        reader.readAsDataURL(file);
+    }
+};
+
+
+// Handle file changes
+const handleFileArticleChange = (files) => {
+    if (files.length > 0) {
+        const file = files[0];
+        images.push({
+            image: file,
+            sort: sort
+        });
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const result = e.target.result;
+            let div = document.createElement("div")
+            div.classList.add("image")
+
+            div.innerHTML =
+                `
+                    <img src=${result} alt="">
+            `
+            document.getElementById("aboutArticle").append(div)
+        };
+        reader.readAsDataURL(file);
+        sort++;
+    }
+};
+
+
+
 
 
 
@@ -108,9 +169,12 @@ document.getElementById("addPara").addEventListener("click", () => {
     content.push({
         title: inputTitleArticle.value,
         body: editor.innerHTML,
-        sort: 1,
+        sort: sort,
     })
     document.getElementById("aboutArticle").append(div)
+    sort++;
+    editor.innerHTML = ""
+    inputTitleArticle.value = ""
 })
 
 
@@ -122,8 +186,6 @@ document.getElementById("publishArticle").addEventListener("click", () => {
 
 const Save = async () => {
 
-    console.log(boxArticle.image)
-
     // Return a Promise to handle asynchronous operations
     return new Promise((resolve, reject) => {
         // Create a new FormData object to store form data
@@ -132,12 +194,7 @@ const Save = async () => {
         formData.append('title', boxArticle.titleBoxStorage);
         formData.append('body', boxArticle.descriptionBoxStorage);
         formData.append('background', boxArticle.image);
-        formData.append('content', JSON.stringify([{
-            title: "Avocado prices surge nearly 1% in United States This Friday Morning",
-            body: "Avocado prices surge nearly 1% in United States This Friday Morning",
-            sort: 1,
-        }
-        ]));
+        formData.append('content', JSON.stringify(content));
 
 
         let myArray = [{
@@ -151,26 +208,21 @@ const Save = async () => {
             sort: 3,
         }]
 
+        console.log(myArray)
 
-        // إضافة عناصر المصفوفة إلى FormData
+        // formData.append('images[]', myArray);
+
         myArray.forEach((item, index) => {
-            formData.append('images[]', item);
+            formData.append(`images[${index}][image]`, item.imge);
+            formData.append(`images[${index}][sort]`, item.sort);
         });
 
 
-        // let data = {
-        //     title: ,
-        //     body :  ,
-        //     background : ,
-        //     content ''
-        // }
-
-        fetch("https://talkwebnow.online/backend/api/articles", {
+        fetch(API_URL + "articles", {
             method: 'POST',
             body: formData,
             headers: {
                 Authorization: `Bearer ${JSON.parse(sessionStorage.getItem("token"))}`,
-                // 'Content-Type': 'application/json',
                 "accept": "application/json"
             },
         })
