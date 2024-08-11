@@ -1,3 +1,6 @@
+import { API_URL } from './config.js';
+
+
 // Select the buttonScroll element
 let buttonScroll = document.querySelector(".buttonScroll");
 
@@ -66,11 +69,8 @@ document.getElementById("GetInTouchButton").addEventListener("click", function (
     }
 });
 
-// Define the API endpoint for fetching articles
-const url = 'https://talkwebnow.online/backend/api/articles';
-
 // Fetch articles from the API and handle the response
-fetch(url)
+fetch(API_URL + "articles")
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
