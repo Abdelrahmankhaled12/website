@@ -196,24 +196,8 @@ const Save = async () => {
         formData.append('background', boxArticle.image);
         formData.append('content', JSON.stringify(content));
 
-
-        let myArray = [{
-            imge: boxArticle.image,
-            sort: 1,
-        }, {
-            imge: boxArticle.image,
-            sort: 2,
-        }, {
-            imge: boxArticle.image,
-            sort: 3,
-        }]
-
-        console.log(myArray)
-
-        // formData.append('images[]', myArray);
-
-        myArray.forEach((item, index) => {
-            formData.append(`images[${index}][image]`, item.imge);
+        images.forEach((item, index) => {
+            formData.append(`images[${index}][image]`, item.image);
             formData.append(`images[${index}][sort]`, item.sort);
         });
 

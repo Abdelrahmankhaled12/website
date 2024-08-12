@@ -106,6 +106,10 @@ fetch(API_URL + "articles")
                     </div>
                 `;
 
+                div.addEventListener("click", () => {
+                    window.location.href = `article.html?&article=${item.title}&id=${item.id}`
+                })
+                
                 // Append clones of the div to different groups
                 if (index <= 2) {
                     document.getElementById("groupOne").append(div.cloneNode(true));

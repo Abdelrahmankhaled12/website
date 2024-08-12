@@ -1607,3 +1607,33 @@ form {
 
     }
 }
+
+.noArticlesAdd {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+        font-size: 45px;
+        color: $black-color;
+        font-weight: 500;
+    }
+}
+
+.delete {
+    background-color: transparent;
+    color: red;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    background-color: rgba(255, 0, 0, 0.361);
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

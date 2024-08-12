@@ -1,16 +1,70 @@
 
-
-const buttonArrowLeft = document.querySelectorAll(".arrowLeft");
-const buttonArrowRight = document.querySelectorAll(".arrowRight");
+import { API_URL } from './config.js';
 
 
-buttonArrowLeft.forEach((button) => {
-    button.addEventListener("click", () => { navigation("left") })
-})
+fetch(API_URL + "articles")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.data.data.length > 0) {
+            data.data.data.forEach((item, index) => {
+                let div = document.createElement("div");
+                div.classList.add("box");
+                div.innerHTML = `
+                    <div class="image">
+                        <img src=${item.background} alt="">
+                    </div>
+                    <div class="text">
+                        <div class="logo">
+                            <img src="./assets/logo.png" alt="">
+                        </div>
+                        <h2>${item.title}</h2>
+                        <p>${item.body}</p>
+                        <div class="footer">
+                            <a href="article.html?&article=${item.title}&id=${item.id}" class="readArticle">
+                                <p>Read article</p>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </a>
+                            <span>
+                                <span>Posted 1 day ago</span>
+                                <img src="./assets/pages.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                `;
 
-buttonArrowRight.forEach((button) => {
-    button.addEventListener("click", () => { navigation("right") })
-})
+                div.addEventListener("click", () => {
+                    window.location.href = `article.html?&article=${item.title}&id=${item.id}`
+                })
+
+                // Append clones of the div to different groups
+                if (index <= 2) {
+                    document.getElementById("groupOne").append(div.cloneNode(true));
+                }
+                if (index > 2 && index < 6) {
+                    document.getElementById("groupTwo").append(div.cloneNode(true));
+                }
+
+                // Append div to the carousel container
+                document.getElementById("carouselContainerBoxesDesktop").append(div);
+            });
+
+            // Add event listeners for carousel navigation
+            const buttonArrowLeft = document.getElementById("arrowLeft");
+            const buttonArrowRight = document.getElementById("arrowRight");
+
+            buttonArrowLeft.addEventListener("click", () => { navigation("left") });
+            buttonArrowRight.addEventListener("click", () => { navigation("right") });
+        }
+    })
+    .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+    });
+
 
 
 // Function to handle carousel navigation

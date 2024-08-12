@@ -42,9 +42,6 @@
                             <a href="../portfolio.html">Portfolio</a>
                         </li>
                         <li>
-                            <a href="../projects.html">Project</a>
-                        </li>
-                        <li>
                             <a href="../articles.html">Articles</a>
                         </li>
                         <li>
@@ -84,9 +81,6 @@
                     </li>
                     <li>
                         <a href="../portfolio.html">Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="../projects.html">Project</a>
                     </li>
                     <li>
                         <a href="../articles.html">Articles</a>
@@ -138,67 +132,39 @@
                     <div class="boxes">
                         <div class="box">
                             <div class="text">
-                                <span>22</span>
+                                <span id="totalArticles"></span>
                                 <p>Total Articles</p>
                             </div>
                             <div class="icon">
                                 <i class="fa-regular fa-newspaper"></i>
                             </div>
                         </div>
-                        <div class="box">
+                        <a href="./addArticle.html" class="box">
                             <div class="text">
-                                <span>22</span>
-                                <p>Total Articles</p>
+                                <h2>Add Article</h2>
                             </div>
                             <div class="icon">
-                                <i class="fa-regular fa-newspaper"></i>
+                                <i class="fa-solid fa-file-circle-plus"></i>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="articles">
-                    <h1 class="wow animate__fadeInUp" data-wow-duration="1.6s">Articles</h1>
-                    <div class="grid">
-                        <div class="box">
-                            <div class="image">
-                                <img src="../assets/articles.png" alt="">
-                            </div>
-                            <div class="text">
-                                <div class="logo">
-                                    <img src="../assets/logo.png" alt="">
-                                </div>
-                                <h2>Avocado prices surge nearly 1%</h2>
-                                <p>Avocado prices surge nearly 1% in USA this morning, and continuing the positive trend
-                                    it’s
-                                    time to grow more fruits ... </p>
-                                <div class="footer">
-                                    <button class="readArticle">
-                                        <p>Read article </p>
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                    </button>
-                                    <span> <span>Posted 1 day ago </span> <img src="../assets/pages.png" alt=""> </span>
-                                </div>
-                            </div>
-                        </div>
+                    <h1>Articles</h1>
+                    <div class="grid" id="articles" style="display: none;">
                     </div>
-                    <div class="controls articles wow animate__fadeInUp" data-wow-duration="1.5s">
-                        <button><i class="fa-solid fa-arrow-left"></i></button>
-                        <ul>
-                            <li class="active">1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                            <li>5</li>
+                    <div class="noArticlesAdd" id="noArticlesAdd">
+                        <p>No articles added</p>
+                    </div>
+                    <div id="controls" style="display: none;" class="controls articles wow animate__fadeInUp" data-wow-duration="1.5s">
+                        <button id="buttonLeft"><i class="fa-solid fa-arrow-left"></i></button>
+                        <ul id="ul_controls">
                         </ul>
-                        <button><i class="fa-solid fa-arrow-right"></i></button>
+                        <button id="buttonRight"><i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
-
         <!-- Button Scroll -->
         <button class="buttonScroll">
             <i class="fa-solid fa-angles-up"></i>
@@ -213,8 +179,20 @@
                     <p>© 2024 All rights reserved</p>
                 </div>
                 <div class="partTwo">
-                    <div class="language">
-                        <img src="../assets/language.png" alt="language icon">
+                    <div class="icon">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-brands fa-facebook"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-brands fa-instagram"></i>
                     </div>
                 </div>
             </div>
@@ -222,6 +200,9 @@
         <!-- End Footer -->
     </div>
     <!-- Start Content Page -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Include the minified version of the FontAweSome JavaScript library -->
     <script src="../js/all.min.js"></script>
@@ -231,6 +212,8 @@
 
     <!-- Include your custom JavaScript file -->
     <script src="../js/script.js"></script>
+
+    <script src="../js/dashboard.js" type="module"></script>
 </body>
 
 </html>
