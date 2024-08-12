@@ -2495,7 +2495,7 @@ form .gridForm {
   align-items: center;
   margin-top: 20px;
 }
-.articles .grid .box .text .footer button {
+.articles .grid .box .text .footer a {
   background-color: #F2F3F4;
   color: #171721;
   border: 1px solid #F2F3F4;
@@ -2507,17 +2507,21 @@ form .gridForm {
   color: #171721;
   cursor: pointer;
   transition: 0.5s;
+  text-decoration: none;
 }
-.articles .grid .box .text .footer button p {
+.articles .grid .box .text .footer a p {
   color: #171721;
   font-weight: 600;
   transition: 0.5s;
 }
-.articles .grid .box .text .footer button:hover {
+.articles .grid .box .text .footer a svg {
+  font-size: 13px;
+}
+.articles .grid .box .text .footer a:hover {
   background-color: #005E5D;
   color: #FFFFFF;
 }
-.articles .grid .box .text .footer button:hover p {
+.articles .grid .box .text .footer a:hover p {
   color: #FFFFFF;
 }
 .articles .grid .box .text .footer span {
@@ -3202,6 +3206,27 @@ footer .container .partOne a:hover {
 footer .container .partOne p {
   font-size: 14px;
   color: #6F818C;
+}
+footer .container .partTwo {
+  display: flex;
+  gap: 10px;
+}
+footer .container .partTwo .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #005E5D;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border: 1px solid #005E5D;
+  cursor: pointer;
+}
+footer .container .partTwo .icon:hover {
+  color: #005E5D;
+  background-color: transparent;
 }
 
 .bodyLogin {

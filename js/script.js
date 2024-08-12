@@ -55,23 +55,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 2000); // 2000 milliseconds = 2 seconds
 });
 
-document.getElementById("GetInTouchButton").addEventListener("click", function () {
-    // Remove the 'showMenuMobile' class from the 'menuMobile' element when 'buttonClose' button is clicked
-    const section = document.getElementById("getInTouch");
-    // Check if the "section" element exists
-    if (section) {
-        // Get the distance between the top of the "section" element and the top of the viewport
-        const distanceToTop = section.getBoundingClientRect().top;
-        // Check if the absolute value of the distance is less than 100 pixels
-        if (Math.abs(distanceToTop) < 100) {
-            // If the section is already within 100 pixels, simply scroll smoothly to the top of the section
-            section.scrollIntoView({ behavior: 'smooth' });
-        } else {
-            // If the section is more than 100 pixels away, scroll smoothly to bring the section to the top of the viewport
-            window.scrollBy({
-                top: distanceToTop - 100, // Subtracting 100 pixels to ensure it's less than 100 pixels away
-                behavior: 'smooth'
-            });
+
+if (document.getElementById("GetInTouchButton")) {
+    document.getElementById("GetInTouchButton").addEventListener("click", function () {
+        // Remove the 'showMenuMobile' class from the 'menuMobile' element when 'buttonClose' button is clicked
+        const section = document.getElementById("getInTouch");
+        // Check if the "section" element exists
+        if (section) {
+            // Get the distance between the top of the "section" element and the top of the viewport
+            const distanceToTop = section.getBoundingClientRect().top;
+            // Check if the absolute value of the distance is less than 100 pixels
+            if (Math.abs(distanceToTop) < 100) {
+                // If the section is already within 100 pixels, simply scroll smoothly to the top of the section
+                section.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                // If the section is more than 100 pixels away, scroll smoothly to bring the section to the top of the viewport
+                window.scrollBy({
+                    top: distanceToTop - 100, // Subtracting 100 pixels to ensure it's less than 100 pixels away
+                    behavior: 'smooth'
+                });
+            }
         }
-    }
-});
+    });
+}
+

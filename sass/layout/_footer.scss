@@ -38,5 +38,28 @@ footer {
                 color: #6F818C;
             }
         }
+        .partTwo {
+            display: flex;
+            gap: 10px;
+
+            .icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: $primary_color;
+                color: #ffffff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: 0.5s;
+                border: 1px solid $primary_color;
+                cursor: pointer;
+                &:hover {
+                    color: $primary_color;
+                    background-color: transparent;
+                }
+            }
+
+        }
     }
 }
