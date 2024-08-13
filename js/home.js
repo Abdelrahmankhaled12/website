@@ -1,6 +1,5 @@
 import { API_URL , timeSince } from './config.js';
 
-
 // Select the buttonScroll element
 let buttonScroll = document.querySelector(".buttonScroll");
 

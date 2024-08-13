@@ -1,11 +1,14 @@
 
-import { API_URL } from './config.js';
+import { API_URL , timeSince} from './config.js';
 
 const searchParams = new URLSearchParams(location.search);
 
 
 fetch(API_URL + `articles/${searchParams.get('id')}`)
     .then(response => {
+        if(response.status === 404) {
+            window.location.href = "articles.html"
+        }
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
@@ -15,6 +18,7 @@ fetch(API_URL + `articles/${searchParams.get('id')}`)
         document.getElementById("imgArticle").src = data.data.background;
         document.getElementById("titleArticleTop").innerHTML = data.data.title;
         document.getElementById("descriptionArticleTop").innerHTML = data.data.body;
+        document.getElementById("time").innerHTML = timeSince(data.data.created_at);
 
         data.data.content.sort((a, b) => a.sort - b.sort).forEach((item) => {
             if(item.image) {
@@ -45,10 +49,6 @@ fetch(API_URL + `articles/${searchParams.get('id')}`)
     .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
     });
-
-
-
-
 
 
 fetch(API_URL + "articles")
@@ -103,11 +103,20 @@ fetch(API_URL + "articles")
             });
 
             // Add event listeners for carousel navigation
-            const buttonArrowLeft = document.getElementById("arrowLeft");
-            const buttonArrowRight = document.getElementById("arrowRight");
 
-            buttonArrowLeft.addEventListener("click", () => { navigation("left") });
-            buttonArrowRight.addEventListener("click", () => { navigation("right") });
+
+            const buttonArrowLeft = document.querySelectorAll(".arrowLeft");
+            const buttonArrowRight = document.querySelectorAll(".arrowRight");
+            
+            
+            buttonArrowLeft.forEach((button) => {
+                button.addEventListener("click", () => { navigation("left") })
+            })
+            
+            buttonArrowRight.forEach((button) => {
+                button.addEventListener("click", () => { navigation("right") })
+            })
+            
         }
     })
     .catch(error => {

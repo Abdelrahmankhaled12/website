@@ -1312,136 +1312,6 @@ form .gridForm {
   color: #005E5D;
 }
 
-.articleShow {
-  margin-top: 50px;
-}
-@media only screen and (min-width: 992px) {
-  .articleShow {
-    display: grid;
-    gap: 30px;
-    grid-template-columns: 2.5fr 1fr;
-  }
-}
-.articleShow .top {
-  border: 1px solid #E4E6E8;
-  border-radius: 14px;
-  margin-bottom: 20px;
-}
-.articleShow .top .image img {
-  width: 100%;
-  border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
-  height: 100px;
-  filter: blur(3px);
-}
-.articleShow .top .text {
-  position: relative;
-  padding: 20px;
-}
-.articleShow .top .text .textTop {
-  display: flex;
-}
-.articleShow .top .text .textTop .logo {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #FFFFFF;
-  border-radius: 12px;
-  border: 1px solid #E4E6E8;
-  position: absolute;
-  top: -50px;
-  box-shadow: 0px 2px 8px 0px rgba(153, 155, 168, 0.2);
-}
-.articleShow .top .text .textTop .logo img {
-  width: 40px;
-  height: 40px;
-}
-.articleShow .top .text .textTop span {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: rgba(111, 129, 140, 0.75);
-  font-size: 13px;
-  flex: 1;
-  justify-content: end;
-}
-.articleShow .top .text h2 {
-  font-size: 19px;
-  color: #171721;
-  margin-top: 10px;
-}
-.articleShow .top .text p {
-  color: #6F818C;
-  line-height: 1.4;
-  font-size: 14px;
-  margin: 10px 0px;
-}
-.articleShow .aboutArticle {
-  padding: 10px 25px;
-  border: 1px solid #E4E6E8;
-  border-radius: 16px;
-}
-.articleShow .aboutArticle .image {
-  margin-bottom: 30px;
-}
-.articleShow .aboutArticle .image img {
-  width: 100%;
-  border-radius: 16px;
-}
-.articleShow .aboutArticle .text h1 {
-  color: #171721;
-  padding: 10px 0px;
-  font-size: 22px;
-}
-@media only screen and (min-width: 640px) {
-  .articleShow .aboutArticle .text h1 {
-    font-size: 25px;
-  }
-}
-.articleShow .aboutArticle .text .body {
-  margin: 10px 0px 30px;
-  font-size: 15px;
-  color: #171721;
-  line-height: 1.5;
-  font-weight: 500;
-}
-.articleShow .aboutArticle ol {
-  margin: 20px 0px;
-  padding: 0px 0px 0px 10px;
-  list-style: none;
-}
-@media only screen and (min-width: 640px) {
-  .articleShow .aboutArticle ol {
-    padding: 0px 35px;
-  }
-}
-.articleShow .aboutArticle ol li {
-  margin: 10px 0px;
-  color: #171721;
-  font-weight: 500;
-  font-size: 14px;
-  position: relative;
-}
-.articleShow .aboutArticle ol li::before {
-  content: "";
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: #CFB500;
-  left: -11px;
-  top: 20%;
-  transform: translateY(0%);
-}
-@media only screen and (min-width: 640px) {
-  .articleShow .aboutArticle ol li::before {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-
 .noArticlesAdd {
   height: 50vh;
   display: flex;
@@ -2592,8 +2462,127 @@ form .gridForm {
     grid-template-columns: 2.5fr 1fr;
   }
 }
-.article .grid .partOne .articleShow {
-  display: block !important;
+.article .grid .partOne .articleShow .top {
+  border: 1px solid #E4E6E8;
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+.article .grid .partOne .articleShow .top .image img {
+  width: 100%;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  height: 100px;
+  filter: blur(3px);
+}
+.article .grid .partOne .articleShow .top .text {
+  position: relative;
+  padding: 20px;
+}
+.article .grid .partOne .articleShow .top .text .textTop {
+  display: flex;
+}
+.article .grid .partOne .articleShow .top .text .textTop .logo {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #E4E6E8;
+  position: absolute;
+  top: -50px;
+  box-shadow: 0px 2px 8px 0px rgba(153, 155, 168, 0.2);
+}
+.article .grid .partOne .articleShow .top .text .textTop .logo img {
+  width: 40px;
+  height: 40px;
+}
+.article .grid .partOne .articleShow .top .text .textTop span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: rgba(111, 129, 140, 0.75);
+  font-size: 13px;
+  flex: 1;
+  justify-content: end;
+}
+.article .grid .partOne .articleShow .top .text h2 {
+  font-size: 19px;
+  color: #171721;
+  margin-top: 10px;
+}
+.article .grid .partOne .articleShow .top .text p {
+  color: #6F818C;
+  line-height: 1.4;
+  font-size: 14px;
+  margin: 10px 0px;
+}
+.article .grid .partOne .articleShow .aboutArticle {
+  padding: 10px 25px;
+  border: 1px solid #E4E6E8;
+  border-radius: 16px;
+}
+.article .grid .partOne .articleShow .aboutArticle .image {
+  margin-bottom: 30px;
+}
+.article .grid .partOne .articleShow .aboutArticle .image img {
+  width: 100%;
+  border-radius: 16px;
+  max-width: 750px;
+  display: block;
+  margin: auto;
+}
+.article .grid .partOne .articleShow .aboutArticle .text h1 {
+  color: #171721;
+  padding: 10px 0px;
+  font-size: 22px;
+}
+@media only screen and (min-width: 640px) {
+  .article .grid .partOne .articleShow .aboutArticle .text h1 {
+    font-size: 25px;
+  }
+}
+.article .grid .partOne .articleShow .aboutArticle .text .body {
+  margin: 10px 0px 30px;
+  font-size: 15px;
+  color: #171721;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.article .grid .partOne .articleShow .aboutArticle ol {
+  margin: 10px 0px;
+  padding: 0px 0px 0px 10px;
+  list-style: none;
+}
+@media only screen and (min-width: 640px) {
+  .article .grid .partOne .articleShow .aboutArticle ol {
+    padding: 0px 35px;
+  }
+}
+.article .grid .partOne .articleShow .aboutArticle ol li {
+  margin: 10px 0px;
+  color: #171721;
+  font-weight: 500;
+  font-size: 16px;
+  position: relative;
+}
+.article .grid .partOne .articleShow .aboutArticle ol li::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #CFB500;
+  left: -11px;
+  top: 20%;
+  transform: translateY(0%);
+}
+@media only screen and (min-width: 640px) {
+  .article .grid .partOne .articleShow .aboutArticle ol li::before {
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 .article .grid .partOne .carouselDesktop {
   display: block;
@@ -2641,6 +2630,7 @@ form .gridForm {
 .moreArticles .box .text h2 {
   font-size: 16px;
   color: #171721;
+  margin: 2px 0px !important;
 }
 .moreArticles .box .text p {
   color: #6F818C;
