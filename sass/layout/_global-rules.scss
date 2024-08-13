@@ -1345,20 +1345,25 @@ form {
         @include md {
             width: 70%;
         }
+
         ol {
             padding-left: 20px;
+
             li {
                 margin-top: 20px;
             }
         }
+
         ul {
             padding-left: 15px;
+
             li {
                 font-size: 15px;
-                color:$black-color;
+                color: $black-color;
                 margin: 5px 0px;
             }
         }
+
         p {
             color: $black_color;
             font-size: 16px;
@@ -1475,153 +1480,154 @@ form {
             color: $primary_color;
         }
     }
+
     .articleShow {
-    margin-top: 50px;
+        margin-top: 50px;
 
-    @include md {
-        display: grid;
-        gap: 30px;
-        grid-template-columns: 2.5fr 1fr;
-    }
-
-    .top {
-        border: 1px solid #E4E6E8;
-        border-radius: 14px;
-        margin-bottom: 20px;
-
-        .image {
-            img {
-                width: 100%;
-                border-top-left-radius: 14px;
-                border-top-right-radius: 14px;
-                height: 100px;
-                filter: blur(3px);
-            }
+        @include md {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: 2.5fr 1fr;
         }
 
-        .text {
-            position: relative;
-            padding: 20px;
+        .top {
+            border: 1px solid #E4E6E8;
+            border-radius: 14px;
+            margin-bottom: 20px;
 
-            .textTop {
-                display: flex;
+            .image {
+                img {
+                    width: 100%;
+                    border-top-left-radius: 14px;
+                    border-top-right-radius: 14px;
+                    height: 100px;
+                    filter: blur(3px);
+                }
+            }
 
-                .logo {
-                    width: 60px;
-                    height: 60px;
+            .text {
+                position: relative;
+                padding: 20px;
+
+                .textTop {
                     display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: #FFFFFF;
-                    border-radius: 12px;
-                    border: 1px solid #E4E6E8;
-                    position: absolute;
-                    top: -50px;
-                    box-shadow: 0px 2px 8px 0px rgba(153, 155, 168, 0.2);
 
-                    img {
-                        width: 40px;
-                        height: 40px;
+                    .logo {
+                        width: 60px;
+                        height: 60px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #FFFFFF;
+                        border-radius: 12px;
+                        border: 1px solid #E4E6E8;
+                        position: absolute;
+                        top: -50px;
+                        box-shadow: 0px 2px 8px 0px rgba(153, 155, 168, 0.2);
+
+                        img {
+                            width: 40px;
+                            height: 40px;
+                        }
+                    }
+
+                    span {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        color: rgba(111, 129, 140, 0.75);
+                        font-size: 13px;
+                        flex: 1;
+                        justify-content: end;
                     }
                 }
 
-                span {
-                    display: flex;
-                    align-items: center;
-                    gap: 5px;
-                    color: rgba(111, 129, 140, 0.75);
-                    font-size: 13px;
-                    flex: 1;
-                    justify-content: end;
+                h2 {
+                    font-size: 19px;
+                    color: $black_color;
+                    margin-top: 10px;
+                }
+
+                p {
+                    color: #6F818C;
+                    line-height: 1.4;
+                    font-size: 14px;
+                    margin: 10px 0px;
+                }
+            }
+        }
+
+        .aboutArticle {
+            padding: 10px 25px;
+            border: 1px solid #E4E6E8;
+            border-radius: 16px;
+
+            .image {
+                margin-bottom: 30px;
+
+                img {
+                    width: 100%;
+                    border-radius: 16px;
                 }
             }
 
-            h2 {
-                font-size: 19px;
-                color: $black_color;
-                margin-top: 10px;
-            }
-
-            p {
-                color: #6F818C;
-                line-height: 1.4;
-                font-size: 14px;
-                margin: 10px 0px;
-            }
-        }
-    }
-
-    .aboutArticle {
-        padding: 10px 25px;
-        border: 1px solid #E4E6E8;
-        border-radius: 16px;
-
-        .image {
-            margin-bottom: 30px;
-
-            img {
-                width: 100%;
-                border-radius: 16px;
-            }
-        }
-
-        .text {
-            h1 {
-                color: $black_color;
-                padding: 10px 0px;
-                font-size: 22px;
-
-                @include sm {
-                    font-size: 25px;
-                }
-            }
-
-            .body {
-                margin: 10px 0px 30px;
-                font-size: 15px;
-                color: $black_color;
-                line-height: 1.5;
-                font-weight: 500;
-            }
-        }
-
-        ol {
-            margin: 20px 0px;
-            padding: 0px 0px 0px 10px;
-            list-style: none;
-
-            @include sm {
-                padding: 0px 35px;
-            }
-
-            li {
-                margin: 10px 0px;
-                color: $black_color;
-                font-weight: 500;
-                font-size: 14px;
-                position: relative;
-
-                &::before {
-                    content: "";
-                    position: absolute;
-                    width: 5px;
-                    height: 5px;
-                    border-radius: 50%;
-                    background-color: #CFB500;
-                    left: -11px;
-                    top: 20%;
-                    transform: translateY(0%);
+            .text {
+                h1 {
+                    color: $black_color;
+                    padding: 10px 0px;
+                    font-size: 22px;
 
                     @include sm {
-                        top: 50%;
-                        transform: translateY(-50%);
+                        font-size: 25px;
+                    }
+                }
+
+                .body {
+                    margin: 10px 0px 30px;
+                    font-size: 15px;
+                    color: $black_color;
+                    line-height: 1.5;
+                    font-weight: 500;
+                }
+            }
+
+            ol {
+                margin: 20px 0px;
+                padding: 0px 0px 0px 10px;
+                list-style: none;
+
+                @include sm {
+                    padding: 0px 35px;
+                }
+
+                li {
+                    margin: 10px 0px;
+                    color: $black_color;
+                    font-weight: 500;
+                    font-size: 14px;
+                    position: relative;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        background-color: #CFB500;
+                        left: -11px;
+                        top: 20%;
+                        transform: translateY(0%);
+
+                        @include sm {
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
                     }
                 }
             }
-        }
 
+        }
     }
-}
 
 }
 
@@ -1631,6 +1637,7 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
+
     p {
         font-size: 45px;
         color: $black-color;
