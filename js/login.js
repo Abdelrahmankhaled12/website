@@ -1,5 +1,5 @@
-// API endpoint URL
-const KEY = "https://talkwebnow.online/backend/api/";
+import { API_URL } from './config.js';
+
 
 // Get Elements 
 const INPUT_EMAIL = document.getElementById("email"); // Email input field
@@ -36,7 +36,7 @@ const LOGIN_USER_SYSYEM = async () => {
         formData.append('password', INPUT_PASSWORD.value);
 
         // Make a POST request to the login API
-        fetch(KEY + "login", {
+        fetch(API_URL + "login", {
             method: 'POST',
             body: formData,
         })

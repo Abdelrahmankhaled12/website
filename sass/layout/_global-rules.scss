@@ -1119,7 +1119,9 @@ form {
     padding: 20px 0px 40px;
 
     .formOne {
-        width: 70%;
+        @include md {
+            width: 70%;
+        }
 
         p {
             color: $black_color;
@@ -1340,13 +1342,28 @@ form {
 
 
     .formTwo {
-        width: 70%;
-
+        @include md {
+            width: 70%;
+        }
+        ol {
+            padding-left: 20px;
+            li {
+                margin-top: 20px;
+            }
+        }
+        ul {
+            padding-left: 15px;
+            li {
+                font-size: 15px;
+                color:$black-color;
+                margin: 5px 0px;
+            }
+        }
         p {
             color: $black_color;
-            font-size: 18px;
+            font-size: 16px;
             text-transform: capitalize;
-            margin-bottom: 10px;
+            margin: 5px 0px 0px;
         }
 
         h5 {

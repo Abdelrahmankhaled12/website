@@ -983,8 +983,10 @@ form .gridForm {
 .addArticle {
   padding: 20px 0px 40px;
 }
-.addArticle .formOne {
-  width: 70%;
+@media only screen and (min-width: 992px) {
+  .addArticle .formOne {
+    width: 70%;
+  }
 }
 .addArticle .formOne p {
   color: #171721;
@@ -1179,14 +1181,30 @@ form .gridForm {
   color: rgba(111, 129, 140, 0.75);
   font-size: 13px;
 }
-.addArticle .formTwo {
-  width: 70%;
+@media only screen and (min-width: 992px) {
+  .addArticle .formTwo {
+    width: 70%;
+  }
+}
+.addArticle .formTwo ol {
+  padding-left: 20px;
+}
+.addArticle .formTwo ol li {
+  margin-top: 20px;
+}
+.addArticle .formTwo ul {
+  padding-left: 15px;
+}
+.addArticle .formTwo ul li {
+  font-size: 15px;
+  color: #171721;
+  margin: 5px 0px;
 }
 .addArticle .formTwo p {
   color: #171721;
-  font-size: 18px;
+  font-size: 16px;
   text-transform: capitalize;
-  margin-bottom: 10px;
+  margin: 5px 0px 0px;
 }
 .addArticle .formTwo h5 {
   text-align: center;
@@ -2483,6 +2501,7 @@ form .gridForm {
   border: 1px solid #E4E6E8;
   border-radius: 14px;
   position: relative;
+  cursor: pointer;
 }
 .articles .grid .box .image img {
   width: 100%;

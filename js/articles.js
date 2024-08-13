@@ -1,8 +1,10 @@
-import { API_URL } from './config.js';
+import { API_URL , timeSince } from './config.js';
 
+let pagination = 1;
 
 // Fetch articles from the API and handle the response
-fetch(API_URL + "articles")
+function callData () {
+    fetch(`${API_URL}articles?page=${pagination}`)
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
@@ -11,6 +13,7 @@ fetch(API_URL + "articles")
     })
     .then(data => {
         if (data.data.data.length > 0) {
+            document.getElementById('articles').innerHTML = "";
             document.getElementById('articles').style.display = "grid";
             data.data.data.forEach((item, index) => {
                 let div = document.createElement("div");
@@ -32,17 +35,69 @@ fetch(API_URL + "articles")
                                 <i class="fa-solid fa-chevron-right"></i>
                             </a>
                             <span>
-                                <span>Posted 1 day ago</span>
-                                <img src="./assets/pages.png" alt="">
+                            <span>${timeSince(item.created_at)}</span>
+                            <img src="./assets/pages.png" alt="">
                             </span>
                         </div>
                     </div>
                 `;
+
+                
+                div.addEventListener("click", () => {
+                    window.location.href = `article.html?&article=${item.title}&id=${item.id}`
+                })
+
                 // Append div to the carousel container
                 document.getElementById("articles").append(div);
+
+                if (data.data.last_page > 1) {
+                    document.getElementById("ul_controls").innerHTML = "";
+                    document.getElementById("controls").style.display = "flex";
+    
+                    for (let i = 1; i <= data.data.last_page; i++) {
+                        let li = document.createElement("li");
+                        if (i === pagination)
+                            li.classList.add("active");
+                        li.innerHTML = i;
+                        document.getElementById("ul_controls").append(li);
+    
+                        li.addEventListener("click", () => {
+                            pagination = i;
+                            callData();
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+
+                        });
+                    }
+    
+                    document.getElementById("buttonLeft").addEventListener("click", () => {
+                        if (pagination > 1) {
+                            pagination--;
+                            callData();
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+
+                        }
+                    });
+    
+                    document.getElementById("buttonRight").addEventListener("click", () => {
+                        if (pagination < data.data.last_page) {
+                            pagination++;
+                            callData();
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+
+                        }
+                    });
+                } else {
+                    document.getElementById("controls").style.display = "none";
+                }
+
+
             });
         }
     })
     .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
     });
+
+}
+
+callData();

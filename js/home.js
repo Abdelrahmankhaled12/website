@@ -1,4 +1,4 @@
-import { API_URL } from './config.js';
+import { API_URL , timeSince } from './config.js';
 
 
 // Select the buttonScroll element
@@ -99,7 +99,7 @@ fetch(API_URL + "articles")
                                 <i class="fa-solid fa-chevron-right"></i>
                             </a>
                             <span>
-                                <span>Posted 1 day ago</span>
+                                <span>${timeSince(item.created_at)}</span>
                                 <img src="./assets/pages.png" alt="">
                             </span>
                         </div>

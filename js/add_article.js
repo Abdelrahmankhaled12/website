@@ -180,7 +180,12 @@ document.getElementById("addPara").addEventListener("click", () => {
 
 document.getElementById("publishArticle").addEventListener("click", () => {
     Save().then((res) => {
-        console.log(res)
+        Swal.fire({
+            title: "Published!",
+            icon: "success"
+        }).then((result) => {
+            window.location.reload()
+        });
     })
 })
 

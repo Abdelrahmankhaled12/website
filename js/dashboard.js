@@ -99,6 +99,8 @@ function callData() {
                     li.addEventListener("click", () => {
                         pagination = i;
                         callData();
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+
                     });
                 }
 
@@ -106,6 +108,8 @@ function callData() {
                     if (pagination > 1) {
                         pagination--;
                         callData();
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+
                     }
                 });
 
@@ -113,6 +117,8 @@ function callData() {
                     if (pagination < data.data.last_page) {
                         pagination++;
                         callData();
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+
                     }
                 });
             } else {
