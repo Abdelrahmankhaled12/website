@@ -1,6 +1,55 @@
 
 import { API_URL } from './config.js';
 
+const searchParams = new URLSearchParams(location.search);
+
+
+fetch(API_URL + `articles/${searchParams.get('id')}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        document.getElementById("imgArticle").src = data.data.background;
+        document.getElementById("titleArticleTop").innerHTML = data.data.title;
+        document.getElementById("descriptionArticleTop").innerHTML = data.data.body;
+
+        data.data.content.sort((a, b) => a.sort - b.sort).forEach((item) => {
+            if(item.image) {
+                let div = document.createElement("div")
+                div.classList.add("image")
+    
+                div.innerHTML =
+                    `
+                        <img src=${item.image} alt="">
+                `
+                document.getElementById("aboutArticle").append(div)
+            }else {
+                let div = document.createElement("div")            
+                div.classList.add("text")
+            
+                div.innerHTML =
+                    `
+                <h1>${item.title}</h1>
+                <div class="body">
+                ${item.body}
+                </div>
+                `
+                document.getElementById("aboutArticle").append(div)
+            }
+        })
+
+    })
+    .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+    });
+
+
+
+
+
 
 fetch(API_URL + "articles")
     .then(response => {
