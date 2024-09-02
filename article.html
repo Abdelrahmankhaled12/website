@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <!-- Specifies the character encoding for the HTML document -->
     <meta charset="UTF-8">
@@ -18,9 +17,6 @@
     <!-- Link to the main stylesheet for the webpage -->
     <link rel="stylesheet" href="./main.css">
 
-    <!-- Link to the animate.css library for adding animations -->
-    <link rel="stylesheet" href="./css/animate.min.css">
-
 </head>
 
 <body>
@@ -32,7 +28,7 @@
     <!-- Start Effect -->
     <div id="effect" class="effect"></div>
     <!-- End Effect -->
-
+    <!-- Start Content Page Article -->
     <div class="sections" id="sections" style="display: none;">
         <!-- Start Header -->
         <header>
@@ -109,7 +105,7 @@
             </div>
         </div>
         <!-- End Search Section  -->
-        <!-- Start Content Page Portfolio -->
+        <!-- Start section Article -->
         <section class="article">
             <div class="container">
                 <div class="grid">
@@ -141,7 +137,7 @@
                         <div class="carouselDesktop moreArticles wow animate__fadeInUp" data-wow-duration="1.5s">
                             <div class="top">
                                 <h2>More Articles</h2>
-                                <div class="buttons">
+                                <div class="buttons" id="buttons">
                                     <button class="arrowLeft" id="arrowLeft"><i
                                             class="fa-solid fa-arrow-left"></i></button>
                                     <button class="arrowRight" id="arrowRight"><i
@@ -159,7 +155,6 @@
                                 <i class="fa-solid fa-chevron-right"></i>
                             </a>
                         </div>
-
                     </div>
                     <div class="partTwo">
                         <div class="projectOverview">
@@ -269,6 +264,8 @@
                 </div>
             </div>
         </section>
+        <!-- End section Article -->
+        <!-- Start section More Articles -->
         <section class="carouselDesktop carouselMobile moreArticles wow animate__fadeInUp" data-wow-duration="1.5s">
             <div class="container">
                 <div class="top">
@@ -282,12 +279,15 @@
                 </div>
             </div>
         </section>
-        <div class="div">
+        <!-- End section More Articles -->
+        <!-- Start section categories -->
+        <section class="div">
             <div class="container">
                 <div class="boxesShares" id="categories">
                 </div>
             </div>
-        </div>
+        </section>
+        <!-- End section categories -->
         <!-- Button Scroll -->
         <button class="buttonScroll">
             <i class="fa-solid fa-angles-up"></i>
@@ -322,12 +322,17 @@
         </footer>
         <!-- End Footer -->
     </div>
+    <!-- End Content Page Article -->
 
-
+    <!-- Including FontAwesome library for icons -->
     <script src="./js/all.min.js"></script>
-    <script src="./js/wow.min.js"></script>
+
+    <!-- Link to a custom JavaScript module for handling various functionalities -->
     <script src="./js/script.js" type="module"></script>
+
+    <!-- Link to another custom JavaScript module, for managing article-related functionalities  -->
     <script src="./js/article.js" type="module"></script>
+
 
 </body>
 

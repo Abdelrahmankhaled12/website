@@ -19,7 +19,7 @@ function callData() {
                     div.classList.add("box");
                     div.innerHTML = `
                     <div class="image">
-                    <img src="./assets/portfolio.png" alt="">
+                    <img src=${item.background} alt="">
                 </div>
                 <div class="text">
                     <div class="top">

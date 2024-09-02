@@ -1,63 +1,64 @@
-
 import { API_URL, timeSince } from './config.js';
 
-const searchParams = new URLSearchParams(location.search);
+const searchParams = new URLSearchParams(location.search); // Retrieve query parameters from the URL
 
-
+// Fetch a single article based on the ID from the URL
 fetch(API_URL + `articles/${searchParams.get('id')}`)
     .then(response => {
         if (response.status === 404) {
-            window.location.href = "articles.html"
+            // If the article is not found, redirect to the articles listing page
+            window.location.href = "articles.html";
         }
         if (!response.ok) {
+            // Handle other errors in the network response
             throw new Error('Network response was not ok ' + response.statusText);
         }
-        return response.json();
+        return response.json(); // Parse the JSON response
     })
     .then(data => {
+        // Update the article content on the page
         document.getElementById("imgArticle").src = data.data.background;
         document.getElementById("titleArticleTop").innerHTML = data.data.title;
         document.getElementById("descriptionArticleTop").innerHTML = data.data.body;
         document.getElementById("time").innerHTML = timeSince(data.data.created_at);
 
+        // Sort and render the content sections of the article
         data.data.content.sort((a, b) => a.sort - b.sort).forEach((item) => {
+            let div = document.createElement("div");
             if (item.image) {
-                let div = document.createElement("div")
-                div.classList.add("image")
-                div.innerHTML =
-                    `
-                        <img src=${item.image} alt="">
-                `
-                document.getElementById("aboutArticle").append(div)
+                // Create an image section if the content includes an image
+                div.classList.add("image");
+                div.innerHTML = `<img src=${item.image} alt="">`;
             } else {
-                let div = document.createElement("div")
-                div.classList.add("text")
-                div.innerHTML =
-                    `
-                <h1>${item.title}</h1>
-                <div class="body">
-                ${item.body}
-                </div>
-                `
-                document.getElementById("aboutArticle").append(div)
+                // Create a text section if the content includes text
+                div.classList.add("text");
+                div.innerHTML = `
+                    <h1>${item.title}</h1>
+                    <div class="body">
+                        ${item.body}
+                    </div>
+                `;
             }
-        })
-
+            document.getElementById("aboutArticle").append(div); // Append the created element to the article content
+        });
     })
     .catch(error => {
+        // Handle any errors that occur during the fetch operation
         console.error('There has been a problem with your fetch operation:', error);
     });
 
-
+// Fetch all articles to display in different sections
 fetch(API_URL + "articles")
     .then(response => {
         if (!response.ok) {
+            // Handle errors in the network response
             throw new Error('Network response was not ok ' + response.statusText);
         }
-        return response.json();
+        return response.json(); // Parse the JSON response
     })
     .then(data => {
         if (data.data.data.length > 0) {
+            // Iterate over the articles and create elements to display them
             data.data.data.forEach((item, index) => {
                 let div = document.createElement("div");
                 div.classList.add("box");
@@ -84,94 +85,96 @@ fetch(API_URL + "articles")
                     </div>
                 `;
 
+                // Add click event to redirect to the article page
                 div.addEventListener("click", () => {
-                    window.location.href = `article.html?&article=${item.title}&id=${item.id}`
-                })
+                    window.location.href = `article.html?&article=${item.title}&id=${item.id}`;
+                });
 
-                // Append clones of the div to different groups
+                // Append clones of the div to different groups for different sections
                 if (index <= 2) {
                     document.getElementById("groupOne").append(div.cloneNode(true));
                 }
-                if (index > 2 && index < 6) {
+                if (index > 2 && index < 6 && data.data.data.length >= 6) {
                     document.getElementById("groupTwo").append(div.cloneNode(true));
                 }
 
-                // Append div to the carousel container
+                // Append the div to the main carousel container
                 document.getElementById("carouselContainerBoxesDesktop").append(div);
             });
 
-            // Add event listeners for carousel navigation
+            // Handle carousel navigation if there are enough articles
+            if (data.data.data.length >= 6) {
+                const buttonArrowLeft = document.querySelectorAll(".arrowLeft");
+                const buttonArrowRight = document.querySelectorAll(".arrowRight");
 
+                buttonArrowLeft.forEach((button) => {
+                    button.addEventListener("click", () => { navigation("left"); });
+                });
 
-            const buttonArrowLeft = document.querySelectorAll(".arrowLeft");
-            const buttonArrowRight = document.querySelectorAll(".arrowRight");
-
-
-            buttonArrowLeft.forEach((button) => {
-                button.addEventListener("click", () => { navigation("left") })
-            })
-
-            buttonArrowRight.forEach((button) => {
-                button.addEventListener("click", () => { navigation("right") })
-            })
-
+                buttonArrowRight.forEach((button) => {
+                    button.addEventListener("click", () => { navigation("right"); });
+                });
+            } else {
+                // Hide the carousel navigation buttons if there are not enough articles
+                document.getElementById("buttons").style.display = "none";
+            }
         }
     })
     .catch(error => {
+        // Handle any errors that occur during the fetch operation
         console.error('There has been a problem with your fetch operation:', error);
     });
 
-
-
 // Function to handle carousel navigation
 const navigation = (dir) => {
-    const containers = document.querySelectorAll(".carouselContainerBoxes"); // Getting reference to carousel container
+    const containers = document.querySelectorAll(".carouselContainerBoxes"); // Select all carousel containers
     containers.forEach((container) => {
-        // Calculating scroll amount based on direction
-        const scrollAmount =
-            dir === "left"
-                ? container.scrollLeft - (container.offsetWidth + 5)
-                : container.scrollLeft + (container.offsetWidth + 5);
-        // Smooth scrolling to the calculated scroll amount
+        // Calculate the scroll amount based on the direction (left or right)
+        const scrollAmount = dir === "left"
+            ? container.scrollLeft - (container.offsetWidth + 5)
+            : container.scrollLeft + (container.offsetWidth + 5);
+        
+        // Perform a smooth scroll to the calculated position
         container.scrollTo({
             left: scrollAmount,
             behavior: "smooth",
         });
-    })
-
+    });
 };
 
-
-
-
+// Fetch statistics data and render them on the page
 fetch(`${API_URL}statistics`)
     .then(response => {
         if (!response.ok) {
+            // Handle errors in the network response
             throw new Error('Network response was not ok ' + response.statusText);
         }
-        return response.json();
+        return response.json(); // Parse the JSON response
     })
     .then(data => {
         if (data.data.length > 0) {
+            // Iterate over the statistics and create elements to display them
             data.data.forEach((item, index) => {
                 if (index < 5) {
                     let div = document.createElement("div");
                     div.classList.add("boxShares", item.status === "-" ? "boxDown" : "boxUP");
                     div.innerHTML = `
                         <div class="box">
-                                <i class="fa-solid fa-arrow-up-long"></i>
-                                <p>${item.percentage.toFixed(2)}%</p>
+                            <i class="fa-solid fa-arrow-up-long"></i>
+                            <p>${item.percentage.toFixed(2)}%</p>
                         </div>
                         <div class="text">
-                                <p>${item.title}</p>
-                                <span>${item.country}</span>
+                            <p>${item.title}</p>
+                            <span>${item.country}</span>
                         </div>
                     `;
+                    // Append the created element to the categories container
                     document.getElementById("categories").append(div);
                 }
-            })
+            });
         }
     })
     .catch(error => {
+        // Handle any errors that occur during the fetch operation
         console.error('There has been a problem with your fetch operation:', error);
     });
