@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Set the title of the webpage -->
-    <title>Dashboard</title>
+    <title>Remove Case Studies</title>
 
     <!-- Link to the website's favicon -->
     <link href="../assets/logo.ico" rel="shortcut icon" type="image/x-icon">
@@ -26,10 +26,12 @@
         <div class="loader"></div>
     </div>
     <!-- End Animation -->
+
     <!-- Start Effect -->
     <div id="effect" class="effect"></div>
     <!-- End Effect -->
-    <!-- Start Content Page-->
+
+    <!-- Start Content Page -->
     <div class="sections" id="sections" style="display: none;">
         <!-- Start Header -->
         <header>
@@ -40,19 +42,19 @@
                     </div>
                     <ul>
                         <li>
-                            <a class="active" href="./dashboard.html">Dashboard</a>
+                            <a href="./dashboard.html">Dashboard</a>
                         </li>
                         <li>
                             <a href="./add_article.html">Add Article</a>
                         </li>
                         <li>
-                            <a href="./remove_article.html">Remove Article</a>
+                            <a  href="./remove_article.html">Remove Article</a>
                         </li>
                         <li>
                             <a href="./add_casestudy.html">Add Case Studies</a>
                         </li>
                         <li>
-                            <a href="./remove_casestudy.html">Remove Case Studies</a>
+                            <a class="active" href="./remove_casestudy.html">Remove Case Studies</a>
                         </li>
                         <li>
                             <a href="./prices.html">Change Prices</a>
@@ -84,7 +86,7 @@
                 </div>
                 <ul>
                     <li>
-                        <a class="active" href="./dashboard.html">Dashboard</a>
+                        <a href="./dashboard.html">Dashboard</a>
                     </li>
                     <li>
                         <a href="./add_article.html">Add Article</a>
@@ -96,7 +98,7 @@
                         <a href="./add_casestudy.html">Add Case Studies</a>
                     </li>
                     <li>
-                        <a href="./remove_casestudy.html">Remove Case Studies</a>
+                        <a class="active" href="./remove_casestudy.html">Remove Case Studies</a>
                     </li>
                     <li>
                         <a href="./prices.html">Change Prices</a>
@@ -118,81 +120,26 @@
             </div>
         </div>
         <!-- End Search Section  -->
-        <!-- Start Content Page -->
-        <div class="dashboard">
+        <!-- Start Remove Article Section -->
+        <div class="removeArticleSection">
             <div class="container">
-                <div class="boxes">
-                    <div class="box">
-                        <div class="text">
-                            <span id="totalArticles"></span>
-                            <p>Total Articles</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa-regular fa-newspaper"></i>
-                        </div>
+                <div class="articles">
+                    <h1>Case Studies</h1>
+                    <div class="grid" id="articles" style="display: none;">
                     </div>
-                    <a href="./add_article.html" class="box">
-                        <div class="text">
-                            <h2>Add Article</h2>
-                        </div>
-                        <div class="icon">
-                            <i class="fa-solid fa-file-circle-plus"></i>
-                        </div>
-                    </a>
-                    <a href="./remove_article.html" class="box">
-                        <div class="text">
-                            <h2>Remove Article</h2>
-                        </div>
-                        <div class="icon">
-                            <i class="fa-solid fa-file-circle-minus"></i>
-                        </div>
-                    </a>
-                    <div class="box">
-                        <div class="text">
-                            <span id="totalCaseStudies"></span>
-                            <p>Total Case Studies</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa-regular fa-newspaper"></i>
-                        </div>
+                    <div class="noArticlesAdd" id="noArticlesAdd">
+                        <p>No Case Studies added</p>
                     </div>
-                    <a href="./add_casestudy.html" class="box">
-                        <div class="text">
-                            <h2>Add Case Studies</h2>
-                        </div>
-                        <div class="icon">
-                            <i class="fa-solid fa-file-circle-plus"></i>
-                        </div>
-                    </a>
-                    <a href="./remove_casestudy.html" class="box">
-                        <div class="text">
-                            <h2>Remove Case Studies</h2>
-                        </div>
-                        <div class="icon">
-                            <i class="fa-solid fa-file-circle-minus"></i>
-                        </div>
-                    </a>
-                    <div class="box">
-                        <div class="text">
-                            <span id="totalCategories"></span>
-                            <p>Total categories</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa-solid fa-layer-group"></i>
-                        </div>
+                    <div id="controls" style="display: none;" class="controls articles">
+                        <button id="buttonLeft"><i class="fa-solid fa-arrow-left"></i></button>
+                        <ul id="ul_controls">
+                        </ul>
+                        <button id="buttonRight"><i class="fa-solid fa-arrow-right"></i></button>
                     </div>
-                    <a href="./prices.html" class="box">
-                        <div class="text">
-                            <h2>Change Prices</h2>
-                        </div>
-                        <div class="icon">
-                            <i class="fa-solid fa-money-bill-wave"></i>
-                        </div>
-                    </a>
                 </div>
             </div>
         </div>
-        <!-- End Content Page -->
+        <!-- End Remove Article Section -->
         <!-- Button Scroll -->
         <button class="buttonScroll">
             <i class="fa-solid fa-angles-up"></i>
@@ -228,14 +175,18 @@
         <!-- End Footer -->
     </div>
     <!-- Start Content Page -->
+
+    <!-- Include the SweetAlert2 library for beautiful, responsive, customizable alerts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Include the minified version of the FontAwesome JavaScript library -->
     <script src="../js/all.min.js"></script>
-    
+
     <!-- Include your custom JavaScript file -->
     <script src="../js/script.js" type="module"></script>
 
-    <!-- Include the dashboard-specific JavaScript file -->
-    <script src="../js/dashboard.js" type="module"></script>
+    <!-- Include the remove_article-specific JavaScript file -->
+    <script src="../js/remove_caseStudy.js" type="module"></script>
 
 </body>
 

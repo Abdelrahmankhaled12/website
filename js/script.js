@@ -1,3 +1,5 @@
+import { API_URL } from './config.js';
+
 let buttonScroll = document.querySelector(".buttonScroll");
 
 // Event handler for window scroll event
@@ -42,8 +44,6 @@ document.getElementById("outMenu").addEventListener("click", function () {
 document.addEventListener("DOMContentLoaded", function () {
     // Execute the following code after a delay of 5000 milliseconds (5 seconds)
     setTimeout(() => {
-        // Initialize the WOW.js library for animating elements
-        new WOW().init();
         // Hide the loader element after 5 seconds
         document.getElementById("loader").style.display = "none";
         // Hide the effect element after 5 seconds
@@ -78,4 +78,36 @@ if (document.getElementById("GetInTouchButton")) {
         }
     });
 }
+
+fetch(`${API_URL}statistics`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.data.length > 0) {
+            data.data.forEach((item, index) => {
+                if (index < 2) {
+                    let div = document.createElement("div");
+                    div.classList.add("boxShares", item.status === "-" ? "boxDown" : "boxUP");
+                    div.innerHTML = `
+                        <div class="box">
+                                <i class="fa-solid fa-arrow-up-long"></i>
+                                <p>${item.percentage.toFixed(2)}%</p>
+                        </div>
+                        <div class="text">
+                                <p>${item.title}</p>
+                                <span>${item.country}</span>
+                        </div>
+                    `;
+                    document.getElementById("boxesSearch").append(div);
+                }
+            })
+        }
+    })
+    .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+    });
 

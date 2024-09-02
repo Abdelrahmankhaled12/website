@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Sets the character encoding for the HTML document to UTF-8 -->
+    <meta charset="UTF-8">
+
+    <!-- Sets the viewport to ensure the page is responsive on all devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Sets the title of the webpage -->
+    <title>Add Article</title>
+
+    <!-- Links to the website's favicon -->
+    <link href="../assets/logo.ico" rel="shortcut icon" type="image/x-icon">
+
+    <!-- Links to the main stylesheet for the website -->
+    <link rel="stylesheet" href="../main.css">
+
+    <!-- Links to the Quill text editor stylesheet for its snow theme -->
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Start Animation -->
+    <div class="animation" id="loader">
+        <div class="loader"></div>
+    </div>
+    <!-- End Animation -->
+    <!-- Start Effect -->
+    <div id="effect" class="effect"></div>
+    <!-- End Effect -->
+    <!-- Start Content Page -->
+    <div class="sections" id="sections" style="display: none;">
+        <!-- Start Header -->
+        <header>
+            <div class="container">
+                <div class="partOne">
+                    <div class="logo">
+                        <a href="../index.html"><img src="../assets/logo.png" alt="logo"></a>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="./dashboard.html">Dashboard</a>
+                        </li>
+                        <li>
+                            <a class="active" href="./add_article.html">Add Article</a>
+                        </li>
+                        <li>
+                            <a href="./remove_article.html">Remove Article</a>
+                        </li>
+                        <li>
+                            <a href="./add_casestudy.html">Add Case Studies</a>
+                        </li>
+                        <li>
+                            <a href="./remove_casestudy.html">Remove Case Studies</a>
+                        </li>
+                        <li>
+                            <a href="./prices.html">Change Prices</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="partTwo">
+                    <div class="icons">
+                        <div class="search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <div class="language">
+                            <img src="../assets/language.png" alt="language icon">
+                        </div>
+                        <div class="menuButton" id="showMenu">
+                            <img src="../assets/menu.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+        <!-- Start Header Mobile -->
+        <div class="menuMobile" id="menuMobile">
+            <div class="container">
+                <div class="top">
+                    <h4>Menu</h4>
+                    <button id="buttonClose"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <ul>
+                    <li>
+                        <a href="./dashboard.html">Dashboard</a>
+                    </li>
+                    <li>
+                        <a class="active" href="./add_article.html">Add Article</a>
+                    </li>
+                    <li>
+                        <a href="./remove_article.html">Remove Article</a>
+                    </li>
+                    <li>
+                        <a href="./add_casestudy.html">Add Case Studies</a>
+                    </li>
+                    <li>
+                        <a href="./remove_casestudy.html">Remove Case Studies</a>
+                    </li>
+                    <li>
+                        <a href="./prices.html">Change Prices</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="outMenu"></div>
+        </div>
+        <!-- End Header Mobile -->
+        <!-- Start Search Section  -->
+        <div class="search">
+            <div class="container">
+                <div class="searchInput">
+                    <input placeholder="Type to search a product in agriculture" type="text">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <div class="boxes" id="boxesSearch">
+                </div>
+            </div>
+        </div>
+        <!-- End Search Section  -->
+        <!-- Start Content Page -->
+        <div class="addArticle">
+            <div class="container">
+                <div class="formOne">
+                    <p>Please enter the title, text and image for the article's box.</p>
+                    <form action="">
+                        <input type="text" placeholder="Title" id="inputTitleBox">
+                        <textarea placeholder="Description" id="inputDescriptionBox" cols="20" rows="10"></textarea>
+                        <div class="uploadImage_content" id="image-uploader">
+                            <div class='content'>
+                                <p>Drag and drop your image here</p>
+                                <span>Or</span>
+                                <button id="browseImage" type='button'>Browse image</button>
+                            </div>
+                            <input type="file" accept="image/*" id='imgInputBox' />
+                        </div>
+                    </form>
+                </div>
+                <div class="boxesArticles">
+                    <div class="boxArticle">
+                        <div class="image">
+                            <img id="imageBox" alt="">
+                        </div>
+                        <div class="text">
+                            <div class="logo">
+                                <img src="../assets/logo.png" alt="">
+                            </div>
+                            <h2 id="headTitleBox"></h2>
+                            <p id="descriptionBox"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="formTwo">
+                    <h4>How to Add Article Content?</h4>
+                    <p>You have two options for adding content to your article:</p>
+                    <ol>
+                        <li>
+                            Add Title and Description:
+                            <ul>
+                                <li>Enter the article title in the designated field.</li>
+                                <li>Enter the description of the title in the designated field.</li>
+                                <li>After finishing, click the "Add" button.</li>
+                                <li>You can repeat these steps if you want to add another title and description.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Add an Image:
+                            <ul>
+                                <li>Use the "Add Image" option to upload the desired image.</li>
+                            </ul>
+                        </li>
+
+                    </ol>
+                    <form action="">
+                        <input type="text" placeholder="Title" id="inputTitleArticle">
+                        <div id="editor">
+                        </div>
+                        <button id="addPara" type="button">Add</button>
+                        <h5>Or</h5>
+                        <div class="uploadImage_content" id="image-uploader2">
+                            <div class='content'>
+                                <p>Drag and drop your image here</p>
+                                <span>Or</span>
+                                <button id="browseImageArticle" type='button'>Browse image</button>
+                            </div>
+                            <input type="file" accept="image/*" id='imgInputArticle' />
+                        </div>
+                    </form>
+                </div>
+                <div class="articleShow">
+                    <div>
+                        <div class="top">
+                            <div class="image">
+                                <img id="imgArticle" alt="">
+                            </div>
+                            <div class="text">
+                                <div class="textTop">
+                                    <div class="logo">
+                                        <img src="../assets/logo.png" alt="">
+                                    </div>
+                                    <span></span>
+                                </div>
+                                <h2 id="titleArticleTop"></h2>
+                                <p id="descriptionArticleTop"></p>
+                            </div>
+                        </div>
+                        <div class="aboutArticle" id="aboutArticle">
+                        </div>
+                    </div>
+                </div>
+                <button id="publishArticle" class="publishArticle">Publish Article</button>
+            </div>
+        </div>
+        <!-- End Content Page -->
+        <!-- Button Scroll -->
+        <button class="buttonScroll">
+            <i class="fa-solid fa-angles-up"></i>
+        </button>
+        <!-- Button Scroll -->
+        <!-- Start Footer -->
+        <footer>
+            <div class="container">
+                <div class="partOne">
+                    <a href="">Privacy Policy</a>
+                    <a href="">Term of Use</a>
+                    <p>© 2024 All rights reserved</p>
+                </div>
+                <div class="partTwo">
+                    <div class="icon">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-brands fa-facebook"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+    </div>
+    <!-- Start Content Page -->
+
+    <!-- Include the minified version of the FontAwesome JavaScript library -->
+    <script src="../js/all.min.js"></script>
+
+    <!-- Include your custom JavaScript file -->
+    <script src="../js/script.js" type="module"></script>
+    
+    <!-- Include the SweetAlert2 library for beautiful, responsive, customizable alerts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Include your add_article.js file for handling article-specific functionality -->
+    <script src="../js/add_article.js"></script>
+    
+    <!-- Include the Quill.js library for rich text editing -->
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+
+    <!-- Initialize a new Quill editor instance with the 'snow' theme -->
+    <script>
+        const quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+    </script>
+
+</body>
+
+</html>

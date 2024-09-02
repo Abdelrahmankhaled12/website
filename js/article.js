@@ -1,12 +1,12 @@
 
-import { API_URL , timeSince} from './config.js';
+import { API_URL, timeSince } from './config.js';
 
 const searchParams = new URLSearchParams(location.search);
 
 
 fetch(API_URL + `articles/${searchParams.get('id')}`)
     .then(response => {
-        if(response.status === 404) {
+        if (response.status === 404) {
             window.location.href = "articles.html"
         }
         if (!response.ok) {
@@ -21,19 +21,17 @@ fetch(API_URL + `articles/${searchParams.get('id')}`)
         document.getElementById("time").innerHTML = timeSince(data.data.created_at);
 
         data.data.content.sort((a, b) => a.sort - b.sort).forEach((item) => {
-            if(item.image) {
+            if (item.image) {
                 let div = document.createElement("div")
                 div.classList.add("image")
-    
                 div.innerHTML =
                     `
                         <img src=${item.image} alt="">
                 `
                 document.getElementById("aboutArticle").append(div)
-            }else {
-                let div = document.createElement("div")            
+            } else {
+                let div = document.createElement("div")
                 div.classList.add("text")
-            
                 div.innerHTML =
                     `
                 <h1>${item.title}</h1>
@@ -79,7 +77,7 @@ fetch(API_URL + "articles")
                                 <i class="fa-solid fa-chevron-right"></i>
                             </a>
                             <span>
-                                <span>Posted 1 day ago</span>
+                                <span>${timeSince(item.created_at)}</span>
                                 <img src="./assets/pages.png" alt="">
                             </span>
                         </div>
@@ -107,16 +105,16 @@ fetch(API_URL + "articles")
 
             const buttonArrowLeft = document.querySelectorAll(".arrowLeft");
             const buttonArrowRight = document.querySelectorAll(".arrowRight");
-            
-            
+
+
             buttonArrowLeft.forEach((button) => {
                 button.addEventListener("click", () => { navigation("left") })
             })
-            
+
             buttonArrowRight.forEach((button) => {
                 button.addEventListener("click", () => { navigation("right") })
             })
-            
+
         }
     })
     .catch(error => {
@@ -128,7 +126,6 @@ fetch(API_URL + "articles")
 // Function to handle carousel navigation
 const navigation = (dir) => {
     const containers = document.querySelectorAll(".carouselContainerBoxes"); // Getting reference to carousel container
-    console.log("yes")
     containers.forEach((container) => {
         // Calculating scroll amount based on direction
         const scrollAmount =
@@ -143,3 +140,38 @@ const navigation = (dir) => {
     })
 
 };
+
+
+
+
+fetch(`${API_URL}statistics`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.data.length > 0) {
+            data.data.forEach((item, index) => {
+                if (index < 5) {
+                    let div = document.createElement("div");
+                    div.classList.add("boxShares", item.status === "-" ? "boxDown" : "boxUP");
+                    div.innerHTML = `
+                        <div class="box">
+                                <i class="fa-solid fa-arrow-up-long"></i>
+                                <p>${item.percentage.toFixed(2)}%</p>
+                        </div>
+                        <div class="text">
+                                <p>${item.title}</p>
+                                <span>${item.country}</span>
+                        </div>
+                    `;
+                    document.getElementById("categories").append(div);
+                }
+            })
+        }
+    })
+    .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+    });

@@ -1554,6 +1554,7 @@ form .gridForm {
 }
 .home .sectionOne .grid .partOne .portfolioCase {
   display: none;
+  margin-top: 80px;
 }
 @media only screen and (min-width: 992px) {
   .home .sectionOne .grid .partOne .portfolioCase {
@@ -1621,6 +1622,7 @@ form .gridForm {
   }
 }
 .home .sectionOne .grid .partOne .portfolioCase .boxes .box {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   width: -moz-fit-content;
@@ -1634,23 +1636,42 @@ form .gridForm {
     margin-bottom: 20px;
   }
 }
+.home .sectionOne .grid .partOne .portfolioCase .boxes .box .image {
+  height: 100%;
+  max-height: 150px;
+}
+@media only screen and (min-width: 992px) {
+  .home .sectionOne .grid .partOne .portfolioCase .boxes .box .image {
+    max-height: 210px;
+  }
+}
 .home .sectionOne .grid .partOne .portfolioCase .boxes .box .image img {
   width: 100%;
-  height: 150px;
+  height: 100%;
+  max-height: 150px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
 @media only screen and (min-width: 992px) {
   .home .sectionOne .grid .partOne .portfolioCase .boxes .box .image img {
-    height: 100%;
+    max-height: 210px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .home .sectionOne .grid .partOne .portfolioCase .boxes .box .image img {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     border-top-right-radius: 0px;
   }
 }
 .home .sectionOne .grid .partOne .portfolioCase .boxes .box .text {
-  padding: 15px 20px 5px;
+  padding: 15px 20px;
   flex: 1;
+}
+@media only screen and (min-width: 992px) {
+  .home .sectionOne .grid .partOne .portfolioCase .boxes .box .text {
+    padding: 15px 20px 5px;
+  }
 }
 .home .sectionOne .grid .partOne .portfolioCase .boxes .box .text .top {
   display: flex;
@@ -1832,6 +1853,7 @@ form .gridForm {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  cursor: pointer;
 }
 .home .sectionTwo .projectsSection .grid .box .top {
   display: flex;
@@ -2294,6 +2316,7 @@ form .gridForm {
   }
 }
 .portfolio .grid .partOne .boxes .box {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   width: -moz-fit-content;
@@ -2307,15 +2330,29 @@ form .gridForm {
     margin-bottom: 20px;
   }
 }
+.portfolio .grid .partOne .boxes .box .image {
+  height: 100%;
+  max-height: 150px;
+}
+@media only screen and (min-width: 992px) {
+  .portfolio .grid .partOne .boxes .box .image {
+    max-height: 210px;
+  }
+}
 .portfolio .grid .partOne .boxes .box .image img {
   width: 100%;
-  height: 150px;
+  height: 100%;
+  max-height: 150px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
 @media only screen and (min-width: 992px) {
   .portfolio .grid .partOne .boxes .box .image img {
-    height: 100%;
+    max-height: 210px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .portfolio .grid .partOne .boxes .box .image img {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     border-top-right-radius: 0px;
@@ -2503,6 +2540,7 @@ form .gridForm {
   cursor: pointer;
 }
 .articles .grid .box .image img {
+  max-height: 190px;
   width: 100%;
   border-top-left-radius: 14px;
   border-top-right-radius: 14px;
@@ -2725,12 +2763,19 @@ form .gridForm {
   font-size: 22px;
 }
 
+.moreArticles .top {
+  margin-bottom: 20px !important;
+}
+.moreArticles .top h2 {
+  margin-bottom: 0px !important;
+}
 .moreArticles .box {
   border: 1px solid #E4E6E8;
   border-radius: 14px;
   cursor: pointer;
 }
 .moreArticles .box .image img {
+  max-height: 190px;
   width: 100%;
   border-top-left-radius: 14px;
   border-top-right-radius: 14px;
@@ -2965,42 +3010,39 @@ form .gridForm {
   line-height: 1.5;
   font-weight: 500;
 }
-.caseStudy .grid .partOne ul {
-  margin: 40px 0px 0px;
+.caseStudy .grid .partOne ol {
+  margin: 20px 0px;
   padding: 0px 0px 0px 10px;
   list-style: none;
 }
 @media only screen and (min-width: 640px) {
-  .caseStudy .grid .partOne ul {
+  .caseStudy .grid .partOne ol {
     padding: 0px 35px;
   }
 }
-.caseStudy .grid .partOne ul li {
-  margin: 10px 0px;
+.caseStudy .grid .partOne ol li {
+  margin: 15px 0px;
   color: #171721;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 17px;
   position: relative;
-  display: flex;
-  gap: 10px;
+}
+.caseStudy .grid .partOne ol li::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #CFB500;
+  left: -11px;
+  top: 20%;
+  transform: translateY(0%);
 }
 @media only screen and (min-width: 640px) {
-  .caseStudy .grid .partOne ul li {
-    align-items: center;
+  .caseStudy .grid .partOne ol li::before {
+    top: 50%;
+    transform: translateY(-50%);
   }
-}
-.caseStudy .grid .partOne ul li .icon {
-  width: 35px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 94, 93, 0.1019607843);
-  border-radius: 10px;
-  color: #005E5D;
-}
-.caseStudy .grid .partOne ul li span {
-  flex: 1;
 }
 .caseStudy .moreCaseStudy {
   display: none;
@@ -3355,23 +3397,24 @@ footer .container .partTwo .icon:hover {
 
 .dashboard {
   padding: 20px 0px;
+  min-height: 70vh;
 }
-.dashboard .top .boxes {
+.dashboard .boxes {
   display: grid;
   grid-template-columns: 1fr;
   gap: 25px;
 }
 @media only screen and (min-width: 640px) {
-  .dashboard .top .boxes {
+  .dashboard .boxes {
     grid-template-columns: 1fr 1fr;
   }
 }
 @media only screen and (min-width: 992px) {
-  .dashboard .top .boxes {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+  .dashboard .boxes {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
-.dashboard .top .boxes .box {
+.dashboard .boxes .box {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -3384,15 +3427,647 @@ footer .container .partTwo .icon:hover {
   color: #171721;
   position: relative;
 }
-.dashboard .top .boxes .box .text span {
+.dashboard .boxes .box .text span {
   color: #171721;
   font-size: 30px;
   font-weight: 600;
 }
-.dashboard .top .boxes .box .text p {
+.dashboard .boxes .box .text p {
   font-size: 17px;
 }
-.dashboard .top .boxes .box .icon svg {
+.dashboard .boxes .box .icon svg {
   font-size: 30px;
   color: #005E5D;
+}
+
+.prices {
+  padding: 15px 0px 30px;
+  overflow: hidden;
+}
+@media only screen and (min-width: 992px) {
+  .prices {
+    padding: 30px 0px 40px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .prices .form {
+    width: 50%;
+  }
+}
+.prices .form p {
+  color: #171721;
+  font-size: 18px;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+.prices .form form input {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #ffffff;
+  border: 1px solid #99BFBE;
+  font-size: 18px;
+  color: #171721;
+  border-radius: 14px;
+  outline: none;
+  margin: 10px 0px;
+}
+@media only screen and (min-width: 640px) {
+  .prices .form form input {
+    border: 1px solid #E4E6E8;
+  }
+}
+.prices .form form input::-moz-placeholder {
+  color: #6F818C;
+  font-weight: 500;
+}
+.prices .form form input::placeholder {
+  color: #6F818C;
+  font-weight: 500;
+}
+.prices .form form button {
+  width: 100%;
+  display: block;
+  margin: 5px 0px 0px auto;
+  padding: 12px;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid #005E5D;
+  background-color: #005E5D;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+.prices .form form button:hover {
+  background-color: #ffffff;
+  color: #005E5D;
+}
+.prices .showCategories {
+  padding: 30px 0px;
+}
+.prices .showCategories h2 {
+  margin-bottom: 20px;
+  font-size: 35px;
+  color: #171721;
+}
+.prices .showCategories .category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0862745098);
+}
+.prices .showCategories .category:last-of-type {
+  border: none;
+}
+.prices .showCategories .category .price p {
+  font-size: 17px;
+  color: #171721;
+}
+.prices .showCategories .category .price p span {
+  color: #005E5D;
+  font-weight: 700;
+}
+.prices .showCategories .category .update {
+  display: flex;
+  flex-direction: column;
+}
+.prices .showCategories .category .update input {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #ffffff;
+  border: 1px solid #99BFBE;
+  font-size: 18px;
+  color: #171721;
+  border-radius: 14px;
+  outline: none;
+  margin: 10px 0px;
+}
+@media only screen and (min-width: 640px) {
+  .prices .showCategories .category .update input {
+    border: 1px solid #E4E6E8;
+  }
+}
+.prices .showCategories .category .update input::-moz-placeholder {
+  color: #6F818C;
+  font-weight: 500;
+}
+.prices .showCategories .category .update input::placeholder {
+  color: #6F818C;
+  font-weight: 500;
+}
+.prices .showCategories .category .update button {
+  width: 100%;
+  display: block;
+  margin: 5px 0px 0px auto;
+  padding: 12px;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid #005E5D;
+  background-color: #005E5D;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+.prices .showCategories .category .update button:hover {
+  background-color: #ffffff;
+  color: #005E5D;
+}
+.prices .showCategories .category .remove {
+  background-color: transparent;
+  border: none;
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.addCaseStudy {
+  padding: 20px 0px 40px;
+}
+@media only screen and (min-width: 992px) {
+  .addCaseStudy .formOne {
+    width: 70%;
+  }
+}
+.addCaseStudy .formOne p {
+  color: #171721;
+  font-size: 18px;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+.addCaseStudy .formOne form input {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #ffffff;
+  border: 1px solid #99BFBE;
+  font-size: 18px;
+  color: #171721;
+  border-radius: 14px;
+  outline: none;
+  margin: 10px 0px;
+}
+@media only screen and (min-width: 640px) {
+  .addCaseStudy .formOne form input {
+    border: 1px solid #E4E6E8;
+  }
+}
+.addCaseStudy .formOne form input::-moz-placeholder {
+  color: #6F818C;
+  font-weight: 500;
+}
+.addCaseStudy .formOne form input::placeholder {
+  color: #6F818C;
+  font-weight: 500;
+}
+.addCaseStudy .formOne form textarea {
+  width: 100%;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #99BFBE;
+  font-size: 18px;
+  height: 200px;
+  color: #171721;
+  border-radius: 14px;
+  outline: none;
+  resize: vertical;
+}
+@media only screen and (min-width: 640px) {
+  .addCaseStudy .formOne form textarea {
+    border: 1px solid #E4E6E8;
+  }
+}
+.addCaseStudy .formOne form textarea::-moz-placeholder {
+  color: #6F818C;
+  font-weight: 500;
+}
+.addCaseStudy .formOne form textarea::placeholder {
+  color: #6F818C;
+  font-weight: 500;
+}
+.addCaseStudy .uploadImage_content {
+  min-height: 300px;
+  position: relative;
+  border: 1px dashed rgba(119, 119, 119, 0.4196078431);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 20px 0px;
+  border-radius: 14px;
+}
+.addCaseStudy .uploadImage_content .content p {
+  font-size: 22px;
+  color: rgba(0, 0, 0, 0.5882352941);
+}
+.addCaseStudy .uploadImage_content .content span {
+  display: block;
+  text-align: center;
+  margin: 5px 0px;
+}
+.addCaseStudy .uploadImage_content .content button {
+  border: 1px solid #005E5D;
+  color: #005E5D;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: transparent;
+  padding: 8px 15px;
+  border-radius: 4px;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+  cursor: pointer;
+  outline: none;
+  font-size: 17px;
+}
+.addCaseStudy .uploadImage_content .content button:hover {
+  background-color: rgba(144, 85, 253, 0.1843137255);
+}
+.addCaseStudy .uploadImage_content input {
+  display: none;
+}
+.addCaseStudy .caseStudies {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin: 30px 0px 50px;
+}
+@media only screen and (min-width: 992px) {
+  .addCaseStudy .caseStudies {
+    grid-template-columns: 2.5fr 1fr;
+  }
+}
+.addCaseStudy .caseStudies .box {
+  display: flex;
+  flex-direction: column;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 1px solid #E4E6E8;
+  border-radius: 15px;
+  max-height: 200px;
+  height: 100%;
+}
+@media only screen and (min-width: 992px) {
+  .addCaseStudy .caseStudies .box {
+    flex-direction: row;
+    margin-bottom: 20px;
+  }
+}
+.addCaseStudy .caseStudies .box .image img {
+  width: 100%;
+  max-height: 200px;
+  height: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+@media only screen and (min-width: 992px) {
+  .addCaseStudy .caseStudies .box .image img {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 0px;
+  }
+}
+.addCaseStudy .caseStudies .box .text {
+  padding: 15px 20px;
+  flex: 1;
+}
+@media only screen and (min-width: 992px) {
+  .addCaseStudy .caseStudies .box .text {
+    padding: 15px 20px 5px;
+  }
+}
+.addCaseStudy .caseStudies .box .text .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.addCaseStudy .caseStudies .box .text .top .info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.addCaseStudy .caseStudies .box .text .top .info .logo img {
+  width: 30px;
+  height: 30px;
+}
+.addCaseStudy .caseStudies .box .text .top .info .textInfo {
+  line-height: 1.1;
+}
+.addCaseStudy .caseStudies .box .text .top .info .textInfo p {
+  color: #171721;
+  font-size: 14px;
+  font-weight: 700;
+}
+.addCaseStudy .caseStudies .box .text .top .info .textInfo span {
+  color: #6F818C;
+  font-size: 12px;
+}
+.addCaseStudy .caseStudies .box .text .top .icons {
+  display: flex;
+  gap: 10px;
+}
+.addCaseStudy .caseStudies .box .text .top .icons svg {
+  color: #B6BFC5;
+  font-size: 18px;
+}
+.addCaseStudy .caseStudies .box .text .body {
+  margin: 15px 0px;
+}
+.addCaseStudy .caseStudies .box .text .body h3 {
+  color: #171721;
+  font-size: 16px;
+}
+@media only screen and (min-width: 992px) {
+  .addCaseStudy .caseStudies .box .text .body h3 {
+    font-size: 17px;
+  }
+}
+.addCaseStudy .caseStudies .box .text .body p {
+  color: #6F818C;
+  margin-top: 10px;
+  line-height: 1.5;
+  font-size: 12px;
+}
+@media only screen and (min-width: 992px) {
+  .addCaseStudy .caseStudies .box .text .body p {
+    font-size: 13px;
+  }
+}
+.addCaseStudy .caseStudies .box .text .body ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.addCaseStudy .caseStudies .box .text .body ul li {
+  background-color: #F2F3F4;
+  color: #6F818C;
+  font-size: 14px;
+  padding: 5px 15px;
+  border-radius: 18px;
+}
+.addCaseStudy .caseStudies .box .text button {
+  background-color: #ffffff;
+  padding: 11px 20px;
+  color: #171721;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 10px;
+  border: 1px solid #005E5D;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+  width: 100%;
+}
+@media only screen and (min-width: 992px) {
+  .addCaseStudy .caseStudies .box .text button {
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 10px 20px;
+  }
+}
+.addCaseStudy .caseStudies .box .text button svg {
+  font-size: 11px;
+}
+.addCaseStudy .caseStudies .box .text button:hover {
+  background-color: #005E5D;
+  color: #ffffff;
+}
+@media only screen and (min-width: 992px) {
+  .addCaseStudy .formTwo {
+    width: 70%;
+  }
+}
+.addCaseStudy .formTwo ol {
+  padding-left: 20px;
+}
+.addCaseStudy .formTwo ol li {
+  margin-top: 20px;
+}
+.addCaseStudy .formTwo ul {
+  padding-left: 15px;
+}
+.addCaseStudy .formTwo ul li {
+  font-size: 15px;
+  color: #171721;
+  margin: 5px 0px;
+}
+.addCaseStudy .formTwo p {
+  color: #171721;
+  font-size: 16px;
+  text-transform: capitalize;
+  margin: 5px 0px 0px;
+}
+.addCaseStudy .formTwo h5 {
+  text-align: center;
+  font-size: 17px;
+  color: #171721;
+  margin: 10px 0px;
+}
+.addCaseStudy .formTwo form input {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #ffffff;
+  border: 1px solid #99BFBE;
+  font-size: 18px;
+  color: #171721;
+  border-radius: 14px;
+  outline: none;
+  margin: 10px 0px;
+}
+@media only screen and (min-width: 640px) {
+  .addCaseStudy .formTwo form input {
+    border: 1px solid #E4E6E8;
+  }
+}
+.addCaseStudy .formTwo form input::-moz-placeholder {
+  color: #6F818C;
+  font-weight: 500;
+}
+.addCaseStudy .formTwo form input::placeholder {
+  color: #6F818C;
+  font-weight: 500;
+}
+.addCaseStudy .formTwo form .add {
+  width: 100%;
+  display: block;
+  margin: 10px 0px 0px auto;
+  padding: 12px;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid #005E5D;
+  background-color: #005E5D;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 640px) {
+  .addCaseStudy .formTwo form .add {
+    width: 20%;
+  }
+}
+.addCaseStudy .formTwo form .add:hover {
+  background-color: #ffffff;
+  color: #005E5D;
+}
+.addCaseStudy .formTwo form textarea {
+  width: 100%;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #99BFBE;
+  font-size: 18px;
+  height: 200px;
+  color: #171721;
+  border-radius: 14px;
+  outline: none;
+  resize: vertical;
+}
+@media only screen and (min-width: 640px) {
+  .addCaseStudy .formTwo form textarea {
+    border: 1px solid #E4E6E8;
+  }
+}
+.addCaseStudy .formTwo form textarea::-moz-placeholder {
+  color: #6F818C;
+  font-weight: 500;
+}
+.addCaseStudy .formTwo form textarea::placeholder {
+  color: #6F818C;
+  font-weight: 500;
+}
+.addCaseStudy .publishArticle {
+  width: 100%;
+  display: block;
+  margin: 10px 0px 0px auto;
+  padding: 12px;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid #005E5D;
+  background-color: #005E5D;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 640px) {
+  .addCaseStudy .publishArticle {
+    width: 20%;
+  }
+}
+.addCaseStudy .publishArticle:hover {
+  background-color: #ffffff;
+  color: #005E5D;
+}
+.addCaseStudy .caseStudyShow {
+  margin-top: 50px;
+}
+@media only screen and (min-width: 992px) {
+  .addCaseStudy .caseStudyShow {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 2.5fr 1fr;
+  }
+}
+.addCaseStudy .caseStudyShow .aboutCaseStudy .title span {
+  background-color: #F2F3F4;
+  padding: 15px;
+  color: #005E5D;
+  font-weight: 700;
+  font-size: 19px;
+  margin: 15px 0px;
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 14px;
+}
+.addCaseStudy .caseStudyShow .aboutCaseStudy .title h1 {
+  font-size: 22px;
+  color: #171721;
+}
+@media only screen and (min-width: 640px) {
+  .addCaseStudy .caseStudyShow .aboutCaseStudy .title h1 {
+    font-size: 35px;
+  }
+}
+.addCaseStudy .caseStudyShow .aboutCaseStudy .title p {
+  color: #6F818C;
+  margin: 10px 0px 20px;
+}
+.addCaseStudy .caseStudyShow .aboutCaseStudy .image {
+  margin-bottom: 30px;
+}
+.addCaseStudy .caseStudyShow .aboutCaseStudy .image img {
+  width: 100%;
+  border-radius: 16px;
+}
+.addCaseStudy .caseStudyShow .aboutCaseStudy .text h1 {
+  color: #171721;
+  border-bottom: 1px solid #E4E6E8;
+  padding: 10px 0px;
+  font-size: 22px;
+}
+@media only screen and (min-width: 640px) {
+  .addCaseStudy .caseStudyShow .aboutCaseStudy .text h1 {
+    font-size: 30px;
+  }
+}
+.addCaseStudy .caseStudyShow .aboutCaseStudy .text .body {
+  margin: 40px 0px;
+  font-size: 15px;
+  color: #171721;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.addCaseStudy .caseStudyShow .aboutCaseStudy ol {
+  margin: 20px 0px;
+  padding: 0px 0px 0px 10px;
+  list-style: none;
+}
+@media only screen and (min-width: 640px) {
+  .addCaseStudy .caseStudyShow .aboutCaseStudy ol {
+    padding: 0px 35px;
+  }
+}
+.addCaseStudy .caseStudyShow .aboutCaseStudy ol li {
+  margin: 15px 0px;
+  color: #171721;
+  font-weight: 500;
+  font-size: 17px;
+  position: relative;
+}
+.addCaseStudy .caseStudyShow .aboutCaseStudy ol li::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #CFB500;
+  left: -11px;
+  top: 20%;
+  transform: translateY(0%);
+}
+@media only screen and (min-width: 640px) {
+  .addCaseStudy .caseStudyShow .aboutCaseStudy ol li::before {
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }/*# sourceMappingURL=main.css.map */

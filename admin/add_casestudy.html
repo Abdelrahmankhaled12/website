@@ -2,31 +2,35 @@
 <html lang="en">
 
 <head>
+    <!-- Sets the character encoding for the HTML document to UTF-8 -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company</title>
 
-    <link href="assets/logo.ico" rel="shortcut icon" type="image/x-icon">
+    <!-- Sets the viewport to ensure the page is responsive on all devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Sets the title of the webpage -->
+    <title>Add Case Studies</title>
+
+    <!-- Links to the website's favicon -->
+    <link href="../assets/logo.ico" rel="shortcut icon" type="image/x-icon">
+
+    <!-- Links to the main stylesheet for the website -->
     <link rel="stylesheet" href="../main.css">
 
-    <link rel="stylesheet" href="../css/animate.min.css">
+    <!-- Links to the Quill text editor stylesheet for its snow theme -->
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
-
 </head>
 
 <body>
-
     <!-- Start Animation -->
-    <!-- <div class="animation" id="loader">
+    <div class="animation" id="loader">
         <div class="loader"></div>
-    </div> -->
+    </div>
     <!-- End Animation -->
-
     <!-- Start Effect -->
     <div id="effect" class="effect"></div>
     <!-- End Effect -->
-
-    <!-- Start Content Page style="display: none;" -->
+    <!-- Start Content Page  style="display: none;" -->
     <div class="sections" id="sections">
         <!-- Start Header -->
         <header>
@@ -37,19 +41,22 @@
                     </div>
                     <ul>
                         <li>
-                            <a href="../index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="../portfolio.html">Portfolio</a>
-                        </li>
-                        <li>
-                            <a href="../articles.html">Articles</a>
-                        </li>
-                        <li>
-                            <a href="../contact.html">Contact</a>
-                        </li>
-                        <li>
                             <a href="./dashboard.html">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="./add_article.html">Add Article</a>
+                        </li>
+                        <li>
+                            <a href="./remove_article.html">Remove Article</a>
+                        </li>
+                        <li>
+                            <a class="active" href="./add_casestudy.html">Add Case Studies</a>
+                        </li>
+                        <li>
+                            <a href="./remove_casestudy.html">Remove Case Studies</a>
+                        </li>
+                        <li>
+                            <a href="./prices.html">Change Prices</a>
                         </li>
                     </ul>
                 </div>
@@ -78,19 +85,22 @@
                 </div>
                 <ul>
                     <li>
-                        <a href="../index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="../portfolio.html">Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="../articles.html">Articles</a>
-                    </li>
-                    <li>
-                        <a href="../contact.html">Contact</a>
-                    </li>
-                    <li>
                         <a href="./dashboard.html">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="./add_article.html">Add Article</a>
+                    </li>
+                    <li>
+                        <a href="./remove_article.html">Remove Article</a>
+                    </li>
+                    <li>
+                        <a class="active" href="./add_casestudy.html">Add Case Studies</a>
+                    </li>
+                    <li>
+                        <a href="./remove_casestudy.html">Remove Case Studies</a>
+                    </li>
+                    <li>
+                        <a href="./prices.html">Change Prices</a>
                     </li>
                 </ul>
             </div>
@@ -104,35 +114,16 @@
                     <input placeholder="Type to search a product in agriculture" type="text">
                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
-                <div class="boxes">
-                    <div class="boxShares boxDown">
-                        <div class="box">
-                            <i class="fa-solid fa-arrow-up-long"></i>
-                            <p>-2.96%</p>
-                        </div>
-                        <div class="text">
-                            <p>Ginger</p>
-                            <span>In United States</span>
-                        </div>
-                    </div>
-                    <div class="boxShares boxUP">
-                        <div class="box">
-                            <i class="fa-solid fa-arrow-up-long"></i>
-                            <p>+0.86%</p>
-                        </div>
-                        <div class="text">
-                            <p>Soybean</p>
-                            <span>In Ukraine</span>
-                        </div>
-                    </div>
+                <div class="boxes" id="boxesSearch">
                 </div>
             </div>
         </div>
         <!-- End Search Section  -->
-        <div class="addArticle">
+        <!-- Start Content Page -->
+        <div class="addCaseStudy">
             <div class="container">
                 <div class="formOne">
-                    <p>Please enter the title, text and image for the article's box.</p>
+                    <p>Please enter the title, text and image for the Case Studies box.</p>
                     <form action="">
                         <input type="text" placeholder="Title" id="inputTitleBox">
                         <textarea placeholder="Description" id="inputDescriptionBox" cols="20" rows="10"></textarea>
@@ -146,23 +137,38 @@
                         </div>
                     </form>
                 </div>
-                <div class="boxesArticles">
-                    <div class="boxArticle">
+                <div class="caseStudies">
+                    <div class="box">
                         <div class="image">
                             <img id="imageBox" alt="">
                         </div>
                         <div class="text">
-                            <div class="logo">
-                                <img src="../assets/logo.png" alt="">
+                            <div class="top">
+                                <div class="info">
+                                    <div class="logo">
+                                        <img src="../assets/logo.png" alt="logo">
+                                    </div>
+                                    <div class="textInfo">
+                                        <p>Company Name</p>
+                                        <span>Posted 1 day ago</span>
+                                    </div>
+                                </div>
+                                <div class="icons">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                    <i class="fa-regular fa-bookmark"></i>
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </div>
                             </div>
-                            <h2 id="headTitleBox"></h2>
-                            <p id="descriptionBox"></p>
+                            <div class="body">
+                                <h3 id="headTitleBox"></h3>
+                                <p id="descriptionBox"></p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="formTwo">
                     <h4>How to Add Article Content?</h4>
-                    <p>You have two options for adding content to your article:</p>
+                    <p>You have three options for adding content to your case studies:(Sort by what you added first)</p>
                     <ol>
                         <li>
                             Add Title and Description:
@@ -179,13 +185,20 @@
                                 <li>Use the "Add Image" option to upload the desired image.</li>
                             </ul>
                         </li>
-
+                        <li>
+                            Word from the founder and CEO:
+                            <ul>
+                                <li>Enter the Word from the founder and CEO in the designated field.( Word From CEO ).
+                                </li>
+                                <li>After finishing, click the "Add Word" button.</li>
+                            </ul>
+                        </li>
                     </ol>
                     <form action="">
                         <input type="text" placeholder="Title" id="inputTitleArticle">
                         <div id="editor">
                         </div>
-                        <button id="addPara" type="button">Add</button>
+                        <button class="add" id="addPara" type="button">Add</button>
                         <h5>Or</h5>
                         <div class="uploadImage_content" id="image-uploader2">
                             <div class='content'>
@@ -195,36 +208,22 @@
                             </div>
                             <input type="file" accept="image/*" id='imgInputArticle' />
                         </div>
+                        <h5>Or</h5>
+                        <textarea placeholder="Word From CEO" id="inputWord" name="" id="" cols="30" rows="10"></textarea>
+                        <button class="add" id="addWord" type="button">Add Word</button>
+
                     </form>
                 </div>
-                <div class="articleShow">
+                <div class="caseStudyShow">
                     <div>
-                        <div class="top">
-                            <div class="image">
-                                <img id="imgArticle" alt="">
-                            </div>
-                            <div class="text">
-                                <div class="textTop">
-                                    <div class="logo">
-                                        <img src="../assets/logo.png" alt="">
-                                    </div>
-                                    <span></span>
-                                </div>
-                                <h2 id="titleArticleTop"></h2>
-                                <p id="descriptionArticleTop"></p>
-                            </div>
-                        </div>
-                        <div class="aboutArticle" id="aboutArticle">
+                        <div class="aboutCaseStudy" id="aboutArticle">
                         </div>
                     </div>
                 </div>
                 <button id="publishArticle" class="publishArticle">Publish Article</button>
             </div>
         </div>
-
-
-
-
+        <!-- End Content Page -->
         <!-- Button Scroll -->
         <button class="buttonScroll">
             <i class="fa-solid fa-angles-up"></i>
@@ -261,24 +260,28 @@
     </div>
     <!-- Start Content Page -->
 
-    <!-- Include the minified version of the FontAweSome JavaScript library -->
+    <!-- Include the minified version of the FontAwesome JavaScript library -->
     <script src="../js/all.min.js"></script>
 
-    <!-- Include the minified version of the 'WOW.js' library for reveal animations -->
-    <script src="../js/wow.min.js"></script>
-
     <!-- Include your custom JavaScript file -->
-    <!-- <script src="./js/script.js"></script> -->
+    <script src="../js/script.js" type="module"></script>
+
+    <!-- Include the SweetAlert2 library for beautiful, responsive, customizable alerts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="../js/add_article.js"></script>
+    <!-- Include your add_article.js file for handling article-specific functionality -->
+    <script src="../js/add_caseStudy.js" type="module"></script>
+
+    <!-- Include the Quill.js library for rich text editing -->
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 
+    <!-- Initialize a new Quill editor instance with the 'snow' theme -->
     <script>
         const quill = new Quill('#editor', {
             theme: 'snow'
         });
     </script>
+
 </body>
 
 </html>

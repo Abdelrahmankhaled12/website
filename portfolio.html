@@ -17,9 +17,6 @@
     <!-- Link to the main stylesheet for the webpage -->
     <link rel="stylesheet" href="./main.css">
 
-    <!-- Link to the animate.css library for adding animations -->
-    <link rel="stylesheet" href="./css/animate.min.css">
-
 </head>
 
 <body>
@@ -99,36 +96,16 @@
         </div>
         <!-- Header Mobile -->
         <!-- Start Search Section  -->
-        <section class="search">
+        <div class="search">
             <div class="container">
                 <div class="searchInput">
                     <input placeholder="Type to search a product in agriculture" type="text">
                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
-                <div class="boxes">
-                    <div class="boxShares boxDown">
-                        <div class="box">
-                            <i class="fa-solid fa-arrow-up-long"></i>
-                            <p>-2.96%</p>
-                        </div>
-                        <div class="text">
-                            <p>Ginger</p>
-                            <span>In United States</span>
-                        </div>
-                    </div>
-                    <div class="boxShares boxUP">
-                        <div class="box">
-                            <i class="fa-solid fa-arrow-up-long"></i>
-                            <p>+0.86%</p>
-                        </div>
-                        <div class="text">
-                            <p>Soybean</p>
-                            <span>In Ukraine</span>
-                        </div>
-                    </div>
+                <div class="boxes" id="boxesSearch">
                 </div>
             </div>
-        </section>
+        </div>
         <!-- End Search Section  -->
         <!-- Start Content Page Articles -->
         <section class="portfolio">
@@ -137,258 +114,15 @@
                     <div class="partOne">
                         <div class="caseStudies">
                             <h1 class="wow animate__fadeInUp" data-wow-duration="1.5s">Portfolio: Case Studies</h1>
-                            <div class="boxes">
-                                <div class="box wow animate__fadeInUp" data-wow-duration="1.6s">
-                                    <div class="image">
-                                        <img src="./assets/portfolio.png" alt="">
-                                    </div>
-                                    <div class="text">
-                                        <div class="top">
-                                            <div class="info">
-                                                <div class="logo">
-                                                    <img src="./assets/logo.png" alt="logo">
-                                                </div>
-                                                <div class="textInfo">
-                                                    <p>Company Name</p>
-                                                    <span>Posted 1 day ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="icons">
-                                                <i class="fa-solid fa-share-nodes"></i>
-                                                <i class="fa-regular fa-bookmark"></i>
-                                                <i class="fa-solid fa-ellipsis"></i>
-                                            </div>
-                                        </div>
-                                        <div class="body">
-                                            <h3>Avocado Prices Rise Nearly 1% in United States This Friday Morning</h3>
-                                            <p>Avocado prices surge nearly 1% in USA this morning, continuing the
-                                                positive
-                                                trend. July contracts hit $20.65. Rising avocado oil futures and stable
-                                                crop
-                                                conditions support the market.</p>
-                                            <ul>
-                                                <li>Avocado</li>
-                                                <li>Agriculture</li>
-                                                <li>USA</li>
-                                            </ul>
-                                        </div>
-                                        <button class="viewMore">
-                                            <span>View more</span>
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="box wow animate__fadeInUp" data-wow-duration="1.8s">
-                                    <div class="image">
-                                        <img src="./assets/protfolio2.png" alt="">
-                                    </div>
-                                    <div class="text">
-                                        <div class="top">
-                                            <div class="info">
-                                                <div class="logo">
-                                                    <img src="./assets/logo.png" alt="logo">
-                                                </div>
-                                                <div class="textInfo">
-                                                    <p>Company Name</p>
-                                                    <span>Posted 1 day ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="icons">
-                                                <i class="fa-solid fa-share-nodes"></i>
-                                                <i class="fa-regular fa-bookmark"></i>
-                                                <i class="fa-solid fa-ellipsis"></i>
-                                            </div>
-                                        </div>
-                                        <div class="body">
-                                            <h3>Blueberry Prices Rise Nearly 2% in Asia This Monday</h3>
-                                            <p>Blueberry prices surge nearly 1% in USA this morning, continuing the
-                                                positive trend. July contracts hit $20.65. Rising blueberry futures and
-                                                stable crop conditions support the market.</p>
-                                            <ul>
-                                                <li>Blueberry</li>
-                                                <li>Agriculture</li>
-                                                <li>USA</li>
-                                            </ul>
-                                        </div>
-                                        <button class="viewMore">
-                                            <span>View more</span>
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="box wow animate__fadeInUp" data-wow-duration="1.6s">
-                                    <div class="image">
-                                        <img src="./assets/portfolio.png" alt="">
-                                    </div>
-                                    <div class="text">
-                                        <div class="top">
-                                            <div class="info">
-                                                <div class="logo">
-                                                    <img src="./assets/logo.png" alt="logo">
-                                                </div>
-                                                <div class="textInfo">
-                                                    <p>Company Name</p>
-                                                    <span>Posted 1 day ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="icons">
-                                                <i class="fa-solid fa-share-nodes"></i>
-                                                <i class="fa-regular fa-bookmark"></i>
-                                                <i class="fa-solid fa-ellipsis"></i>
-                                            </div>
-                                        </div>
-                                        <div class="body">
-                                            <h3>Avocado Prices Rise Nearly 1% in United States This Friday Morning</h3>
-                                            <p>Avocado prices surge nearly 1% in USA this morning, continuing the
-                                                positive
-                                                trend. July contracts hit $20.65. Rising avocado oil futures and stable
-                                                crop
-                                                conditions support the market.</p>
-                                            <ul>
-                                                <li>Avocado</li>
-                                                <li>Agriculture</li>
-                                                <li>USA</li>
-                                            </ul>
-                                        </div>
-                                        <button class="viewMore">
-                                            <span>View more</span>
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="box wow animate__fadeInUp" data-wow-duration="1.8s">
-                                    <div class="image">
-                                        <img src="./assets/protfolio2.png" alt="">
-                                    </div>
-                                    <div class="text">
-                                        <div class="top">
-                                            <div class="info">
-                                                <div class="logo">
-                                                    <img src="./assets/logo.png" alt="logo">
-                                                </div>
-                                                <div class="textInfo">
-                                                    <p>Company Name</p>
-                                                    <span>Posted 1 day ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="icons">
-                                                <i class="fa-solid fa-share-nodes"></i>
-                                                <i class="fa-regular fa-bookmark"></i>
-                                                <i class="fa-solid fa-ellipsis"></i>
-                                            </div>
-                                        </div>
-                                        <div class="body">
-                                            <h3>Blueberry Prices Rise Nearly 2% in Asia This Monday</h3>
-                                            <p>Blueberry prices surge nearly 1% in USA this morning, continuing the
-                                                positive trend. July contracts hit $20.65. Rising blueberry futures and
-                                                stable crop conditions support the market.</p>
-                                            <ul>
-                                                <li>Blueberry</li>
-                                                <li>Agriculture</li>
-                                                <li>USA</li>
-                                            </ul>
-                                        </div>
-                                        <button class="viewMore">
-                                            <span>View more</span>
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <button id="GetInTouchButton" class="GetInTouchButton wow animate__fadeInUp"
-                                data-wow-duration="1.6s">GET in touch</button>
-                            <div class="boxes">
-                                <div class="box wow animate__fadeInUp" data-wow-duration="1.6s">
-                                    <div class="image">
-                                        <img src="./assets/portfolio.png" alt="">
-                                    </div>
-                                    <div class="text">
-                                        <div class="top">
-                                            <div class="info">
-                                                <div class="logo">
-                                                    <img src="./assets/logo.png" alt="logo">
-                                                </div>
-                                                <div class="textInfo">
-                                                    <p>Company Name</p>
-                                                    <span>Posted 1 day ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="icons">
-                                                <i class="fa-solid fa-share-nodes"></i>
-                                                <i class="fa-regular fa-bookmark"></i>
-                                                <i class="fa-solid fa-ellipsis"></i>
-                                            </div>
-                                        </div>
-                                        <div class="body">
-                                            <h3>Avocado Prices Rise Nearly 1% in United States This Friday Morning</h3>
-                                            <p>Avocado prices surge nearly 1% in USA this morning, continuing the
-                                                positive
-                                                trend. July contracts hit $20.65. Rising avocado oil futures and stable
-                                                crop
-                                                conditions support the market.</p>
-                                            <ul>
-                                                <li>Avocado</li>
-                                                <li>Agriculture</li>
-                                                <li>USA</li>
-                                            </ul>
-                                        </div>
-                                        <button class="viewMore">
-                                            <span>View more</span>
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="box wow animate__fadeInUp" data-wow-duration="1.8s">
-                                    <div class="image">
-                                        <img src="./assets/protfolio2.png" alt="">
-                                    </div>
-                                    <div class="text">
-                                        <div class="top">
-                                            <div class="info">
-                                                <div class="logo">
-                                                    <img src="./assets/logo.png" alt="logo">
-                                                </div>
-                                                <div class="textInfo">
-                                                    <p>Company Name</p>
-                                                    <span>Posted 1 day ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="icons">
-                                                <i class="fa-solid fa-share-nodes"></i>
-                                                <i class="fa-regular fa-bookmark"></i>
-                                                <i class="fa-solid fa-ellipsis"></i>
-                                            </div>
-                                        </div>
-                                        <div class="body">
-                                            <h3>Blueberry Prices Rise Nearly 2% in Asia This Monday</h3>
-                                            <p>Blueberry prices surge nearly 1% in USA this morning, continuing the
-                                                positive trend. July contracts hit $20.65. Rising blueberry futures and
-                                                stable crop conditions support the market.</p>
-                                            <ul>
-                                                <li>Blueberry</li>
-                                                <li>Agriculture</li>
-                                                <li>USA</li>
-                                            </ul>
-                                        </div>
-                                        <button class="viewMore">
-                                            <span>View more</span>
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                        </button>
-                                    </div>
-                                </div>
+                            <div class="boxes" id="caseStudies">
                             </div>
                         </div>
-                        <!-- <div class="controls">
-                            <button><i class="fa-solid fa-arrow-left"></i></button>
-                            <ul>
-                                <li class="active">1</li>
-                                <li>2</li>
-                                <li>3</li>
-                                <li>4</li>
-                                <li>5</li>
+                        <div id="controls" style="display: none;" class="controls articles wow animate__fadeInUp" data-wow-duration="1.5s">
+                            <button id="buttonLeft"><i class="fa-solid fa-arrow-left"></i></button>
+                            <ul id="ul_controls">
                             </ul>
-                            <button><i class="fa-solid fa-arrow-right"></i></button>
-                        </div> -->
+                            <button id="buttonRight"><i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
                     </div>
                     <div class="partTwo">
                         <div class="projectOverview">
@@ -539,14 +273,11 @@
     <!-- Including FontAwesome library for icons -->
     <script src="./js/all.min.js"></script>
 
-    <!-- Including WOW.js library for reveal animations on scroll -->
-    <script src="./js/wow.min.js"></script>
-
     <!-- Including custom script for portfolio page functionalities -->
-    <script src="./js/portfolio.js"></script>
+    <script src="./js/portfolio.js" type="module"></script>
 
     <!-- Including custom script for general functionalities -->
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js" type="module"></script>
 
 </body>
 

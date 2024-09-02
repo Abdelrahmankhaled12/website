@@ -79,6 +79,7 @@
                         }
                     }
                 }
+
                 .aboutArticle {
                     padding: 10px 25px;
                     border: 1px solid #E4E6E8;
@@ -173,6 +174,12 @@
 
 
 .moreArticles {
+    .top {
+        margin-bottom: 20px !important;
+        h2 {
+            margin-bottom: 0px !important;
+        }
+    }
     .box {
         border: 1px solid #E4E6E8;
         border-radius: 14px;
@@ -180,6 +187,7 @@
 
         .image {
             img {
+                max-height: 190px;
                 width: 100%;
                 border-top-left-radius: 14px;
                 border-top-right-radius: 14px;

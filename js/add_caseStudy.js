@@ -1,5 +1,5 @@
-// URL for backend API
-const API_URL = "https://talkwebnow.online/backend/api/";
+import { API_URL } from './config.js';
+
 
 // Get Elements
 const dropZone = document.getElementById('image-uploader');
@@ -13,6 +13,8 @@ const browseImageButton = document.getElementById("browseImage");
 const browseImageArticleButton = document.getElementById("browseImageArticle");
 const imgInputArticle = document.getElementById("imgInputArticle");
 
+const inputWord = document.getElementById("inputWord");
+
 // Storage Values
 let boxArticle = {
     titleBoxStorage: "",
@@ -24,7 +26,7 @@ let images = [];
 
 let content = [];
 
-
+let additional_info = ""
 let sort = 0;
 
 // Handle title input changes
@@ -51,13 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // Function to update title elements
 const updateTitle = (title) => {
     document.getElementById("headTitleBox").innerHTML = title;
-    document.getElementById("titleArticleTop").innerHTML = title;
 };
 
 // Function to update description elements
 const updateDescription = (description) => {
     document.getElementById("descriptionBox").innerHTML = description;
-    document.getElementById("descriptionArticleTop").innerHTML = description;
 };
 
 // Function to handle drag and drop setup
@@ -114,7 +114,6 @@ const handleFileChange = (files) => {
         reader.onload = (e) => {
             const result = e.target.result;
             document.getElementById("imageBox").src = result;
-            document.getElementById("imgArticle").src = result;
         };
         reader.readAsDataURL(file);
     }
@@ -147,34 +146,78 @@ const handleFileArticleChange = (files) => {
 };
 
 
-
-
-
-
 document.getElementById("addPara").addEventListener("click", () => {
 
     let div = document.createElement("div")
 
     let editor = document.querySelector(".ql-editor");
+    if (sort === 0) {
+        div.classList.add("title")
+        div.innerHTML =
+            `
+            <span>Case Study:</span>
+            <h1>${inputTitleArticle.value}</h1>
+            <p>${editor.innerHTML}</p>
+        `
+        content.push({
+            title: inputTitleArticle.value,
+            body: editor.innerHTML,
+            sort: sort,
+        })
+        document.getElementById("aboutArticle").append(div)
+        sort++;
+        editor.innerHTML = ""
+        inputTitleArticle.value = ""
+    } else {
+        div.classList.add("text")
+        div.innerHTML =
+            `
+        <h1>${inputTitleArticle.value}</h1>
+        <div class="body">
+        ${editor.innerHTML}
+        </div>
+        `
+        content.push({
+            title: inputTitleArticle.value,
+            body: editor.innerHTML,
+            sort: sort,
+        })
+        document.getElementById("aboutArticle").append(div)
+        sort++;
+        editor.innerHTML = ""
+        inputTitleArticle.value = ""
+    }
+})
 
-    div.classList.add("text")
+document.getElementById("addWord").addEventListener("click", () => {
+
+    let div = document.createElement("div")
+
+
+    div.classList.add("paragraph")
 
     div.innerHTML =
         `
-    <h1>${inputTitleArticle.value}</h1>
-    <div class="body">
-    ${editor.innerHTML}
-    </div>
-    `
-    content.push({
-        title: inputTitleArticle.value,
-        body: editor.innerHTML,
-        sort: sort,
-    })
+        <div class="bodyParagraph">
+            <div class="icon">
+                <img src="../assets/Quote.png" alt="">
+            </div>
+            <p>${inputWord.value}</p>
+            <div class="footer">
+                <div class="image">
+                    <img src="../assets/Img.png" alt="">
+                </div>
+                <div class="footerText">
+                    <h3>William Griffin</h3>
+                    <span>Founder and CEO of Agro Company</span>
+                </div>
+            </div>
+        </div>
+        `
+        sort++;
+    additional_info = inputWord.value;
     document.getElementById("aboutArticle").append(div)
-    sort++;
-    editor.innerHTML = ""
-    inputTitleArticle.value = ""
+    inputWord.value = ""
 })
 
 
@@ -184,7 +227,7 @@ document.getElementById("publishArticle").addEventListener("click", () => {
             title: "Published!",
             icon: "success"
         }).then((result) => {
-            window.location.reload()
+            // window.location.reload()
         });
     })
 })
@@ -200,7 +243,8 @@ const Save = async () => {
         formData.append('body', boxArticle.descriptionBoxStorage);
         formData.append('background', boxArticle.image);
         formData.append('content', JSON.stringify(content));
-        formData.append('type', "article");
+        formData.append('type', "case_study");
+        formData.append('additional_info', additional_info);
 
         images.forEach((item, index) => {
             formData.append(`images[${index}][image]`, item.image);

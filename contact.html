@@ -17,9 +17,6 @@
     <!-- Link to the main stylesheet for the webpage -->
     <link rel="stylesheet" href="./main.css">
 
-    <!-- Link to the animate.css library for adding animations -->
-    <link rel="stylesheet" href="./css/animate.min.css">
-
 </head>
 
 <body>
@@ -106,27 +103,7 @@
                     <input placeholder="Type to search a product in agriculture" type="text">
                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
-                <div class="boxes">
-                    <div class="boxShares boxDown">
-                        <div class="box">
-                            <i class="fa-solid fa-arrow-up-long"></i>
-                            <p>-2.96%</p>
-                        </div>
-                        <div class="text">
-                            <p>Ginger</p>
-                            <span>In United States</span>
-                        </div>
-                    </div>
-                    <div class="boxShares boxUP">
-                        <div class="box">
-                            <i class="fa-solid fa-arrow-up-long"></i>
-                            <p>+0.86%</p>
-                        </div>
-                        <div class="text">
-                            <p>Soybean</p>
-                            <span>In Ukraine</span>
-                        </div>
-                    </div>
+                <div class="boxes" id="boxesSearch">
                 </div>
             </div>
         </div>
@@ -241,11 +218,8 @@
     <!-- Include the minified version of the FontAweSome JavaScript library -->
     <script src="./js/all.min.js"></script>
 
-    <!-- Include the minified version of the 'WOW.js' library for reveal animations -->
-    <script src="./js/wow.min.js"></script>
-
     <!-- Include your custom JavaScript file -->
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js" type="module"></script>
 </body>
 
 </html>

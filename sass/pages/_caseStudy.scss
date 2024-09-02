@@ -73,8 +73,8 @@
                 }
             }
 
-            ul {
-                margin: 40px 0px 0px;
+            ol {
+                margin: 20px 0px;
                 padding: 0px 0px 0px 10px;
                 list-style: none;
 
@@ -83,34 +83,31 @@
                 }
 
                 li {
-                    margin: 10px 0px;
+                    margin: 15px 0px;
                     color: $black_color;
                     font-weight: 500;
-                    font-size: 14px;
+                    font-size: 17px;
                     position: relative;
-                    display: flex;
-                    gap: 10px;
 
-                    @include sm {
-                        align-items: center;
-                    }
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        background-color: #CFB500;
+                        left: -11px;
+                        top: 20%;
+                        transform: translateY(0%);
 
-                    .icon {
-                        width: 35px;
-                        height: 35px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        background-color: #005e5d1a;
-                        border-radius: 10px;
-                        color: $primary_color;
-                    }
-
-                    span {
-                        flex: 1;
+                        @include sm {
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
                     }
                 }
             }
+
         }
     }
 
