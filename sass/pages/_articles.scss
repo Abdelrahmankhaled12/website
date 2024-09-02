@@ -60,7 +60,7 @@
             grid-template-columns: 1fr 1fr;
         }
 
-        @include md {
+        @include lgg {
             grid-template-columns: 1fr 1fr 1fr;
         }
 
@@ -126,7 +126,7 @@
                         background-color: #F2F3F4;
                         color: $black_color;
                         border: 1px solid #F2F3F4;
-                        padding: 0px 25px;
+                        padding: 0px 15px;
                         border-radius: 10px;
                         display: flex;
                         align-items: center;
@@ -153,6 +153,10 @@
                             p {
                                 color: #FFFFFF;
                             }
+                        }
+
+                        @include sm {
+                            padding: 0px 25px;
                         }
                     }
 

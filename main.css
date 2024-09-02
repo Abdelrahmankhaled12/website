@@ -2528,7 +2528,7 @@ form .gridForm {
     grid-template-columns: 1fr 1fr;
   }
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1100px) {
   .articles .grid {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -2586,7 +2586,7 @@ form .gridForm {
   background-color: #F2F3F4;
   color: #171721;
   border: 1px solid #F2F3F4;
-  padding: 0px 25px;
+  padding: 0px 15px;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -2610,6 +2610,11 @@ form .gridForm {
 }
 .articles .grid .box .text .footer a:hover p {
   color: #FFFFFF;
+}
+@media only screen and (min-width: 640px) {
+  .articles .grid .box .text .footer a {
+    padding: 0px 25px;
+  }
 }
 .articles .grid .box .text .footer span {
   display: flex;
