@@ -1,17 +1,23 @@
 
+@use './sass/layout/animation';
+
+@use './sass/layout/footer';
+
 @use './sass/layout/global-rules';
+
+@use './sass/layout/header';
 
 @use './sass/pages/home';
 
 @use './sass/pages/contact';
+
 @use './sass/pages/portfolio';
+
 @use './sass/pages/articles';
+
 @use './sass/pages/article';
+
 @use './sass/pages/caseStudy';
-
-@use './sass/layout/header';
-
-@use './sass/layout/footer';
 
 @use './sass/pages/login';
 
@@ -25,4 +31,3 @@
 
 @use './sass/pages/addArticle';
 
-@use './sass/layout/animation';
