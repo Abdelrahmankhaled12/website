@@ -14,110 +14,113 @@
         }
 
         .partOne {
-            .title {
-                span {
-                    background-color: #F2F3F4;
-                    padding: 15px;
-                    color: $primary_color;
-                    font-weight: 700;
-                    font-size: 19px;
-                    margin: 15px 0px;
-                    display: block;
-                    width: fit-content;
-                    border-radius: 14px;
-                }
-
-                h1 {
-                    font-size: 22px;
-
-                    @include sm {
-                        font-size: 35px;
+            .caseStudyShow {
+                .title {
+                    span {
+                        background-color: #F2F3F4;
+                        padding: 15px;
+                        color: $primary_color;
+                        font-weight: 700;
+                        font-size: 19px;
+                        margin: 15px 0px;
+                        display: block;
+                        width: fit-content;
+                        border-radius: 14px;
                     }
-
-                    color: $black_color;
-                }
-
-                p {
-                    color: #6F818C;
-                    margin: 10px 0px 20px;
-                }
-
-            }
-
-            .image {
-                margin-bottom: 30px;
-
-                img {
-                    width: 100%;
-                    border-radius: 16px;
-                }
-            }
-
-            .text {
-                h1 {
-                    color: $black_color;
-                    border-bottom: 1px solid #E4E6E8;
-                    padding: 10px 0px;
-                    font-size: 22px;
-                    @include sm {
-                        font-size: 30px;
-                    }
-                }
-
-                .body {
-                    margin: 40px 0px;
-                    font-size: 15px;
-                    color: $black_color;
-                    line-height: 1.5;
-                    font-weight: 500;
-                }
-            }
-
-            ol {
-                margin: 20px 0px;
-                padding: 0px 0px 0px 10px;
-                list-style: none;
-
-                @include sm {
-                    padding: 0px 35px;
-                }
-
-                li {
-                    margin: 15px 0px;
-                    color: $black_color;
-                    font-weight: 500;
-                    font-size: 17px;
-                    position: relative;
-
-                    &::before {
-                        content: "";
-                        position: absolute;
-                        width: 5px;
-                        height: 5px;
-                        border-radius: 50%;
-                        background-color: #CFB500;
-                        left: -11px;
-                        top: 20%;
-                        transform: translateY(0%);
-
+    
+                    h1 {
+                        font-size: 22px;
+    
                         @include sm {
-                            top: 50%;
-                            transform: translateY(-50%);
+                            font-size: 35px;
+                        }
+    
+                        color: $black_color;
+                    }
+    
+                    p {
+                        color: #6F818C;
+                        margin: 10px 0px 20px;
+                    }
+    
+                }
+                .image {
+                    margin-bottom: 30px;
+    
+    
+                    img {
+                        width: 100%;
+                        border-radius: 16px;
+                        max-width: 750px;
+                        display: block;
+                        margin: auto;
+                    }
+                }
+                .text {
+                    h1 {
+                        color: $black_color;
+                        border-bottom: 1px solid #E4E6E8;
+                        padding: 10px 0px;
+                        font-size: 22px;
+    
+                        @include sm {
+                            font-size: 30px;
+                        }
+                    }
+    
+                    .body {
+                        margin: 40px 0px;
+                        font-size: 15px;
+                        color: $black_color;
+                        line-height: 1.5;
+                        font-weight: 500;
+                    }
+                }
+                ol {
+                    margin: 20px 0px;
+                    padding: 0px 0px 0px 10px;
+                    list-style: none;
+    
+                    @include sm {
+                        padding: 0px 35px;
+                    }
+    
+                    li {
+                        margin: 15px 0px;
+                        color: $black_color;
+                        font-weight: 500;
+                        font-size: 17px;
+                        position: relative;
+    
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            width: 5px;
+                            height: 5px;
+                            border-radius: 50%;
+                            background-color: #CFB500;
+                            left: -11px;
+                            top: 20%;
+                            transform: translateY(0%);
+    
+                            @include sm {
+                                top: 50%;
+                                transform: translateY(-50%);
+                            }
                         }
                     }
                 }
             }
-
+            .carouselDesktop {
+                display: block;
+                @include sm {
+                    display: none;
+                }
+            }
         }
     }
 
     .moreCaseStudy {
-        display: none;
-
-        @include sm {
-            display: block;
-        }
-
         .top {
             margin-bottom: 15px;
         }
@@ -133,21 +136,38 @@
 
         .box {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
             margin-bottom: 20px;
             border: 1px solid #E4E6E8;
             border-radius: 15px;
             width: fit-content;
+            cursor: pointer;
+
+            @include sm {
+                flex-direction: row;
+            }
 
             @include md {
                 width: calc((90% - 15px)/ 2);
             }
 
             .image {
-                img {
-                    max-height: 180px;
+                width: 100%;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                
+                @media only screen and (max-width: 640px) {
+                    height: 150px;
+                }
+
+                @include sm {
+                    width: 100%;
                     height: 100%;
+                    flex: 0.5;
                     border-top-left-radius: 15px;
                     border-bottom-left-radius: 15px;
                     border-top-right-radius: 0px;
@@ -162,10 +182,6 @@
                 h3 {
                     color: $black_color;
                     font-size: 16px;
-
-                    @include md {
-                        font-size: 20px;
-                    }
                 }
 
                 p {
@@ -173,37 +189,32 @@
                     margin-top: 14px;
                     line-height: 1.5;
                     font-size: 12px;
-
-                    @include md {
-                        font-size: 15px;
-                    }
                 }
 
                 button {
                     background-color: #ffffff;
-                    padding: 13px 20px;
+                    padding: 10px 20px;
                     color: $black_color;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     gap: 10px;
                     font-weight: 700;
-                    font-size: 15px;
+                    font-size: 12px;
                     border-radius: 10px;
                     border: 1px solid $primary_color;
                     margin-top: 20px;
                     cursor: pointer;
                     transition: 0.5s;
                     width: 100%;
-
-                    @include md {
+                    width: 100%;
+                    @include sm {
                         width: fit-content;
-                        font-size: 15px;
-                        padding: 10px 20px;
+
                     }
 
                     svg {
-                        font-size: 13px;
+                        font-size: 11px;
                     }
 
                     &:hover {

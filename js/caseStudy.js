@@ -25,7 +25,6 @@ fetch(`${API_URL}articles/${searchParams.get('id')}`)
         // Sort the content by the 'sort' value, then loop through each item
         data.data.content.sort((a, b) => a.sort - b.sort).forEach((item, index) => {
             let div = document.createElement("div");
-            console.log(item.sort + " ******* " + index);
 
             // If the item is the main title
             if (item.sort === 0) {
@@ -77,7 +76,7 @@ fetch(`${API_URL}articles/${searchParams.get('id')}`)
                 }
             }
             // Append the div to the 'partOne' section of the page
-            document.getElementById("partOne").append(div);
+            document.getElementById("caseStudyShow").append(div);
         });
 
     })
@@ -128,30 +127,82 @@ fetch(`${API_URL}statistics`)
 
 
 
+fetch(`${API_URL}case-study`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.data.data.length > 0) {
+            data.data.data.forEach((item, index) => {
+                let div = document.createElement("div");
+                div.classList.add("box");
+                div.innerHTML = `
+                    <div class="image" style="background-image: url(${item.background});">
+                    </div>
+                    <div class="text">
+                        <h3>${item.title}</h3>
+                        <p>${item.body}</p>
+                        <button class="veiwMore">
+                            <span>View more</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                `;
+                // Add click event to redirect to the article page
+                div.addEventListener("click", () => {
+                    window.location.href = `casestudy.html?&casestudy=${item.title}&id=${item.id}`;
+                });
 
+                // Append clones of the div to different groups for different sections
+                if (index <= 2) {
+                    document.getElementById("groupOne").append(div.cloneNode(true));
+                }
+                if (index > 2 && index < 6 && data.data.data.length >= 6) {
+                    document.getElementById("groupTwo").append(div.cloneNode(true));
+                }
 
-// const buttonArrowLeft = document.getElementById("arrowLeft");
-// const buttonArrowRight = document.getElementById("arrowRight");
+                // Append the div to the main carousel container
+                document.getElementById("carouselContainerBoxesDesktop").append(div);
+            });
+            const buttonArrowLeft = document.querySelectorAll(".arrowLeft");
+            const buttonArrowRight = document.querySelectorAll(".arrowRight");
 
-// buttonArrowLeft.addEventListener("click", () => { navigation("left") })
-// buttonArrowRight.addEventListener("click", () => { navigation("right") })
+            buttonArrowLeft.forEach((button) => {
+                button.addEventListener("click", () => { navigation("left"); });
+            });
 
+            buttonArrowRight.forEach((button) => {
+                button.addEventListener("click", () => { navigation("right"); });
+            });
 
-// // Function to handle carousel navigation
-// const navigation = (dir) => {
-//     const containers = document.querySelectorAll(".carouselContainerBoxes"); // Getting reference to carousel container
+            if (data.data.data.length < 6) {
+                // Hide the carousel navigation buttons if there are not enough articles
+                document.getElementById("buttons").style.display = "none";
+            }
+        }
+    })
+    .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+    });
 
-//     containers.forEach((container) => {
-//         // Calculating scroll amount based on direction
-//         const scrollAmount =
-//             dir === "left"
-//                 ? container.scrollLeft - (container.offsetWidth + 5)
-//                 : container.scrollLeft + (container.offsetWidth + 5);
-//         // Smooth scrolling to the calculated scroll amount
-//         container.scrollTo({
-//             left: scrollAmount,
-//             behavior: "smooth",
-//         });
-//     })
+// Function to handle carousel navigation
+const navigation = (dir) => {
+    const containers = document.querySelectorAll(".carouselContainerBoxes"); // Getting reference to carousel container
 
-// };
+    containers.forEach((container) => {
+        // Calculating scroll amount based on direction
+        const scrollAmount =
+            dir === "left"
+                ? container.scrollLeft - (container.offsetWidth + 5)
+                : container.scrollLeft + (container.offsetWidth + 5);
+        // Smooth scrolling to the calculated scroll amount
+        container.scrollTo({
+            left: scrollAmount,
+            behavior: "smooth",
+        });
+    })
+
+};
