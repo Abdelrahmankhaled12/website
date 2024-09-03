@@ -2,18 +2,23 @@
 <html lang="en">
 
 <head>
+    <!-- Set the character encoding for the document -->
     <meta charset="UTF-8">
+
+    <!-- Ensure proper rendering and touch zooming on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Set the title of the webpage -->
     <title>Case Study</title>
 
+    <!-- Link to the favicon of the site -->
     <link href="assets/logo.ico" rel="shortcut icon" type="image/x-icon">
+
+    <!-- Link to the main CSS stylesheet for styling the page -->
     <link rel="stylesheet" href="./main.css">
-
-
 </head>
 
 <body>
-
     <!-- End Footer -->
     <!-- Start Animation -->
     <div class="animation" id="loader">
@@ -23,6 +28,7 @@
     <!-- Start Effect -->
     <div id="effect" class="effect"></div>
     <!-- End Effect -->
+    <!-- Start Content Page -->
     <div class="sections" id="sections" style="display: none;">
         <!-- Start Header -->
         <header>
@@ -36,7 +42,7 @@
                             <a href="./index.html">Home</a>
                         </li>
                         <li>
-                            <a class="active" href="./portfolio.html">Portfolio</a>
+                            <a href="./portfolio.html">Portfolio</a>
                         </li>
                         <li>
                             <a href="./articles.html">Articles</a>
@@ -74,7 +80,7 @@
                         <a href="./index.html">Home</a>
                     </li>
                     <li>
-                        <a class="active" href="./portfolio.html">Portfolio</a>
+                        <a href="./portfolio.html">Portfolio</a>
                     </li>
                     <li>
                         <a href="./articles.html">Articles</a>
@@ -99,7 +105,7 @@
             </div>
         </div>
         <!-- End Search Section  -->
-        <!-- Start Content Page Articles -->
+        <!-- Start section caseStudy -->
         <section class="caseStudy">
             <div class="container">
                 <div class="grid">
@@ -312,7 +318,7 @@
                 </div>
             </div>
         </section>
-        <!-- End Content Page Articles -->
+        <!-- End section caseStudy -->
         <!-- Button Scroll -->
         <button class="buttonScroll">
             <i class="fa-solid fa-angles-up"></i>
@@ -335,9 +341,15 @@
         </footer>
         <!-- End Footer -->
     </div>
+    <!-- End Content Page -->
 
+    <!-- Including FontAwesome library for icons -->
     <script src="./js/all.min.js"></script>
+
+    <!-- Load the JavaScript module for handling case studies -->
     <script src="./js/caseStudy.js" type="module"></script>
+
+    <!-- Load the main script of the project as a JavaScript module -->
     <script src="./js/script.js" type="module"></script>
 
 </body>
