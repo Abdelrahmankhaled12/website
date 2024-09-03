@@ -111,7 +111,7 @@ fetch(API_URL + "articles")
                 if (index <= 2) {
                     document.getElementById("groupOne").append(div.cloneNode(true));
                 }
-                if (index > 2 && index < 6) {
+                if (index > 2 && index < 6 && data.data.data.length >= 6) {
                     document.getElementById("groupTwo").append(div.cloneNode(true));
                 }
 
@@ -119,12 +119,22 @@ fetch(API_URL + "articles")
                 document.getElementById("carouselContainerBoxesDesktop").append(div);
             });
 
-            // Add event listeners for carousel navigation
-            const buttonArrowLeft = document.getElementById("arrowLeft");
-            const buttonArrowRight = document.getElementById("arrowRight");
+            // Handle carousel navigation if there are enough articles
+            if (data.data.data.length >= 6) {
+                const buttonArrowLeft = document.querySelectorAll(".arrowLeft");
+                const buttonArrowRight = document.querySelectorAll(".arrowRight");
 
-            buttonArrowLeft.addEventListener("click", () => { navigation("left") });
-            buttonArrowRight.addEventListener("click", () => { navigation("right") });
+                buttonArrowLeft.forEach((button) => {
+                    button.addEventListener("click", () => { navigation("left"); });
+                });
+
+                buttonArrowRight.forEach((button) => {
+                    button.addEventListener("click", () => { navigation("right"); });
+                });
+            } else {
+                // Hide the carousel navigation buttons if there are not enough articles
+                document.getElementById("buttons").style.display = "none";
+            }
         }
     })
     .catch(error => {
@@ -156,146 +166,171 @@ const navigation = (dir) => {
 };
 
 
+// Fetch case study data from the server
 fetch(`${API_URL}case-study`)
     .then(response => {
+        // Check if the response is ok (status in the range 200-299)
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
+        // Parse the JSON data from the response
         return response.json();
     })
     .then(data => {
+        // Check if there are any case study items
         if (data.data.data.length > 0) {
+            // Clear existing content in the case studies container
             document.getElementById('caseStudies').innerHTML = "";
+
+            // Loop through the case study items
             data.data.data.forEach((item, index) => {
+                // Only process the first two items for the case studies section
                 if (index < 2) {
+                    // Create a new div element for each case study item
                     let div = document.createElement("div");
                     div.classList.add("box");
+                    // Set the inner HTML of the div with the case study item's data
                     div.innerHTML = `
-                                <div class="image">
-                                <img src="./assets/portfolio.png" alt="">
-                            </div>
-                            <div class="text">
-                                <div class="top">
-                                    <div class="info">
-                                        <div class="logo">
-                                            <img src="./assets/logo.png" alt="logo">
-                                        </div>
-                                        <div class="textInfo">
-                                            <p>AGRO</p>
-                                            <span>${timeSince(item.created_at)}</span>
-                                        </div>
+                        <div class="image" style="background-image: url(${item.background});">
+                        </div>
+                        <div class="text">
+                            <div class="top">
+                                <div class="info">
+                                    <div class="logo">
+                                        <img src="./assets/logo.png" alt="logo">
                                     </div>
-                                    <div class="icons">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                        <i class="fa-regular fa-bookmark"></i>
-                                        <i class="fa-solid fa-ellipsis"></i>
+                                    <div class="textInfo">
+                                        <p>AGRO</p>
+                                        <span>${timeSince(item.created_at)}</span>
                                     </div>
                                 </div>
-                                <div class="body">
-                                    <h3>${item.title}</h3>
-                                    <p>${item.body}</p>
+                                <div class="icons">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                    <i class="fa-regular fa-bookmark"></i>
+                                    <i class="fa-solid fa-ellipsis"></i>
                                 </div>
-                                <button class="viewMore">
-                                    <span>View more</span>
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </button>
                             </div>
-                            `;
+                            <div class="body">
+                                <h3>${item.title}</h3>
+                                <p>${item.body}</p>
+                            </div>
+                            <button class="viewMore">
+                                <span>View more</span>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    `;
+                    // Add click event listener to redirect to the case study page
                     div.addEventListener("click", () => {
-                        window.location.href = `casestudy.html?&casestudy=${item.title}&id=${item.id}`
-                    })
+                        window.location.href = `casestudy.html?&casestudy=${item.title}&id=${item.id}`;
+                    });
 
-                    // Append div to the carousel container
+                    // Append the div to the case studies container
                     document.getElementById("caseStudies").append(div);
                 }
 
+                // Process the first three items for the projects section
                 if (index < 3) {
+                    // Create a new div element for each project item
                     let div = document.createElement("div");
                     div.classList.add("box");
+                    // Set the inner HTML of the div with the project item's data
                     div.innerHTML = `
-                                <div>
-                                <div class="top">
-                                    <div class="info">
-                                        <div class="logo">
-                                            <img src="./assets/logo.png" alt="logo">
-                                        </div>
-                                        <div class="textInfo">
-                                            <p>AGRO</p>
-                                            <span>${timeSince(item.created_at)}</span>
-                                        </div>
+                        <div>
+                            <div class="top">
+                                <div class="info">
+                                    <div class="logo">
+                                        <img src="./assets/logo.png" alt="logo">
                                     </div>
-                                    <div class="icons">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                        <i class="fa-regular fa-bookmark"></i>
-                                        <i class="fa-solid fa-ellipsis"></i>
+                                    <div class="textInfo">
+                                        <p>AGRO</p>
+                                        <span>${timeSince(item.created_at)}</span>
                                     </div>
                                 </div>
-                                <div class="text">
-                                    <h2>${item.title}</h2>
-                                    <p>${item.body}</p>
-                                    <button class="seeMore">
-                                        <span>See more</span>
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                    </button>
+                                <div class="icons">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                    <i class="fa-regular fa-bookmark"></i>
+                                    <i class="fa-solid fa-ellipsis"></i>
                                 </div>
                             </div>
-                            <div>
-                                <div class="image">
-                                    <img src="./assets/portfolio.png" alt="">
-                                </div>
-                                <button class="veiwMoreProject">
-                                    <span>View more</span>
+                            <div class="text">
+                                <h2>${item.title}</h2>
+                                <p>${item.body}</p>
+                                <button class="seeMore">
+                                    <span>See more</span>
                                     <i class="fa-solid fa-chevron-right"></i>
                                 </button>
                             </div>
-                            `;
+                        </div>
+                        <div>
+                            <div class="image">
+                                <img src=${item.background} alt="">
+                            </div>
+                            <button class="veiwMoreProject">
+                                <span>View more</span>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    `;
+                    // Add click event listener to redirect to the project page
                     div.addEventListener("click", () => {
-                        window.location.href = `casestudy.html?&casestudy=${item.title}&id=${item.id}`
-                    })
+                        window.location.href = `casestudy.html?&casestudy=${item.title}&id=${item.id}`;
+                    });
 
-                    // Append div to the carousel container
+                    // Append the div to the projects container
                     document.getElementById("projects").append(div);
                 }
-
             });
         }
     })
     .catch(error => {
+        // Log any errors that occur during the fetch operation
         console.error('There has been a problem with your fetch operation:', error);
     });
 
 
-
-
+// Fetch statistics data from the server
 fetch(`${API_URL}statistics`)
     .then(response => {
+        // Check if the response is ok (status in the range 200-299)
         if (!response.ok) {
+            // If not, throw an error with the status text
             throw new Error('Network response was not ok ' + response.statusText);
         }
+        // Parse the JSON data from the response
         return response.json();
     })
     .then(data => {
+        // Check if there are any data items
         if (data.data.length > 0) {
+            // Loop through the data items
             data.data.forEach((item, index) => {
+                // Only process the first two items
                 if (index < 2) {
+                    // Create a new div element for each item
                     let div = document.createElement("div");
+                    // Add classes based on the item's status
                     div.classList.add("boxShares", item.status === "-" ? "boxDown" : "boxUP");
+                    // Set the inner HTML of the div with the item's data
                     div.innerHTML = `
                     <div class="box">
-                            <i class="fa-solid fa-arrow-up-long"></i>
-                            <p>${item.percentage.toFixed(2)}%</p>
+                        <i class="fa-solid fa-arrow-up-long"></i>
+                        <p>${item.percentage.toFixed(2)}%</p>
                     </div>
                     <div class="text">
-                            <p>${item.title}</p>
-                            <span>${item.country}</span>
+                        <p>${item.title}</p>
+                        <span>${item.country}</span>
                     </div>
-                `;
+                    `;
+                    // Append the div to the container element with id "boxesSearch"
                     document.getElementById("boxesSearch").append(div);
                 }
-            })
+            });
         }
     })
     .catch(error => {
+        // Log any errors that occur during the fetch operation
         console.error('There has been a problem with your fetch operation:', error);
     });
+
 

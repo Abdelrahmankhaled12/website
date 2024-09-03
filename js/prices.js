@@ -1,62 +1,54 @@
 import { API_URL } from './config.js';
 
+// Get Elements
 const inputTitle = document.getElementById('inputTitle');
 const inputCountry = document.getElementById("inputCountry");
 const inputOldPrice = document.getElementById("inputOldPrice");
 const inputNewPrice = document.getElementById("inputNewPrice");
 
-
+// Event listener for the publish button
 document.getElementById("publishCategory").addEventListener("click", () => {
     Save().then((res) => {
         Swal.fire({
             title: "Published!",
             icon: "success"
-        }).then((result) => {
-            window.location.reload()
+        }).then(() => {
+            window.location.reload();
         });
-    })
-})
+    });
+});
 
+// Function to save the category data
 const Save = async () => {
+    // Create and populate a FormData object
+    const formData = new FormData();
+    formData.append('title', inputTitle.value);
+    formData.append('country', inputCountry.value);
+    formData.append('statistic', inputOldPrice.value);
+    formData.append('new_statistic', inputNewPrice.value);
 
-    // Return a Promise to handle asynchronous operations
-    return new Promise((resolve, reject) => {
-        // Create a new FormData object to store form data
-        const formData = new FormData();
-        // Append form fields to FormData object
-        formData.append('title', inputTitle.value);
-        formData.append('country', inputCountry.value);
-        formData.append('statistic', inputOldPrice.value);
-        formData.append('new_statistic', inputNewPrice.value);
-
-        fetch(API_URL + "statistics", {
-            method: 'POST',
-            body: formData,
-            headers: {
-                Authorization: `Bearer ${JSON.parse(sessionStorage.getItem("token"))}`,
-                "accept": "application/json"
-            },
-        })
-            .then(response => {
-                // Check if response status is OK
-                if (!response.ok) {
-                    // If response status is not OK, throw an error
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                // If response status is OK, parse response as JSON
-                return response.json();
-            })
-            .then(data => {
-                // Resolve the Promise with parsed JSON data
-                resolve(data);
-            })
-            .catch(error => {
-                // If an error occurs during the fetch operation, reject the Promise with the error
-                reject(error);
-            });
+    // Send a POST request to save the data
+    return fetch(API_URL + "statistics", {
+        method: 'POST',
+        body: formData,
+        headers: {
+            Authorization: `Bearer ${JSON.parse(sessionStorage.getItem("token"))}`,
+            "accept": "application/json"
+        },
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .catch(error => {
+        console.error('Error during fetch operation:', error);
+        throw error;
     });
 };
 
+// Fetch and display the categories
 fetch(`${API_URL}statistics`)
     .then(response => {
         if (!response.ok) {
@@ -66,28 +58,29 @@ fetch(`${API_URL}statistics`)
     })
     .then(data => {
         if (data.data.length > 0) {
-            data.data.forEach((item, index) => {
+            data.data.forEach((item) => {
+                // Create a new div element for each category
                 let div = document.createElement("div");
                 div.classList.add("category");
                 div.innerHTML = `
                 <div class="boxShares ${item.status === "-" ? "boxDown" : "boxUP"}">
                     <div class="box">
-                            <i class="fa-solid fa-arrow-up-long"></i>
-                            <p>${item.percentage.toFixed(2)}%</p>
+                        <i class="fa-solid fa-arrow-up-long"></i>
+                        <p>${item.percentage.toFixed(2)}%</p>
                     </div>
                     <div class="text">
-                            <p>${item.title}</p>
-                            <span>${item.country}</span>
+                        <p>${item.title}</p>
+                        <span>${item.country}</span>
                     </div>
                 </div>
                 <div class="price">
-                    <p>Old Price : <span>${item.statistic}$</span></p>
+                    <p>Old Price: <span>${item.statistic}$</span></p>
                 </div>
                 <div class="price">
-                    <p>Now Price : <span>${item.new_statistic}$</span></p>
+                    <p>Now Price: <span>${item.new_statistic}$</span></p>
                 </div>
                 <div class="update">
-                    <input id="inputUpdate${item.id}" type="text" placeholder="Update Price" name="" id="">
+                    <input id="inputUpdate${item.id}" type="text" placeholder="Update Price">
                     <button class="updateButton${item.id}">Update Price</button>
                 </div>
                 <button id=${item.id} class="remove"><i class="fa-solid fa-trash"></i></button>
@@ -95,54 +88,58 @@ fetch(`${API_URL}statistics`)
 
                 document.getElementById("categories").append(div);
 
+                // Event listener for the update button
                 document.querySelector(`.updateButton${item.id}`).addEventListener("click", () => {
                     Swal.fire({
                         title: "Are you sure?",
-                        text: "Are you sure you want to Updated this Category?",
+                        text: "Are you sure you want to update this category?",
                         icon: "warning",
                         showCancelButton: true,
                         confirmButtonColor: "#3085d6",
                         cancelButtonColor: "#d33",
-                        confirmButtonText: "Yes, Updated it!"
+                        confirmButtonText: "Yes, update it!"
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            // Create a new FormData object to store form data
+                            // Create and populate a FormData object for the update
                             const formData = new FormData();
-                            // Append form fields to FormData object
                             formData.append('statistic', document.getElementById(`inputUpdate${item.id}`).value);
                             formData.append('_method', "PUT");
 
+                            // Send a POST request to update the data
                             fetch(`${API_URL}statistics/${item.id}`, {
                                 method: 'POST',
                                 headers: {
                                     Authorization: `Bearer ${JSON.parse(sessionStorage.getItem("token"))}`,
                                 },
-                                body:formData
-                            }).then(response => {
+                                body: formData
+                            })
+                            .then(response => {
                                 if (!response.ok) {
                                     throw new Error('Network response was not ok ' + response.statusText);
                                 }
                                 return response.json();
-                            }).then(() => {
+                            })
+                            .then(() => {
                                 Swal.fire({
-                                    title: "Update!",
-                                    text: "Your category has been Updated.",
+                                    title: "Updated!",
+                                    text: "Your category has been updated.",
                                     icon: "success"
                                 }).then(() => {
                                     window.location.reload();
                                 });
-                            }).catch(error => {
-                                console.error('There has been a problem with your fetch operation:', error);
+                            })
+                            .catch(error => {
+                                console.error('Error during fetch operation:', error);
                             });
                         }
                     });
-
                 });
 
+                // Event listener for the delete button
                 document.getElementById(item.id).addEventListener("click", () => {
                     Swal.fire({
                         title: "Are you sure?",
-                        text: "Are you sure you want to delete this Category?",
+                        text: "Are you sure you want to delete this category?",
                         icon: "warning",
                         showCancelButton: true,
                         confirmButtonColor: "#3085d6",
@@ -150,17 +147,20 @@ fetch(`${API_URL}statistics`)
                         confirmButtonText: "Yes, delete it!"
                     }).then((result) => {
                         if (result.isConfirmed) {
+                            // Send a DELETE request to remove the category
                             fetch(`${API_URL}statistics/${item.id}`, {
                                 method: 'DELETE',
                                 headers: {
                                     Authorization: `Bearer ${JSON.parse(sessionStorage.getItem("token"))}`,
                                 },
-                            }).then(response => {
+                            })
+                            .then(response => {
                                 if (!response.ok) {
                                     throw new Error('Network response was not ok ' + response.statusText);
                                 }
                                 return response.json();
-                            }).then(() => {
+                            })
+                            .then(() => {
                                 Swal.fire({
                                     title: "Deleted!",
                                     text: "Your category has been deleted.",
@@ -168,17 +168,16 @@ fetch(`${API_URL}statistics`)
                                 }).then(() => {
                                     window.location.reload();
                                 });
-                            }).catch(error => {
-                                console.error('There has been a problem with your fetch operation:', error);
+                            })
+                            .catch(error => {
+                                console.error('Error during fetch operation:', error);
                             });
                         }
                     });
-
                 });
-            })
+            });
         }
     })
     .catch(error => {
-        console.error('There has been a problem with your fetch operation:', error);
+        console.error('Error during fetch operation:', error);
     });
-

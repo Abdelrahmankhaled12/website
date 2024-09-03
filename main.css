@@ -1528,18 +1528,6 @@ form .gridForm {
   }
 }
 
-.noArticlesAdd {
-  height: 50vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.noArticlesAdd p {
-  font-size: 45px;
-  color: #171721;
-  font-weight: 500;
-}
-
 .delete {
   background-color: transparent;
   color: red;
@@ -1801,28 +1789,21 @@ form .gridForm {
   }
 }
 .home .sectionOne .grid .partOne .portfolioCase .boxes .box .image {
-  height: 100%;
-  max-height: 150px;
-}
-@media only screen and (min-width: 992px) {
-  .home .sectionOne .grid .partOne .portfolioCase .boxes .box .image {
-    max-height: 210px;
-  }
-}
-.home .sectionOne .grid .partOne .portfolioCase .boxes .box .image img {
   width: 100%;
-  height: 100%;
-  max-height: 150px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
-@media only screen and (min-width: 992px) {
-  .home .sectionOne .grid .partOne .portfolioCase .boxes .box .image img {
-    max-height: 210px;
+@media only screen and (max-width: 992px) {
+  .home .sectionOne .grid .partOne .portfolioCase .boxes .box .image {
+    height: 150px;
   }
 }
 @media only screen and (min-width: 992px) {
-  .home .sectionOne .grid .partOne .portfolioCase .boxes .box .image img {
+  .home .sectionOne .grid .partOne .portfolioCase .boxes .box .image {
+    width: 200px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     border-top-right-radius: 0px;
@@ -1834,7 +1815,7 @@ form .gridForm {
 }
 @media only screen and (min-width: 992px) {
   .home .sectionOne .grid .partOne .portfolioCase .boxes .box .text {
-    padding: 15px 20px 5px;
+    padding: 15px 20px 20px;
   }
 }
 .home .sectionOne .grid .partOne .portfolioCase .boxes .box .text .top {
@@ -2495,28 +2476,21 @@ form .gridForm {
   }
 }
 .portfolio .grid .partOne .boxes .box .image {
-  height: 100%;
-  max-height: 150px;
-}
-@media only screen and (min-width: 992px) {
-  .portfolio .grid .partOne .boxes .box .image {
-    max-height: 210px;
-  }
-}
-.portfolio .grid .partOne .boxes .box .image img {
   width: 100%;
-  height: 100%;
-  max-height: 150px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
-@media only screen and (min-width: 992px) {
-  .portfolio .grid .partOne .boxes .box .image img {
-    max-height: 210px;
+@media only screen and (max-width: 992px) {
+  .portfolio .grid .partOne .boxes .box .image {
+    height: 150px;
   }
 }
 @media only screen and (min-width: 992px) {
-  .portfolio .grid .partOne .boxes .box .image img {
+  .portfolio .grid .partOne .boxes .box .image {
+    width: 200px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     border-top-right-radius: 0px;
@@ -2528,7 +2502,7 @@ form .gridForm {
 }
 @media only screen and (min-width: 992px) {
   .portfolio .grid .partOne .boxes .box .text {
-    padding: 15px 20px 5px;
+    padding: 15px 20px 20px;
   }
 }
 .portfolio .grid .partOne .boxes .box .text .top {
@@ -4055,4 +4029,24 @@ footer .container .partTwo .icon:hover {
     top: 50%;
     transform: translateY(-50%);
   }
+}
+
+.removeArticleSection .articles h1 {
+  font-size: 25px;
+}
+@media only screen and (min-width: 640px) {
+  .removeArticleSection .articles h1 {
+    font-size: 50px;
+  }
+}
+.removeArticleSection .noArticlesAdd {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.removeArticleSection .noArticlesAdd p {
+  font-size: 45px;
+  color: #171721;
+  font-weight: 500;
 }/*# sourceMappingURL=main.css.map */

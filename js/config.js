@@ -1,5 +1,3 @@
-
-
 export const API_URL = 'https://talkwebnow.online/backend/api/';
 
 export function timeSince(date) {

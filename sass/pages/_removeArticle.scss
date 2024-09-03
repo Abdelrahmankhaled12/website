@@ -1,0 +1,26 @@
+@use '../variables/colors' as *;
+@use '../layout/mixins' as *;
+
+.removeArticleSection {
+
+    .articles {
+        h1 {
+            font-size: 25px;
+            @include sm {
+                font-size: 50px;
+            }
+        }
+    }
+
+    .noArticlesAdd {
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+            font-size: 45px;
+            color: $black-color;
+            font-weight: 500;
+        }
+    }
+}

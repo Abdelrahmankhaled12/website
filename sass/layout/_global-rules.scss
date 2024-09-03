@@ -1742,18 +1742,6 @@ form {
 }
 
 
-.noArticlesAdd {
-    height: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    p {
-        font-size: 45px;
-        color: $black-color;
-        font-weight: 500;
-    }
-}
 
 .delete {
     background-color: transparent;
@@ -1772,6 +1760,7 @@ form {
     justify-content: center;
     align-items: center;
 }
+
 
 .allArticles {
     background-color: #ffffff;
